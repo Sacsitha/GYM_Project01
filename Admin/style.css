@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+}
+body{
+    background-color: white;
+}
+.df{
+    display: flex;
+    justify-content: space-evenly;
+   
+}
+ul{
+    list-style: none;
+    margin-left: 5%;
+    font-size: 1.3em; 
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.table-heading,.modalTitle{
+    padding: 3%;
+    color: #970019;
+  }
+#data-table,#payment-data-table{
+    width:100%;
+    padding: 3%;
+}
+
+
+#data-table th,#payment-data-table th {
+    background-color: #aa1818;
+    color: white;
+    padding: 1%;
+}
+td{
+    padding: 1%;
+}
+#data-table tr:hover{
+    background-color: #aa18185d;
+    border-color: #cfcdcd;
+}
+
+.blue{
+    background: #0045db;
+
+}
+.green{
+    background-color: #4caf50;   
+}
+.red{
+    background-color: #dc3545;
+}
+.btn{
+    padding: 0.5% 2%;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 2%;
+}
+.tablecolor{
+    padding: 2%;
+    background: #aa1818;
+
+}
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%; 
+    max-width: 600px;
+    position: relative; 
+}
+
+/* Close Button */
+.modal-content img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Modal Title */
+.modalTitle {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.modal-content p,p {
+    font-size: 1.5em;
+}
+.modal-content p span{
+    font-weight: bold;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.catergory {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.inputDetails {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.inputDetails:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+/* Error Message Styling */
+p[id^="message"] {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.df button{
+    padding: 1% 5%;
+}
+/* Textarea Styling */
+textarea {
+    width: 100%; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    font-size: 1em;
+    resize: vertical; 
+    margin-bottom: 10px; 
+    box-sizing: border-box; 
+}
+
+/* Optional: Add focus styles */
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+
+    .catergory {
+        flex-direction: column;
+    }
+
+    .inputDetails {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.search-container {
+    display: flex;
+    float: right;
+}
+
+/* Style for the input field */
+#searchInput {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    outline: none;
+
+}
+
+/* Style for the search button */
+#searchButton {
+    border: none;
+    background-color: #007BFF;
+    margin-right: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}

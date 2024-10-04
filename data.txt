@@ -1,0 +1,363 @@
+adminDetails=
+    UserName:'Admin'
+    Password:'123'
+
+passwords=
+
+GM100000=J902028o
+GM100001=M333726n
+GM100002=J192668n
+GM100003=H606543e
+GM100004=A108189c
+
+gymMember=
+[
+    {
+        "id": "GM100000",
+        "pasword": "3o01250125J6",
+        "nicNumber": "193456789V",
+        "address": "Colombo",
+        "dob": "1990-01-01",
+        "contactNo": "0772345454",
+        "email": "john@gmail.com",
+        "fname": "John",
+        "lname": "Doe",
+        "age": "35",
+        "gender": "male",
+        "height": "175",
+        "weight": "85",
+        "admissionDate": "2024-8-17",
+        "trainingProgram": [
+            {
+                "title": "Weight Lifting",
+                "description": "Weight Lifting is good for muscles and strength\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T103"
+            },
+            {
+                "title": "Body Building",
+                "description": "Body Building is good for muscles and strength\n                ",
+                "initalFee": "750",
+                "monthlyFee": "1500",
+                "annualFee": "9000",
+                "id": "T104"
+            },
+            {
+                "title": "Strength Training",
+                "description": "It's good to increase your Strength and Stamina\n                ",
+                "initalFee": "500",
+                "monthlyFee": "1000",
+                "annualFee": "6000",
+                "id": "T105"
+            },
+            {
+                "title": "Running",
+                "description": "Running is good for health\n                ",
+                "initalFee": "500",
+                "monthlyFee": "1000",
+                "annualFee": "6000",
+                "id": "T100"
+            },
+            {
+                "title": "Cycling",
+                "description": "Cycling is good for health\n\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T101"
+            },
+            {
+                "title": "Aerobics",
+                "description": "Aerobics is good for health\n                ",
+                "initalFee": "750",
+                "monthlyFee": "1500",
+                "annualFee": "9000",
+                "id": "T102"
+            }
+        ],
+        "payment": 4500,
+        "membershipType": "monthlyMembership",
+        "nxtDueDate": "2024-9-17"
+    },
+    {
+        "id": "GM100001",
+        "pasword": "1n2253135M35",
+        "nicNumber": "200076902194",
+        "address": "Kurunegala",
+        "dob": "2000-01-01",
+        "contactNo": "0875645654",
+        "email": "mary@gmail.com",
+        "fname": "Mary",
+        "lname": "Lana",
+        "age": "24",
+        "gender": "other",
+        "height": "149",
+        "weight": "43",
+        "admissionDate": "2024-8-17",
+        "trainingProgram": [
+            {
+                "title": "Weight Lifting",
+                "description": "Weight Lifting is good for muscles and strength\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T103"
+            },
+            {
+                "title": "Body Building",
+                "description": "Body Building is good for muscles and strength\n                ",
+                "initalFee": "750",
+                "monthlyFee": "1500",
+                "annualFee": "9000",
+                "id": "T104"
+            },
+            {
+                "title": "Strength Training",
+                "description": "It's good to increase your Strength and Stamina\n                ",
+                "initalFee": "500",
+                "monthlyFee": "1000",
+                "annualFee": "6000",
+                "id": "T105"
+            },
+            {
+                "title": "Running",
+                "description": "Running is good for health\n                ",
+                "initalFee": "500",
+                "monthlyFee": "1000",
+                "annualFee": "6000",
+                "id": "T100"
+            },
+            {
+                "title": "Cycling",
+                "description": "Cycling is good for health\n\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T101"
+            },
+            {
+                "title": "Aerobics",
+                "description": "Aerobics is good for health\n                ",
+                "initalFee": "750",
+                "monthlyFee": "1500",
+                "annualFee": "9000",
+                "id": "T102"
+            }
+        ],
+        "payment": 4500,
+        "membershipType": "monthlyMembership",
+        "nxtDueDate": "2024-9-17"
+    },
+    {
+        "id": "GM100002",
+        "pasword": "3n13425J15",
+        "nicNumber": "200076902194",
+        "address": "Colombo",
+        "dob": "2000-01-01",
+        "contactNo": "0775656234",
+        "email": "jane@gmail.com",
+        "fname": "Jane",
+        "lname": "Anny",
+        "age": "24",
+        "gender": "other",
+        "height": "155",
+        "weight": "65",
+        "admissionDate": "2024-8-17",
+        "trainingProgram": [
+            {
+                "title": "Cycling",
+                "description": "Cycling is good for health\n\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T101"
+            }
+        ],
+        "payment": 12000,
+        "membershipType": "annualmembership",
+        "RenewalDate": "2025-8-17"
+    },
+    {
+        "id": "GM100003",
+        "pasword": "31e045013H3",
+        "nicNumber": "193456789V",
+        "address": "Jaffna",
+        "dob": "1999-01-01",
+        "contactNo": "0878787234",
+        "email": "henry@gmail.com",
+        "fname": "Henry",
+        "lname": "Luther",
+        "age": "25",
+        "gender": "male",
+        "height": "179",
+        "weight": "80",
+        "admissionDate": "2024-8-17",
+        "trainingProgram": [
+            {
+                "title": "Weight Lifting",
+                "description": "Weight Lifting is good for muscles and strength\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T103"
+            }
+        ],
+        "payment": 2000,
+        "membershipType": "monthlyMembership",
+        "nxtDueDate": "2024-9-17"
+    },
+    {
+        "id": "GM100004",
+        "pasword": "4c115015A15",
+        "nicNumber": "193456789V",
+        "address": "Jaffna",
+        "dob": "1990-01-01",
+        "contactNo": "-454545345",
+        "email": "andy@gmail.com",
+        "fname": "Andy",
+        "lname": "Lawrence",
+        "age": "34",
+        "gender": "male",
+        "height": "178",
+        "weight": "78",
+        "admissionDate": "2024-8-17",
+        "trainingProgram": [
+            {
+                "title": "Weight Lifting",
+                "description": "Weight Lifting is good for muscles and strength\n                ",
+                "initalFee": "1000",
+                "monthlyFee": "2000",
+                "annualFee": "12000",
+                "id": "T103"
+            },
+            {
+                "title": "Body Building",
+                "description": "Body Building is good for muscles and strength\n                ",
+                "initalFee": "750",
+                "monthlyFee": "1500",
+                "annualFee": "9000",
+                "id": "T104"
+            }
+        ],
+        "payment": 21000,
+        "membershipType": "annualmembership",
+        "RenewalDate": "2025-8-17"
+    }
+]
+
+
+gymTrainingProgram=
+
+[
+    {
+        "title": "Running",
+        "description": "Running is good for health\n                ",
+        "initalFee": "500",
+        "monthlyFee": "1000",
+        "annualFee": "6000",
+        "id": "T100"
+    },
+    {
+        "title": "Cycling",
+        "description": "Cycling is good for health\n\n                ",
+        "initalFee": "1000",
+        "monthlyFee": "2000",
+        "annualFee": "12000",
+        "id": "T101"
+    },
+    {
+        "title": "Aerobics",
+        "description": "Aerobics is good for health\n                ",
+        "initalFee": "750",
+        "monthlyFee": "1500",
+        "annualFee": "9000",
+        "id": "T102"
+    },
+    {
+        "title": "Weight Lifting",
+        "description": "Weight Lifting is good for muscles and strength\n                ",
+        "initalFee": "1000",
+        "monthlyFee": "2000",
+        "annualFee": "12000",
+        "id": "T103"
+    },
+    {
+        "title": "Body Building",
+        "description": "Body Building is good for muscles and strength\n                ",
+        "initalFee": "750",
+        "monthlyFee": "1500",
+        "annualFee": "9000",
+        "id": "T104"
+    },
+    {
+        "title": "Strength Training",
+        "description": "It's good to increase your Strength and Stamina\n                ",
+        "initalFee": "500",
+        "monthlyFee": "1000",
+        "annualFee": "6000",
+        "id": "T105"
+    }
+]
+
+
+PaymentHistory=
+
+[
+    [
+        "GM100000",
+        [
+            {
+                "date": "2024-8-17",
+                "details": "initial Fee",
+                "amount": 2250
+            }
+        ]
+    ],
+    [
+        "GM100001",
+        [
+            {
+                "date": "2024-8-17",
+                "details": "initial Fee",
+                "amount": 2250
+            }
+        ]
+    ],
+    [
+        "GM100002",
+        [
+            {
+                "date": "2024-8-17",
+                "details": "Annual fee",
+                "amount": 12000
+            }
+        ]
+    ],
+    [
+        "GM100003",
+        [
+            {
+                "date": "2024-8-17",
+                "details": "initial Fee",
+                "amount": 1000
+            }
+        ]
+    ],
+    [
+        "GM100004",
+        [
+            {
+                "date": "2024-8-17",
+                "details": "Annual fee",
+                "amount": 21000
+            }
+        ]
+    ]
+]
+
+
+
+
+

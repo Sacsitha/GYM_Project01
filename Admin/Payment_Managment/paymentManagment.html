@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../managementStyle.css">
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+    <title>Payment Managment</title>
+
+</head>
+<body>
+    <div class="report-container">
+        <h1 class="modalTitle" style="font-size: 2.5em;">Payment Managment</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button id="searchButton" onclick="search()">Search</button>
+        </div>
+        <button type="button" class="red btn" onclick="filterTable('all')">All</button>
+        <button type="button" class="red btn" onclick="filterTable('monthlyMembership')">Monthly Membership Members</button>
+        <button type="button" class="red btn" onclick="filterTable('annualmembership')">Annual Membership Members</button>
+        <button type="button" class="red btn" onclick="filterTable('overdue')">OverDue Members</button>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>Membership Type</th>
+                    <th>Due Date</th>
+                    <th>Last Paid Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User Payment History -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="modalVeiwPaymentHistory">
+        <div class="modal-content">
+        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwPaymentHistory)>
+            <div id="PaymentTable" style=" text-align: center;">
+                <h2 class="modalTitle"><span id="memberId" ></span>'s Payment History </h2>
+                <table id="payment-data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Details</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- User Payment History -->
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="tablecolor btn" style="margin-left: 46%;" onclick=closeModals(modalVeiwPaymentHistory)>Okay</button>
+        </div>
+    </div>
+    <div class="modal" id="PaymentModal">
+        <div class="modal-content">
+        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(PaymentModal)>   
+            <div id="PaymentDetails">
+                <p id="message" style="color:black;font-size: 1.5em ;"></p>
+                <p id="paymentAmount"></p>
+                <div class="df">
+                    <button type="button"  id="payingProcess">Yes</button>
+                    <button type="button" class="red " onclick="closeModals(PaymentModal)">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="paymentManagment.js"></script>
+<script src="../user creation/Payment.js"></script>
+</body>
+</html>

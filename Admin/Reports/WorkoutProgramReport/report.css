@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.chart-container {
+    width:600px
+}
+.df{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+h1{
+    /* color: #aa1818; */
+    margin-top: 20;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center; 
+}
+#summary{
+    font-size: 1em;
+}
