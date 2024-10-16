@@ -21,7 +21,6 @@ namespace Gym_Management
             var connectionstring = builder.Configuration.GetConnectionString("DBConnection");
 
 
-            builder.Services.AddSingleton<IProgramPaymentDetailsRepository>(provider=>new ProgramPaymentDetailsRepository(connectionstring));
             builder.Services.AddSingleton<IWorkOutProgramRepository>(ProviderAliasAttribute => new WorkOutProgramRepository(connectionstring));
 
 

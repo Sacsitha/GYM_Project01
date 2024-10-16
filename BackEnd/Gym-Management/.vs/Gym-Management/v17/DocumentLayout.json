@@ -1,34 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\",
+  "WorkspaceRootPath": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\WorkOutProgramRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Repositories\\WorkOutProgramRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|x:\\ut02010-milestone-2-project\\ms2\\gym_project01\\backend\\gym-management\\gym-management\\controllers\\workoutprogramcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|solutionrelative:gym-management\\controllers\\workoutprogramcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|x:\\ut02010-milestone-2-project\\ms2\\gym_project01\\backend\\gym-management\\gym-management\\irepository\\iworkoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|solutionrelative:gym-management\\irepository\\iworkoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Database\\DatabaseInitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Database\\DatabaseInitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Entities\\ProgramPaymentDetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Entities\\ProgramPaymentDetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\WorkOutProgramController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Controllers\\WorkOutProgramController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\PaymentDetailsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\Controllers\\PaymentDetailsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|x:\\ut02010-milestone-2-project\\ms2\\gym_project01\\backend\\gym-management\\gym-management\\repositories\\workoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55631ABC-ECE6-492F-A538-840C3103E4C6}|Gym-Management\\Gym-Management.csproj|solutionrelative:gym-management\\repositories\\workoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "WorkOutProgramRepository.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
+              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
               "RelativeDocumentMoniker": "Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
+              "ToolTip": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
               "RelativeToolTip": "Gym-Management\\Repositories\\WorkOutProgramRepository.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAIA6wB4AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-12T11:32:01.211Z",
               "IsPinned": true,
@@ -56,76 +40,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProgramPaymentDetailsRepository.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs",
-              "RelativeDocumentMoniker": "Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs",
-              "RelativeToolTip": "Gym-Management\\Repositories\\ProgramPaymentDetailsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T09:10:26.695Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DatabaseInitializer.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Database\\DatabaseInitializer.cs",
-              "RelativeDocumentMoniker": "Gym-Management\\Database\\DatabaseInitializer.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Database\\DatabaseInitializer.cs",
-              "RelativeToolTip": "Gym-Management\\Database\\DatabaseInitializer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T10:29:45.159Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProgramPaymentDetails.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Entities\\ProgramPaymentDetails.cs",
-              "RelativeDocumentMoniker": "Gym-Management\\Entities\\ProgramPaymentDetails.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Entities\\ProgramPaymentDetails.cs",
-              "RelativeToolTip": "Gym-Management\\Entities\\ProgramPaymentDetails.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T09:34:41.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "WorkOutProgramController.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\WorkOutProgramController.cs",
+              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Controllers\\WorkOutProgramController.cs",
               "RelativeDocumentMoniker": "Gym-Management\\Controllers\\WorkOutProgramController.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\WorkOutProgramController.cs",
+              "ToolTip": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Controllers\\WorkOutProgramController.cs",
               "RelativeToolTip": "Gym-Management\\Controllers\\WorkOutProgramController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T09:34:06.013Z"
+              "WhenOpened": "2024-10-15T09:34:06.013Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PaymentDetailsController.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\PaymentDetailsController.cs",
-              "RelativeDocumentMoniker": "Gym-Management\\Controllers\\PaymentDetailsController.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Controllers\\PaymentDetailsController.cs",
-              "RelativeToolTip": "Gym-Management\\Controllers\\PaymentDetailsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABBAAAA",
+              "DocumentIndex": 1,
+              "Title": "IWorkOutProgramRepository.cs",
+              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\IRepository\\IWorkOutProgramRepository.cs",
+              "RelativeDocumentMoniker": "Gym-Management\\IRepository\\IWorkOutProgramRepository.cs",
+              "ToolTip": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\IRepository\\IWorkOutProgramRepository.cs",
+              "RelativeToolTip": "Gym-Management\\IRepository\\IWorkOutProgramRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T09:34:02.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IProgramPaymentDetailsRepository.cs",
-              "DocumentMoniker": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs",
-              "RelativeDocumentMoniker": "Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs",
-              "ToolTip": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs",
-              "RelativeToolTip": "Gym-Management\\IRepository\\IProgramPaymentDetailsRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:17:59.585Z"
+              "WhenOpened": "2024-10-16T06:36:55.971Z",
+              "EditorCaption": ""
             }
           ]
         }

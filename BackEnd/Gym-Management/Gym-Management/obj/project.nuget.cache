@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AEx6RBbWmlw=",
+  "dgSpecHash": "WH+jg9Fi17Q=",
   "success": true,
-  "projectFilePath": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
+  "projectFilePath": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\UT02010\\.nuget\\packages\\microsoft.data.sqlite\\8.0.10\\microsoft.data.sqlite.8.0.10.nupkg.sha512",
     "C:\\Users\\UT02010\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.10\\microsoft.data.sqlite.core.8.0.10.nupkg.sha512",

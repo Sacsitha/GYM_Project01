@@ -2,10 +2,14 @@
 {
     public class WorkOutProgram
     {
-        public string Id { get; set; }
-        public string ProgramName { get; set; }
-        public string Description { get; set; }
-        public bool ProgramStatus { get; set; }
-        public DateTime CreationDate { get; set; }
+        public int id { get; set; }
+    
+        public string title { get; set; }
+        public string description { get; set; }
+        public bool programStatus { get; set; }
+        public DateTime createdDate { get; set; }
+        public decimal initalFee { get; set; }
+        public decimal monthlyFee { get; set; }
+        public decimal annualFee { get; set; }
     }
 }

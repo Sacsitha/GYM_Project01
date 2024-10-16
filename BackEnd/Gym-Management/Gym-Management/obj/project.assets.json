@@ -746,11 +746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
+      "projectUniqueName": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
       "projectName": "Gym-Management",
-      "projectPath": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
+      "projectPath": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\Gym-Management.csproj",
       "packagesPath": "C:\\Users\\UT02010\\.nuget\\packages\\",
-      "outputPath": "X:\\UT02010-Milestone-2-Project\\Gym-Management\\Gym-Management\\obj\\",
+      "outputPath": "X:\\UT02010-Milestone-2-Project\\MS2\\GYM_Project01\\BackEnd\\Gym-Management\\Gym-Management\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\UT02010\\AppData\\Roaming\\NuGet\\NuGet.Config",

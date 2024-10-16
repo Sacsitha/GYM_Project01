@@ -20,20 +20,17 @@ namespace Gym_Management.Database
                 var command = connection.CreateCommand();
                 command.CommandText = @"
                         CREATE TABLE IF NOT EXISTS  Programs(
-                        Id nvarchar(25) not null,
-                        ProgramName NVARCHAR(25) NOT NULL,
+                        Id INT NOT NULL PRIMARY KEY,
+                        Title NVARCHAR(25) NOT NULL,
                         Description NVARCHAR(25) NOT NULL,
+                        CreatedDate DATE not null,
                         ProgramStatus bool NOT NULL,
-                        CreationDate DATETIME not null
-                    );     
-                        CREATE TABLE IF NOT EXISTS  Payment(
-                       Id nvarchar(25) not null,
-                       Date DATETIME,
-                       FeeType nvarchar(25),
-                       FeeAmount nvarchar(25),
-                       FeeStatus  bool not null
-                    );     
-                    ";
+                        InitalFee DECIMAL NOT NULL,
+                        MonthlyFee DECIMAL NOT NULL,
+                        AnnualFee DECIMAL NOT NULL
+
+                    );
+                  ";
                 command.ExecuteNonQuery();
             }
         } 
