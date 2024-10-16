@@ -1,3 +1,8 @@
+const apiUrl = "http://localhost:3000/members";
+const enrollmentapiUrl = "http://localhost:3000/enrollments";
+const paymentApiUrl = "http://localhost:3000/payments";
+const programapiUrl = "http://localhost:3000/workoutPrograms";
+
 //Local Storage
 const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
 const gymMember = JSON.parse(localStorage.getItem('gymMember')) || [];
@@ -26,27 +31,43 @@ function SelectData() {
     })
 }
 SelectData();
+
+async function data(){
+    try{
+        const res=await fetch(apiUrl);
+        const gymMember=await res.json();
+        const enrollRes=await fetch(enrollmentapiUrl);
+        const Enrollments=await enrollRes.json();
+        const payRes=await fetch(`paymentApiUrl/${gymMember.id}`);
+        const Payments=await payRes.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        tableBodyCreation(gymMember);
+    }catch(error){
+        console.log(error)
+    }  
+}
 //function to add data to table
 function tableBodyCreation(EntireData) {
     let tableData = "";
     tableBody.innerHTML = "";
     console.log(EntireData)
     EntireData.forEach(item => {
-        let nxtDueDate = [];
-        if (item.memberDetails.membershipType == "monthlyMembership") {
-            nxtDueDate = item.memberDetails.nxtDueDate;
-        } else {
-            nxtDueDate = item.memberDetails.RenewalDate;
-        }
-        let lastPaidDate = item.memberPaymentHistory[item.memberPaymentHistory.length - 1].date;
+        // let nxtDueDate = [];
+        // if (item.memberDetails.membershipType == "monthlyMembership") {
+        //     nxtDueDate = item.memberDetails.nxtDueDate;
+        // } else {
+        //     nxtDueDate = item.memberDetails.RenewalDate;
+        // }
+        // let lastPaidDate = item.memberPaymentHistory[item.memberPaymentHistory.length - 1].date;
         tableData += `<tr>
-                            <td>${item.id}</td>
+                            <td>${item.userId}</td>
                             <td>${item.memberDetails.fname} ${item.memberDetails.lname}</td>
-                            <td>${item.memberDetails.membershipType}</td>
-                            <td>${nxtDueDate}</td>
-                            <td>${lastPaidDate}</td>
+                            <td>${item.memberDetails.nicNumber}</td>
                             <td>
-                                <button type="button" class="tablecolor btn"onclick="viewMemberPaymentHistory('${item.id}')">View Payment History</button>
+                                <button type="button" class="tablecolor btn"onclick="viewMemberPaymentHistory('${item.id}','${item.userId}')">View Payment History</button>
                                 <button type="button" class="tablecolor btn" onclick="pay('${item.id}')">Pay</button>
                             </td>
                         </tr>`;
@@ -83,12 +104,20 @@ function filterTable(filterby) {
     }
 }
 
-function viewMemberPaymentHistory(id) {
+async function viewMemberPaymentHistory(id) {
+    try{
+        const res=await fetch(paymentApiUrl);
+        const AllPaymentHistory=await res.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+       
     let tableRows = "";
     paymentTableBody.innerHTML = "";
     memberId.innerHTML = id;
-    let userPaymentHistory = paymentHistory.find(element => element[0] == id)
-    userPaymentHistory[1].forEach(element => {
+    let userPaymentHistory = AllPaymentHistory.filter(element => element.memberId == id)
+    userPaymentHistory.forEach(element => {
         tableRows += `
         <tr>
                 <td>${element.date}</td>
@@ -98,6 +127,9 @@ function viewMemberPaymentHistory(id) {
     });
     paymentTableBody.innerHTML = tableRows;
     modalVeiwPaymentHistory.style.display = 'block'
+}catch(e){
+    console.log(e)
+}
 }
 function UserPayment(id) {
     paymentAmount.innerHTML = personalInfo.payment;

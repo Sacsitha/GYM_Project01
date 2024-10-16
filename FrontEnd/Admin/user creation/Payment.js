@@ -1,12 +1,16 @@
 class Payment {
     date;
     details;
+    feeType
     amount;
-    //memberId;
-    constructor(amount,details,date){
-        this.amount=amount;
-        this.details=details;
-        this.date=date;
+    memberId;
+    constructor(amount, details,memberId,feeType) {
+        const date = new Date();
+        this.date = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        this.amount = amount;
+        this.details = details;
+        this.memberId=memberId;
+        this.feeType=feeType;
     }
 
     setPaymentDate() {
@@ -18,8 +22,8 @@ class Payment {
             console.log(error);
         }
     }
-    setDetails(detail){
-        this.details=detail;
+    setDetails(detail) {
+        this.details = detail;
     }
     getPaymentDate() {
         return this.date;

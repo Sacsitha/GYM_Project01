@@ -1,17 +1,39 @@
-class Payment{
+// class ProgramPaymentDetails{
+//     initalFee;
+//     monthlyFee;
+//     annualFee;
+//     feestatus
+//     Programid;
+//     constructor(monthlyFee,annualFee,initialFee,programid){
+//         this.monthlyFee=monthlyFee;
+//         this.annualFee=annualFee;
+//         this.initalFee=initialFee;
+//         this.feestatus=true;
+//         const date = new Date();
+//         this.createdDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+//         this.Programid=programid;
+//     }
+// }
+
+class Program{
+    id;
     title;
     description;
+    programStatus;
+    createdDate
     initalFee;
     monthlyFee;
     annualFee;
-    id;
 
     constructor(title,description,monthlyFee,annualFee,initialFee){
         this.title=title;
         this.description=description;
+        this.programStatus=true;
         this.monthlyFee=monthlyFee;
         this.annualFee=annualFee;
-        this.initalFee=initialFee
+        this.initalFee=initialFee;
+        const date = new Date();
+        this.createdDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     }
     createID(gymTrainingProgram) {
         try {
@@ -20,9 +42,7 @@ class Payment{
                 this.id = "T" + (100 + (gymTrainingProgram.length)) 
                 console.log("a")               
             }else{
-                let Lastobj=(gymTrainingProgram[gymTrainingProgram.length-1])
-                let Lastid=Lastobj.id;
-                let ExtractNum=Number(Lastid.slice(1,4));
+                let ExtractNum=Number(gymTrainingProgram.slice(1,4));
                 this.id="T"+(ExtractNum+1)
             }
 

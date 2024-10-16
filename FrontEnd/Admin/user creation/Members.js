@@ -1,6 +1,6 @@
 // ----------User----------
 class Users {
-    userId;
+    id;
     userRole;
     password;
 
@@ -46,13 +46,11 @@ class Users {
     //A method to create a unique Id
     createID(gymMember) {
         try {
-            if (gymMember.length == 0) {
-                this.userId = "GM" + (100000 + (gymMember.length))
+            if (gymMember==[]) {
+                this.id = "GM" + (100000 + (gymMember.length))
             } else {
-                let Lastobj = (gymMember[gymMember.length - 1])
-                let Lastid = Lastobj.id;
-                let ExtractNum = Number(Lastid.slice(2, 8));
-                this.userId = "GM" + (ExtractNum + 1)
+                let ExtractNum = Number(gymMember.slice(2, 8));
+                this.id = "GM" + (ExtractNum + 1)
             }
 
         } catch (error) {
@@ -81,11 +79,10 @@ class Member {
     height;
     weight;
     admissionDate;
-    payment;
-    userId;
+    ;
 
     // Constructor to initialize the object with attributes
-    constructor(address, contactNo, height, weight, email, dob, gender, membershipType, fname, lname) {
+    constructor(address, contactNo, height, weight, email, dob, gender, fname, lname) {
         this.address = address;
         this.contactNo = contactNo;
         this.gender = gender;
@@ -93,59 +90,19 @@ class Member {
         this.weight = weight;
         this.email = email;
         this.dob = dob;
-        this.membershipType = membershipType;
+        // this.membershipType = membershipType;
         this.fname = fname;
         this.lname = lname;
-    }
-
-    //--------------------------------------------------------------------------------------------------------------------------------//
-    //  Create
-
-    //A method to create admission date
-    createAdmissionDate() {
-        try {
-            const date = new Date();
-            this.admissionDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    createID(){
         const date = new Date();
+        this.admissionDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         const timestamp = date.valueOf();
-        this.id=timestamp;
+        this.id = "M"+timestamp;
     }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------
-    //Set
-    setPayment(payment) {
-        this.payment = payment;
-    }
-    setNxtDueDateMonth(mdate) {
-        const Mdate = new Date(mdate);
-        if (Mdate.getMonth() + 1 < 12) {
-            this.nxtDueDate = `${Mdate.getFullYear()}-${Mdate.getMonth() + 2}-${Mdate.getDate()}`;
-        } else {
-            this.nxtDueDate = `${Mdate.getFullYear() + 1}-${Mdate.getMonth() - 10}-${Mdate.getDate()}`;
-
-        }
-    }
-    setRenewalDate(date) {
-        const Adate = new Date(date);
-        this.RenewalDate = `${Adate.getFullYear() + 1}-${Adate.getMonth() + 1}-${Adate.getDate()}`;
-    }
-    // setTrainingProgram(UserSelectedProgram) {
-    //     this.trainingProgram = UserSelectedProgram;
-    // }
-    setPayment(payment) {
-        this.payment = payment;
-    }
-
+// --------------------------------Set-------------------------------------------------------------------------------//
     //A method to validate Age   
     setAge(age) {
         try {
-            if ((age >= 14) || (age <= 100)) {
+            if ((age >= 14) && (age <= 100)) {
                 this.age = age;
             } else {
                 throw "Age is invalid"
@@ -168,7 +125,7 @@ class Member {
                 throw "NIC number is incorrect";                                           //The error message that should be thrown
             }
         } catch (error) {
-            // document.getElementById("message3").innerHTML=error;
+            console.log(error);
         }
     }
 
@@ -178,16 +135,36 @@ class Member {
     getAdmissionDate() {
         return this.admissionDate;
     }
-    //A method to get encrypted password
-    getPassword() {
-        return this.pasword;
+}
+class Enrollment {
+    memberId;
+    programId;
+    subscriptiontype;
+    enrollmentDate;
+    nxtDueDate;
+
+    constructor(memberId, programId, subscriptiontype) {
+        this.memberId = memberId;
+        this.programId = programId;
+        this.subscriptiontype = subscriptiontype;
+        const date = new Date();
+        this.enrollmentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     }
-    //A method to get Id 
-    getID() {
-        return this.id;
-    }
-    // A method to get NIC number
-    getNicNo() {
-        return this.nicNumber;
+    setNxtDueDate(mdate) {
+        if (this.subscriptiontype == "monthlySubscription") {
+            const Mdate = new Date(mdate);
+            if (Mdate.getMonth() + 1 < 12) {
+                this.nxtDueDate = `${Mdate.getFullYear()}-${Mdate.getMonth() + 2}-${Mdate.getDate()}`;
+            } else {
+                this.nxtDueDate = `${Mdate.getFullYear() + 1}-${Mdate.getMonth() - 10}-${Mdate.getDate()}`;
+            }
+        } else if (this.subscriptiontype == "annualSubscription") {
+            console.log("a");
+            const Adate = new Date(mdate);
+            console.log(Adate);
+            this.nxtDueDate = `${Adate.getFullYear() + 1}-${Adate.getMonth() + 1}-${Adate.getDate()}`;
+            console.log(this.nxtDueDate);
+        }
     }
 }
+
