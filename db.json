@@ -1,0 +1,96 @@
+{
+    "users": [
+      {
+        "UserID": 1,
+        "Password": "user1password",
+        "MemberID": 1
+      },
+      {
+        "UserID": 2,
+        "Password": "user2password",
+        "MemberID": 2
+      }
+    ],
+    "memberDetails": [
+      {
+        "MemberID": 1,
+        "FirstName": "John",
+        "LastName": "Doe",
+        "Password": "pass123",
+        "DOB": "1990-01-01",
+        "ContactNo": "1234567890",
+        "Email": "john@example.com",
+        "Age": 34,
+        "Gender": "Male",
+        "Height": 175,
+        "Weight": 75,
+        "CreationDate": "2023-01-01",
+        "MemberStatus": "Active"
+      },
+      {
+        "MemberID": 2,
+        "FirstName": "Jane",
+        "LastName": "Smith",
+        "Password": "pass456",
+        "DOB": "1992-05-05",
+        "ContactNo": "0987654321",
+        "Email": "jane@example.com",
+        "Age": 32,
+        "Gender": "Female",
+        "Height": 165,
+        "Weight": 60,
+        "CreationDate": "2023-02-01",
+        "MemberStatus": "Inactive"
+      }
+    ],
+    "enrollment": [
+      {
+        "EnrollmentId": 1,
+        "EnrollmentDate": "2023-01-15",
+        "MembershipType": "Gold",
+        "ProgramID": 1,
+        "MemberID": 1
+      },
+      {
+        "EnrollmentId": 2,
+        "EnrollmentDate": "2023-02-20",
+        "MembershipType": "Silver",
+        "ProgramID": 2,
+        "MemberID": 2
+      }
+    ],
+    "workoutProgram": [
+      {
+        "ProgramID": 1,
+        "ProgramName": "Yoga",
+        "Description": "Yoga for flexibility",
+        "ProgramStatus": "Active",
+        "CreationDate": "2023-01-10"
+      },
+      {
+        "ProgramID": 2,
+        "ProgramName": "HIIT",
+        "Description": "High Intensity Interval Training",
+        "ProgramStatus": "Active",
+        "CreationDate": "2023-02-01"
+      }
+    ],
+    "programPaymentDetails": [
+      {
+        "ProgramPaymentId": 1,
+        "Date": "2023-03-01",
+        "FeeType": "Monthly",
+        "FeeAmount": 100,
+        "FeeStatus": "Paid",
+        "ProgramID": 1
+      },
+      {
+        "ProgramPaymentId": 2,
+        "Date": "2023-03-05",
+        "FeeType": "Monthly",
+        "FeeAmount": 150,
+        "FeeStatus": "Unpaid",
+        "ProgramID": 2
+      }
+    ]
+  }
