@@ -24,7 +24,7 @@ namespace GYM_API.Controllers
         }
         [HttpPost("Add-User")]
 
-        public IActionResult AddUsers([FromForm] UserRequestModel userRequestModel)
+        public IActionResult AddUsers( UserRequestModel userRequestModel)
         {
             try
             {

@@ -18,6 +18,16 @@ namespace GYM_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Enable CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin()  // Allow any origin
+                           .AllowAnyMethod()  // Allow any HTTP method
+                           .AllowAnyHeader(); // Allow any header
+                });
+            });
             var connectionstring = builder.Configuration.GetConnectionString("DBConnection");
 
             builder.Services.AddSingleton<IMemberRepository>(provider => new MemberRepository(connectionstring));
@@ -33,6 +43,7 @@ namespace GYM_API
 
             var app = builder.Build();
 
+            app.UseCors("AllowAllOrigins");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

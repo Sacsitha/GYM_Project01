@@ -20,10 +20,9 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO Users(Id,UserRole,Password) values(@Id,@UserRole,@Password)";
+                command.CommandText = "INSERT INTO Users(UserRole,Password) values(@UserRole,@Password)";
                 command.Parameters.AddWithValue("@UserRole", userRequestModel.userRole);
                 command.Parameters.AddWithValue("@Password", userRequestModel.password);
-                command.Parameters.AddWithValue("@Id", userRequestModel.Id);
                 command.ExecuteNonQuery();
             }
         }

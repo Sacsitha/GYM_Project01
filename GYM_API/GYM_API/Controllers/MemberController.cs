@@ -1,5 +1,6 @@
 ﻿using GYM_API.IRepository;
 using GYM_API.Modals.RequestModal;
+using GYM_API.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,26 +12,29 @@ namespace GYM_API.Controllers
     {
         private readonly IMemberRepository _memberRepository;
 
+
         public MemberController(IMemberRepository memberRepository)
         {
             _memberRepository = memberRepository;
+
         }
 
-        [HttpGet("Get-All-Members")]
-        public async Task<IActionResult> GetAllMembers()
-        {
-            var MembersList = _memberRepository.GetAllMembers();
-            return Ok(MembersList);
-        }
+
 
         [HttpPost("Add-Member")]
 
-        public IActionResult AddMembers([FromForm]MemberRegisterRequestDTO memberRegister)
+        public IActionResult AddMembers(MemberRegisterRequestDTO memberRegister)
         {
             _memberRepository.AddMember(memberRegister);
             return Ok(memberRegister);
         }
 
+        [HttpGet("Get-All-Members")]
+        public IActionResult GetAllMember()
+        {
+            var WorkOutProgramList = _memberRepository.GetAllMember();
+            return Ok(WorkOutProgramList);
+        }
         //[HttpDelete("Delete-Member/{memberId}")]
 
         //public IActionResult DeleteMembers(string memberId)

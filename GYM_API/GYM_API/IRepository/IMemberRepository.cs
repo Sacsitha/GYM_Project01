@@ -5,7 +5,7 @@ namespace GYM_API.IRepository
 {
     public interface IMemberRepository
     {
-        Task<ICollection<MemberResponseDTO>> GetAllMembers();
+        ICollection<MemberResponseDTO> GetAllMember();
         void AddMember(MemberRegisterRequestDTO memberRegister);
         //void DeleteMember(string memberId);
         //void UpdateMember(string memberId, MemberUpdateRequestDTO memberUpdate);

@@ -1,74 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\",
+  "WorkspaceRootPath": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\workoutprogramcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\workoutprogramcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\database\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\database\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\gymdb.db||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\gymdb.db||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\paymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\paymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\modals\\requestmodal\\userrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\modals\\requestmodal\\userrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\enrollmentrepositorys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\enrollmentrepositorys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\irepository\\ienrollmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\irepository\\ienrollmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\modals\\responsemodal\\enrollmentresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\modals\\responsemodal\\enrollmentresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\modals\\requestmodal\\enrollmentrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\modals\\requestmodal\\enrollmentrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\entities\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\enrollmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\workoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\workoutprogramrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\irepository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\irepository\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\irepository\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\mumar\\onedrive\\desktop\\milestone 2\\backend\\gym_project01\\gym_api\\gym_api\\modals\\responsemodal\\paymentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\modals\\responsemodal\\paymentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|x:\\ms2\\backend\\gym_project01\\gym_api\\gym_api\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -77,229 +37,93 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 239,
+          "DockedWidth": 373,
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MemberRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\MemberRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\MemberRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:03:28.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Program.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Program.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Program.cs",
-              "RelativeToolTip": "GYM_API\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAwCAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:26:42.493Z",
-              "EditorCaption": ""
+              "Title": "gymDb.db",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\gymDb.db",
+              "RelativeDocumentMoniker": "GYM_API\\gymDb.db",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\gymDb.db",
+              "RelativeToolTip": "GYM_API\\gymDb.db",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGGSURBVDhPY2SAgsry0vsMDP8VoFwsgPHBn38Mgd3d3RegAkDl//9DWSADSv7/\u002BvULJwbJNzXUvi8tLTWAagEDJihNFEhITBbg5ebYj2wI0QYICAgwTJ82heH79\u002B8CLEz/90OFEQDdC3uOnPm/69ApFDEYBqmFasN0wdXbDxh2HDzJ8O79B4a3794zrN9\u002BgOHc5RtQWUyAYQALExPDt2/fGUz0NBlMDbQYvn3/xsDCgtunGDJ//v5l\u002BP37F8Pff38Z/gHZf37/Zvjz5y9UFhNgGPDz508GUOI4cPQUw74jJxgYgZxTZ88DXfIDogANYBhgpKvBEObnxsDHw8XwF2jzsxdPGR49eczQ0TeR4cbN21BVCIDTc4FeLgyezjYMHz98ZGirKWf48O4dAwcHG1QWAXCHDhB8/QoMQKCK3KJSBlZWZpSUCwN4DVBXVWaoKMpnsLG0YOjtaGNQVMDMKngNAAFuLi6G8NBgKA8TEDSAEEDKzsXA7MyIJzsjg/8P2jt7FRkYGBgAmdPDqvBXzR4AAAAASUVORK5CYII=",
+              "WhenOpened": "2024-10-17T08:21:54.896Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PaymentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\PaymentRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\PaymentRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\PaymentRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\PaymentRepository.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAAAE0AAAAQAAAA",
+              "Title": "UserRequestModel.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\UserRequestModel.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Modals\\RequestModal\\UserRequestModel.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\UserRequestModel.cs",
+              "RelativeToolTip": "GYM_API\\Modals\\RequestModal\\UserRequestModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:22:53.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WorkOutProgramController.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\WorkOutProgramController.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Controllers\\WorkOutProgramController.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\WorkOutProgramController.cs",
-              "RelativeToolTip": "GYM_API\\Controllers\\WorkOutProgramController.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAAAEQAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:44:22.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Enrollment.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Entities\\Enrollment.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
-              "RelativeToolTip": "GYM_API\\Entities\\Enrollment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:09:54.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IEnrollmentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IEnrollmentRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\IRepository\\IEnrollmentRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IEnrollmentRepository.cs",
-              "RelativeToolTip": "GYM_API\\IRepository\\IEnrollmentRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:11:34.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T08:15:01.67Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "GYM_API\\Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
               "RelativeToolTip": "GYM_API\\Repository\\UserRepository.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAnwDEAAAA9AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBkAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:51:00.002Z",
+              "WhenOpened": "2024-10-17T08:14:38.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Database\\DatabaseInitializer.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
+              "RelativeToolTip": "GYM_API\\Database\\DatabaseInitializer.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvw4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T08:14:15.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "EnrollmentRepositorys.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:12:11.083Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EnrollmentRequestModel.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "RelativeToolTip": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:12:37.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EnrollmentResponseModel.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\ResponseModal\\EnrollmentResponseModel.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Modals\\ResponseModal\\EnrollmentResponseModel.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\ResponseModal\\EnrollmentResponseModel.cs",
-              "RelativeToolTip": "GYM_API\\Modals\\ResponseModal\\EnrollmentResponseModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:13:00.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EnrollmentController.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\EnrollmentController.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Controllers\\EnrollmentController.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\EnrollmentController.cs",
-              "RelativeToolTip": "GYM_API\\Controllers\\EnrollmentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T20:09:27.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "WorkOutProgramRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "ViewState": "AQIAAF8AAAAAAAAAAAAAAGEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:59:45.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Controllers\\PaymentController.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "GYM_API\\Controllers\\PaymentController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAABwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:24:04.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\IRepository\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IUserRepository.cs",
-              "RelativeToolTip": "GYM_API\\IRepository\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:50:47.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\UserController.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "GYM_API\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\UserController.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\UserController.cs",
               "RelativeToolTip": "GYM_API\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAAADwAAAAeAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:41:22.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T08:11:25.591Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IPaymentRepository.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IPaymentRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\IRepository\\IPaymentRepository.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IPaymentRepository.cs",
-              "RelativeToolTip": "GYM_API\\IRepository\\IPaymentRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAuAAAA",
+              "DocumentIndex": 6,
+              "Title": "MemberController.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\MemberController.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Controllers\\MemberController.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\MemberController.cs",
+              "RelativeToolTip": "GYM_API\\Controllers\\MemberController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:23:22.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T08:05:33.702Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PaymentResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\ResponseModal\\PaymentResponseDTO.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Modals\\ResponseModal\\PaymentResponseDTO.cs",
-              "ToolTip": "C:\\Users\\mumar\\OneDrive\\Desktop\\Milestone 2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\ResponseModal\\PaymentResponseDTO.cs",
-              "RelativeToolTip": "GYM_API\\Modals\\ResponseModal\\PaymentResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAApAAAA",
+              "DocumentIndex": 5,
+              "Title": "MemberRepository.cs",
+              "DocumentMoniker": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Repository\\MemberRepository.cs",
+              "ToolTip": "X:\\MS2\\Backend\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
+              "RelativeToolTip": "GYM_API\\Repository\\MemberRepository.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAwwFAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:25:24.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T07:24:01.888Z"
             }
           ]
         }

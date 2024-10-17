@@ -20,12 +20,13 @@ namespace GYM_API.Database
                 var command = connection.CreateCommand();
                 command.CommandText = @"
                     CREATE TABLE IF NOT EXISTS Users(
-                        Id INT NOT NULL PRIMARY KEY,
+                         
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         UserRole NVARCHAR(50) NOT NULL,
                         Password NVARCHAR(100) NOT NULL
                     );
                     CREATE TABLE IF NOT EXISTS MembersDetails(
-                        Id NVARCHAR(100) PRIMARY KEY,
+                        Id NVARCHAR(100) PRIMARY KEY ,
                         Nic NVARCHAR(12) NOT NULL,
                         FirstName NVARCHAR(50) NOT NULL,
                         LastName NVARCHAR(50) NOT NULL,

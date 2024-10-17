@@ -2,6 +2,7 @@
 {
     public class MemberRegisterRequestDTO
     {
+        public string Id { get; set; }
         public string nicNumber { get; set; }
         public string address { get; set; }
         public string contactNo { get; set; }
