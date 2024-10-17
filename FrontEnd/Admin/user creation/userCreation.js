@@ -334,28 +334,32 @@ async function removeEnrollment(memberId, programId){
 
 async function tables(){
     try{
-        const res=await fetch(apiUrl);
+        const res=await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
         const gymMember=await res.json();
+      
         if (!res.ok) {
             console.log("Table not found");
             return;
         }
-        tableBodyCreation(gymMember);
+        const member=Array.isArray(gymMember)?gymMember:[gymMember];
+        tableBodyCreation(member);
+        console.log(gymMember);
     }catch(error){
         console.log(error)
     }  
 }
 tables();
 //-----functions to create the table of user details
-function tableBodyCreation(gymMember) {
+function tableBodyCreation(member) {
 
         let tableData = "";
         tableBody.innerHTML = "";
-        gymMember.forEach(item => {
+        member.forEach(item => {
+           
             //Get every user and creating their rows
             tableData += `<tr>
-                                <td class="t-op-nextlvl">${item.userId}</td>
-                                <td class="t-op-nextlvl">${item.fname} ${item.lname}</td>
+                                <td class="t-op-nextlvl">${item.id}</td>
+                                <td class="t-op-nextlvl">${item.fname} ${item.lname} </td>
                                 <td class="t-op-nextlvl">${item.nicNumber}</td>
                                 <td class="t-op-nextlvl">
                                     <button type="button" class="tablecolor btn" onclick="viewUser('${item.id}')">View</button>
@@ -366,7 +370,6 @@ function tableBodyCreation(gymMember) {
                             </tr>`;
         });
         tableBody.innerHTML = tableData;
- 
 
 }
 
@@ -378,18 +381,19 @@ addMember.addEventListener("submit", async function (event) {
     //create user
     const newUser = new Users();
     newUser.userRole = "member";
-    newUser.createID(UserList);
-    localStorage.setItem('memberID',JSON.stringify(newUser.id));
+    // newUser.createID(UserList);
+    newUser.id=1;
+    // localStorage.setItem('memberID',JSON.stringify(newUser.id));
     let password = newUser.createPassword();
     alert(password);
     newUser.encryptPassword(password);
-    await fetch(userApiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newUser)
-    });
+    // await fetch(`http://localhost:5237/api/User/Add-User`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(newUser)
+    // });
     //create member
     //get the gender***
     let gender;
@@ -401,19 +405,20 @@ addMember.addEventListener("submit", async function (event) {
         gender = "other"
     }
     //Creating an object to each user and inserting their details
-    const newMember = new Member(address.value, contactNo.value, height.value, weight.value, email.value, dob.value, gender, fname.value, lname.value);
+    const newMember = new Member(address.value, contactNo.value,Number( height.value), Number(weight.value), email.value, dob.value, gender, fname.value, lname.value,newUser.id);
     newMember.setAge(age.value);
-    newMember.userId = newUser.id;
+    // newMember.userId = newUser.id;
     if (!(nicNo.value == "")) {
         newMember.setNicNo(nicNo.value);
     }
-    await fetch(apiUrl, {
+    await fetch(`http://localhost:5237/api/Member/Add-Member`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(newMember)
     });
+    console.log(JSON.stringify(newMember));
     event.target.reset();
     tables();
     addMemberModal.style.display = "none";

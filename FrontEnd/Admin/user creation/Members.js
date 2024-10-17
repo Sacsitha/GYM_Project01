@@ -69,20 +69,22 @@ class Member {
     id;
     nicNumber = "N/A";
     address;
-    dob;
     contactNo;
     email;
+    dob;
     fname;
     lname;
     age;
     gender;
     height;
     weight;
+    memberStatus=true;
     admissionDate;
+    userId;
     ;
 
     // Constructor to initialize the object with attributes
-    constructor(address, contactNo, height, weight, email, dob, gender, fname, lname) {
+    constructor(address, contactNo, height, weight, email, dob, gender, fname, lname,userId) {
         this.address = address;
         this.contactNo = contactNo;
         this.gender = gender;
@@ -97,13 +99,14 @@ class Member {
         this.admissionDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         const timestamp = date.valueOf();
         this.id = "M"+timestamp;
+        this.userId=userId;
     }
 // --------------------------------Set-------------------------------------------------------------------------------//
     //A method to validate Age   
     setAge(age) {
         try {
             if ((age >= 14) && (age <= 100)) {
-                this.age = age;
+                this.age = Number(age);
             } else {
                 throw "Age is invalid"
             }
