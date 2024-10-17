@@ -22,6 +22,8 @@ namespace Gym_Management
 
 
             builder.Services.AddSingleton<IWorkOutProgramRepository>(ProviderAliasAttribute => new WorkOutProgramRepository(connectionstring));
+            builder.Services.AddSingleton<IEnrollmentRepository>(ProviderAliasAttribute => new EntrollmentRepository(connectionstring));
+
 
 
             //Initialize The Database

@@ -11,12 +11,10 @@ namespace Gym_Management.Controllers
     public class WorkOutProgramController : ControllerBase
     {
         private readonly IWorkOutProgramRepository _workOutProgramRepository;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public WorkOutProgramController(IWorkOutProgramRepository workOutProgramRepository, IWebHostEnvironment webHostEnvironment)
+        public WorkOutProgramController(IWorkOutProgramRepository workOutProgramRepository)
         {
             _workOutProgramRepository = workOutProgramRepository;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpPost("Add-WorkOut-Programs")]

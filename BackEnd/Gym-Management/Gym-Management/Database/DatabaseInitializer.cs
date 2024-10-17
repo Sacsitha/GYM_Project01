@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using System.Security.Cryptography.Xml;
 
 namespace Gym_Management.Database
 {
@@ -30,9 +31,19 @@ namespace Gym_Management.Database
                         AnnualFee DECIMAL NOT NULL
 
                     );
+                        CREATE TABLE IF NOT EXISTS EnrollDetails(
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        EntrollmentDate Date NOT NULL,
+                        MemberShipType NVARCHAR(10) NOT NULL,
+                        MemberId NVARCHAR(15) NOT NULL,
+                        ProgramId INT NOT NULL
+                     
+                    );
                   ";
                 command.ExecuteNonQuery();
             }
         } 
     }
+    //FOREIGN KEY(ProgramId) REFERENCES Programs(Id) ON DELETE CASCADE
+    //FOREIGN KEY(MemberId) REFERENCES Students(Nic) ON DELETE CASCADE NOTE
 }
