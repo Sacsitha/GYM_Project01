@@ -17,7 +17,7 @@
         public bool MemberStatus { get; set; }=true;
 
         public DateTime admissionDate { get; set; }
-        public int userId { get; set; }
+        public string userId { get; set; }
     }
 }
 

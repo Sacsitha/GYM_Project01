@@ -34,6 +34,7 @@ namespace GYM_API
             builder.Services.AddSingleton<IUserRepository>(provider => new UserRepository(connectionstring));
             builder.Services.AddSingleton<IPaymentRepository>(provider => new PaymentRepository(connectionstring));
             builder.Services.AddSingleton<IWorkOutProgramRepository>(provider => new WorkOutProgramRepository(connectionstring));
+            builder.Services.AddSingleton<IEnrollmentRepository>(provider => new EnrollmentRepositorys(connectionstring));
 
 
 

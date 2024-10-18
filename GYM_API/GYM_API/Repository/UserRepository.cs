@@ -20,13 +20,14 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO Users(UserRole,Password) values(@UserRole,@Password)";
+                command.CommandText = "INSERT INTO Users(Id,UserRole,Password) values(@Id,@UserRole,@Password)";
                 command.Parameters.AddWithValue("@UserRole", userRequestModel.userRole);
+                command.Parameters.AddWithValue("@Id", userRequestModel.Id);
                 command.Parameters.AddWithValue("@Password", userRequestModel.password);
                 command.ExecuteNonQuery();
             }
         }
-        public void DeleteUser(int userId)
+        public void DeleteUser(string userId)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
@@ -38,7 +39,7 @@ namespace GYM_API.Repository
             }
         }
 
-        public void UpdateUser(int userId, string password)
+        public void UpdateUser(string userId, string password)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
@@ -50,7 +51,7 @@ namespace GYM_API.Repository
                 command.ExecuteNonQuery();
             }
         }
-        public async Task<ICollection<UserResponseModel>> GetAllUser()
+        public  ICollection<UserResponseModel> GetAllUser()
         {
             var UserList = new List<UserResponseModel>();
 
@@ -65,7 +66,7 @@ namespace GYM_API.Repository
                     {
                         UserList.Add(new UserResponseModel()
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             userRole = reader.GetString(1),
                             password = reader.GetString(2)
 
@@ -76,7 +77,7 @@ namespace GYM_API.Repository
             }
             return UserList;
         }
-        public UserResponseModel GetUserById(int id)
+        public UserResponseModel GetUserById(string id)
         {
 
             using (var connection = new SqliteConnection(_connectionString))
@@ -91,7 +92,7 @@ namespace GYM_API.Repository
                     {
                         return new UserResponseModel()
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             userRole = reader.GetString(1),
                             password = reader.GetString(2)
                         };

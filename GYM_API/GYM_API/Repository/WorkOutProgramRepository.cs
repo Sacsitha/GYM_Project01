@@ -1,5 +1,6 @@
 ﻿using GYM_API.Entities;
 using GYM_API.IRepository;
+using GYM_API.Modals.RequestModal;
 using GYM_API.Modals.ResponseModal;
 using Microsoft.Data.Sqlite;
 
@@ -13,15 +14,14 @@ namespace GYM_API.Repository
         {
             _connectinString = connectinString;
         }
-        public void AddProgram(WorkOutProgram newProgram)
+        public void AddProgram(WorkOutProgramRequestDTO newProgram)
         {
             using (var connection = new SqliteConnection(_connectinString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
                 command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO Programs (Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,MonthlyFee,AnnualFee) VALUES (@Id,@Title,@Description,@CreatedDate,@ProgramStatus,@InitalFee,@MonthlyFee,@AnnualFee);";
-                command.Parameters.AddWithValue("@Id", newProgram.id);
+                command.CommandText = "INSERT INTO Programs (Title,Description,CreatedDate,ProgramStatus,InitalFee,MonthlyFee,AnnualFee) VALUES (@Title,@Description,@CreatedDate,@ProgramStatus,@InitalFee,@MonthlyFee,@AnnualFee);";
                 command.Parameters.AddWithValue("@Title", newProgram.title);
                 command.Parameters.AddWithValue("@Description", newProgram.description);
                 command.Parameters.AddWithValue("@CreatedDate", newProgram.createdDate);
@@ -96,10 +96,25 @@ namespace GYM_API.Repository
             };
             return null;
         }
-
+        public void UpdateProgram(int programId, UpdateWorkOutProgramRequestModel workOutProgramRequest)
+        {
+            using (var connection = new SqliteConnection(_connectinString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE Programs SET Title = @Title , Description = @Description , AnnualFee = @AnnualFee , MonthlyFee = @MonthlyFee , InitalFee = @InitalFee   WHERE Id == @id ";
+                command.Parameters.AddWithValue("@Title", workOutProgramRequest.title);
+                command.Parameters.AddWithValue("@Description", workOutProgramRequest.description);
+                command.Parameters.AddWithValue("@AnnualFee", workOutProgramRequest.annualFee);
+                command.Parameters.AddWithValue("@MonthlyFee", workOutProgramRequest.initalFee);
+                command.Parameters.AddWithValue("@InitalFee", workOutProgramRequest.monthlyFee);
+                command.Parameters.AddWithValue("@id", programId);
+                command.ExecuteNonQuery();
+            }
+        }
         //public void UpdateWorkOutProgram(int id)
         //{
-        //    if(id == 0)
+        //    if (id == 0)
         //    {
         //        using (var connection = new SqliteConnection(_connectinString))
         //        {
@@ -107,7 +122,7 @@ namespace GYM_API.Repository
         //            var command = connection.CreateCommand();
         //            command.CommandText = "UPDATE Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,InitalFee,MonthlyFee,AnnualFee FROM Programs WHERE id == @id";
         //            command.Parameters.AddWithValue("@Id", id);
-        //            command.Parameters.AddWithValue("@Title",title);
+        //            command.Parameters.AddWithValue("@Title", title);
         //            command.Parameters.AddWithValue("@Description", description);
         //            command.Parameters.AddWithValue("@CreatedDate", createdDate);
         //            command.Parameters.AddWithValue("@ProgramStatus", programStatus);

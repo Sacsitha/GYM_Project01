@@ -16,6 +16,6 @@
         public int weight { get; set; }
         public DateTime admissionDate { get; set; }
         public bool MemberStatus { get; set; }
-        public int userId { get; set; }
+        public string userId { get; set; }
     }
 }

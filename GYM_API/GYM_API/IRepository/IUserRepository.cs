@@ -5,10 +5,10 @@ namespace GYM_API.IRepository
 {
     public interface IUserRepository
     {
-        Task<ICollection<UserResponseModel>> GetAllUser();
-        void UpdateUser(int userId, string password);
-        void DeleteUser(int userId);
+        ICollection<UserResponseModel> GetAllUser();
+        void UpdateUser(string userId, string password);
+        void DeleteUser(string userId);
         void AddUser(UserRequestModel userRequestModel);
-        UserResponseModel GetUserById(int id);
+        UserResponseModel GetUserById(string id);
     }
 }

@@ -17,7 +17,7 @@ namespace GYM_API.Controllers
             UserRepository = userRepository;
         }
         [HttpGet("Get-All-Users")]
-        public async Task<IActionResult> GetAllMembers()
+        public IActionResult GetAllMembers()
         {
             var UsersList = UserRepository.GetAllUser();
             return Ok(UsersList);
@@ -38,7 +38,7 @@ namespace GYM_API.Controllers
         }
         [HttpDelete("Delete-User/{id}")]
 
-        public IActionResult DeleteMembers(int id)
+        public IActionResult DeleteMembers(string id)
         {
             UserRepository.DeleteUser(id);
             return Ok("Delete Successfully..");
@@ -46,14 +46,14 @@ namespace GYM_API.Controllers
 
         [HttpPut("Update-User/{id}")]
 
-        public IActionResult UpdateUser(int id, string password)
+        public IActionResult UpdateUser(string id, string password)
         {
             UserRepository.UpdateUser(id, password);
             return Ok("Update Successfully..");
         }
         [HttpGet("Get-User-By-Id/{id}")]
 
-        public IActionResult GetUserId(int id)
+        public IActionResult GetUserId(string id)
         {
             try
             {

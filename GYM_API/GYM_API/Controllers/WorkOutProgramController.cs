@@ -1,5 +1,6 @@
 ﻿using GYM_API.Entities;
 using GYM_API.IRepository;
+using GYM_API.Modals.RequestModal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,7 @@ namespace GYM_API.Controllers
             _workOutProgramRepository = workOutProgramRepository;
         }
         [HttpPost("Add-WorkOut-Programs")]
-        public IActionResult AddProgram([FromForm] WorkOutProgram workOutProgram)
+        public IActionResult AddProgram( WorkOutProgramRequestDTO workOutProgram)
         {
             try
             {
@@ -51,19 +52,19 @@ namespace GYM_API.Controllers
         }
 
         // Update Program
-        //[HttpPut("Update-WorkOut-Program/{ProgramId}")]
-        //public IActionResult UpdateWorkOutProgram(int id)
-        //{
-        //    try
-        //    {
-        //        _workOutProgramRepository.UpdateWorkOutProgram(id);
-        //        return Ok("WorkOut Program Updated Successfully.");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+        [HttpPut("Update-WorkOut-Program/{ProgramId}")]
+        public IActionResult UpdateWorkOutProgram(int ProgramId,UpdateWorkOutProgramRequestModel updateWorkOutProgramRequestModel)
+        {
+            try
+            {
+                _workOutProgramRepository.UpdateProgram(ProgramId,updateWorkOutProgramRequestModel);
+                return Ok("WorkOut Program Updated Successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
         // Delete Program

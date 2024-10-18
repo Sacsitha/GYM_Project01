@@ -14,6 +14,6 @@
         public string gender { get; set; }
         public int height { get; set; }
         public int weight { get; set; }
-        public int userId { get; set; }
+        public string userId { get; set; }
     }
 }

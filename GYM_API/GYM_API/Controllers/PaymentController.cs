@@ -26,23 +26,30 @@ namespace GYM_API.Controllers
             var fullPaymentsList = _paymentRepository.GetAllPayments();
             return Ok(fullPaymentsList);
         }
-        [HttpGet("Get-All-Payments-By-MemberId/{id}")]
+        [HttpGet("Get-All-Payments-Id/{id}")]
 
-        public IActionResult GetAllPaymentsByMemberId(int id)
+        public IActionResult GetAllPaymentsById(string id)
         {
-            try
-            {
-                var fullPaymentsList = _paymentRepository.GetAllPayments();
-                return Ok(fullPaymentsList);
-            }catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var fullPaymentsList = _paymentRepository.GetAllPaymentsById(id);
+            return Ok(fullPaymentsList);
         }
+        //[HttpGet("Get-All-Payments-By-MemberId/{id}")]
+
+        //public IActionResult GetAllPaymentsByMemberId(string id)
+        //{
+        //    try
+        //    {
+        //        var fullPaymentsList = _paymentRepository.GetPaymentsByMemberId(id);
+        //        return Ok(fullPaymentsList);
+        //    }catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //}
 
         [HttpPost("Add-Payment")]
 
-        public IActionResult AddFullPayment(Payment payment)
+        public IActionResult AddFullPayment(PaymentResponseDTO payment)
         {
             try
             {

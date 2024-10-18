@@ -5,8 +5,9 @@ namespace GYM_API.IRepository
 {
     public interface IPaymentRepository
     {
-        void AddFullPayment(Payment payment);
-        ICollection<PaymentResponseDTO> GetPaymentsByMemberId(int id);
+        void AddFullPayment(PaymentResponseDTO payment);
+        //ICollection<PaymentResponseDTO> GetPaymentsByMemberId(string id);
         ICollection<PaymentResponseDTO> GetAllPayments();
+        ICollection<PaymentResponseDTO> GetAllPaymentsById(string id);
     }
 }

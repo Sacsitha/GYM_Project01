@@ -19,9 +19,8 @@ namespace GYM_API.Database
                 connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = @"
-                    CREATE TABLE IF NOT EXISTS Users(
-                         
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    CREATE TABLE IF NOT EXISTS Users(                        
+                        Id NVARCHAR(100) PRIMARY KEY,
                         UserRole NVARCHAR(50) NOT NULL,
                         Password NVARCHAR(100) NOT NULL
                     );
@@ -40,19 +39,19 @@ namespace GYM_API.Database
                         AdmissionDate DATE NOT NULL,
                         MemberStatus BOOLEAN NOT NULL,
                         Address NVARCHAR(150) NOT NULL,
-                        UserId INT NOT NULL,
+                        UserId NVARCHAR(100) NOT NULL,
                         FOREIGN KEY(UserId) REFERENCES Users(Id) ON DELETE CASCADE
                     );
                     CREATE TABLE IF NOT EXISTS Payments(
-                        Id INT PRIMARY KEY,
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Details NVARCHAR(100) NOT NULL,
                         Amount DECIMAL NOT NULL,
                         PaymentDate Date NOT NULL,
-                        MemberId INT NOT NULL,
+                        MemberId NVARCHAR(100) NOT NULL,
                         FOREIGN KEY (MemberId) REFERENCES MembersDetails(Id) ON DELETE CASCADE
                     );
                     CREATE TABLE IF NOT EXISTS  Programs(
-                        Id INT NOT NULL PRIMARY KEY,
+                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
                         Title NVARCHAR(50) NOT NULL,
                         Description NVARCHAR(100) NOT NULL,
                         CreatedDate DATE not null,

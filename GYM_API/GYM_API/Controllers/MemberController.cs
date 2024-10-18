@@ -32,23 +32,50 @@ namespace GYM_API.Controllers
         [HttpGet("Get-All-Members")]
         public IActionResult GetAllMember()
         {
-            var WorkOutProgramList = _memberRepository.GetAllMember();
-            return Ok(WorkOutProgramList);
+            var member = _memberRepository.GetAllMember();
+            return Ok(member);
         }
-        //[HttpDelete("Delete-Member/{memberId}")]
 
-        //public IActionResult DeleteMembers(string memberId)
-        //{
-        //    _memberRepository.DeleteMember(memberId);
-        //    return Ok("Delete Successfully..");
-        //}
+        [HttpGet("Get-Member-By-ID /{id}")]
+        public IActionResult GetWorkOutProgramById(string id)
+        {
+            try
+            {
+                var member = _memberRepository.GetMemberById(id);
+                return Ok(member);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("Get-Member-By-UserID /{id}")]
+        public IActionResult GetMemberByUserId(string id)
+        {
+            try
+            {
+                var member = _memberRepository.GetMemberByUserid(id);
+                return Ok(member);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("Delete-Member/{memberId}")]
 
-        //[HttpPut("Update-Member/{memberId}")]
+        public IActionResult DeleteMembers(string memberId)
+        {
+            _memberRepository.DeleteMember(memberId);
+            return Ok("Delete Successfully..");
+        }
 
-        //public IActionResult UpdateMember( string memberId , [FromForm] MemberUpdateRequestDTO memberUpdate )
-        //{
-        //    _memberRepository.UpdateMember(memberId, memberUpdate);
-        //    return Ok("Update Successfully..");
-        //}
+        [HttpPut("Update-Member/{memberId}")]
+
+        public IActionResult UpdateMember(string memberId, MemberRegisterRequestDTO memberUpdate)
+        {
+            _memberRepository.UpdateMember(memberId, memberUpdate);
+            return Ok("Update Successfully..");
+        }
     }
 }
