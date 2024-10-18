@@ -741,19 +741,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mumar\\.nuget\\packages\\": {}
+    "C:\\Users\\abira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mumar\\OneDrive\\Desktop\\New folder (3)\\GYM_Project01\\GYM_API\\GYM_API\\GYM_API.csproj",
+      "projectUniqueName": "C:\\Users\\abira\\Desktop\\GYM_API 123\\GYM_API\\GYM_API\\GYM_API.csproj",
       "projectName": "GYM_API",
-      "projectPath": "C:\\Users\\mumar\\OneDrive\\Desktop\\New folder (3)\\GYM_Project01\\GYM_API\\GYM_API\\GYM_API.csproj",
-      "packagesPath": "C:\\Users\\mumar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mumar\\OneDrive\\Desktop\\New folder (3)\\GYM_Project01\\GYM_API\\GYM_API\\obj\\",
+      "projectPath": "C:\\Users\\abira\\Desktop\\GYM_API 123\\GYM_API\\GYM_API\\GYM_API.csproj",
+      "packagesPath": "C:\\Users\\abira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abira\\Desktop\\GYM_API 123\\GYM_API\\GYM_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mumar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -813,7 +813,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

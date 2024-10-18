@@ -1,5 +1,4 @@
-﻿using GYM_API.Entities;
-using GYM_API.IRepository;
+﻿using GYM_API.IRepository;
 using GYM_API.Modals.RequestModal;
 using GYM_API.Modals.ResponseModal;
 using Microsoft.Data.Sqlite;
@@ -15,189 +14,103 @@ namespace GYM_API.Repository
             _connectionString = connectionString;
         }
 
-
-        public ICollection<MemberResponseDTO> GetAllMember()
+        public async Task<ICollection<MemberResponseDTO>> GetAllMembers()
         {
-            var WorkOutProgramList = new List<MemberResponseDTO>();
+            var MemberList = new List<MemberResponseDTO>();
+
             using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM MembersDetails WHERE MemberStatus=true ";
+                command.CommandText = "SELECT * FROM MembersDetails";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        WorkOutProgramList.Add(new MemberResponseDTO()
+                        MemberList.Add(new MemberResponseDTO()
                         {
-                            userId = reader.GetString(14),
-                            Id=reader.GetString(0),
-                            nicNumber = reader.GetString(1),
-                            fname = reader.GetString(2),
-                            lname = reader.GetString(3),
-                            address = reader.GetString(5),
-                            dob = reader.GetDateTime(4),
-                            contactNo = reader.GetString(5),
-                            email = reader.GetString(6),
-                            age = reader.GetInt32(7),
-                            gender = reader.GetString(8),
-                            height = reader.GetInt32(9),
-                            weight = reader.GetInt32(10)
-                        }
-                        );
+                            Id = reader.GetString(0),
+                            Nic = reader.GetString(1),
+                            FirstName = reader.GetString(2),
+                            LastName = reader.GetString(3),
+                            password = reader.GetString(4),
+                            DOB = reader.GetDateTime(5),
+                            ContactNumber = reader.GetString(6),
+                            Email = reader.GetString(7),
+                            Age = reader.GetInt32(8),
+                            Gender = reader.GetString(9),
+                            Height = reader.GetInt32(10),
+                            Weight = reader.GetInt32(11),
+                            CreationDate = reader.GetDateTime(12),
+                            MemberStatus = reader.GetBoolean(13)
+                        });
                     }
                 }
-                return WorkOutProgramList;
+
             }
+            return MemberList;
+
         }
-        public MemberResponseDTO GetMemberById(string id)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM MembersDetails WHERE Id == @id";
-                command.Parameters.AddWithValue("@id", id);
-                using (var reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new MemberResponseDTO()
-                        {
-                            userId = reader.GetString(14),
-                            Id = reader.GetString(0),
-                            nicNumber = reader.GetString(1),
-                            fname = reader.GetString(2),
-                            lname = reader.GetString(3),
-                            address = reader.GetString(5),
-                            dob = reader.GetDateTime(4),
-                            contactNo = reader.GetString(5),
-                            email = reader.GetString(6),
-                            age = reader.GetInt32(7),
-                            gender = reader.GetString(8),
-                            height = reader.GetInt32(9),
-                            weight = reader.GetInt32(10)
-                        };
-                    }
-                    else
-                    {
-                        throw new Exception("Member Not Found");
-                    }
-                };
-            };
-            return null;
-        }
-        public MemberResponseDTO GetMemberByUserid(string id)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM MembersDetails WHERE UserId == @id";
-                command.Parameters.AddWithValue("@id", id);
-                using (var reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new MemberResponseDTO()
-                        {
-                            userId = reader.GetString(14),
-                            Id = reader.GetString(0),
-                            nicNumber = reader.GetString(1),
-                            fname = reader.GetString(2),
-                            lname = reader.GetString(3),
-                            address = reader.GetString(5),
-                            dob = reader.GetDateTime(4),
-                            contactNo = reader.GetString(5),
-                            email = reader.GetString(6),
-                            age = reader.GetInt32(7),
-                            gender = reader.GetString(8),
-                            height = reader.GetInt32(9),
-                            weight = reader.GetInt32(10)
-                        };
-                    }
-                    else
-                    {
-                        throw new Exception("Member Not Found");
-                    }
-                };
-            };
-            return null;
-        }
+
         public void AddMember(MemberRegisterRequestDTO memberRegister)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO MembersDetails(Id,Nic,FirstName,LastName,DOB,ContactNumber,Email,Age,Gender,Height,Weight,AdmissionDate,MemberStatus,Address,UserId) values(@Id,@Nic,@FirstName,@LastName,@DOB,@ContactNumber,@Email,@Age,@Gender,@Height,@Weight,@AdmissionDate,@MemberStatus,@Address,@UserId)";
-                command.Parameters.AddWithValue("@Id", memberRegister.Id);
-                command.Parameters.AddWithValue("@Nic", memberRegister.nicNumber);
-                command.Parameters.AddWithValue("@FirstName", memberRegister.fname);
-                command.Parameters.AddWithValue("@LastName", memberRegister.lname);
-                command.Parameters.AddWithValue("@DOB", memberRegister.dob);
-                command.Parameters.AddWithValue("@ContactNumber", memberRegister.contactNo);
-                command.Parameters.AddWithValue("@Email", memberRegister.email);
-                command.Parameters.AddWithValue("@Age", memberRegister.age);
-                command.Parameters.AddWithValue("@Gender", memberRegister.gender);
-                command.Parameters.AddWithValue("@Height", memberRegister.height);
-                command.Parameters.AddWithValue("@Weight", memberRegister.weight);
-                command.Parameters.AddWithValue("@AdmissionDate", memberRegister.admissionDate);
-                command.Parameters.AddWithValue("@MemberStatus", memberRegister.MemberStatus);
-                command.Parameters.AddWithValue("@Address", memberRegister.address);
-                command.Parameters.AddWithValue("@UserId", memberRegister.userId);
+                command.CommandText = "INSERT INTO MembersDetails values(@id,@nic,@firstname,@lastname,@password,@dob,@contactnumber,@email,@age,@gender,@height,@weight,@creationDate,@memberstatus)";
+                command.Parameters.AddWithValue("@id", memberRegister.Id);
+                command.Parameters.AddWithValue("@nic", memberRegister.Nic);
+                command.Parameters.AddWithValue("@firstname", memberRegister.FirstName);
+                command.Parameters.AddWithValue("@lastname", memberRegister.LastName);
+                command.Parameters.AddWithValue("@password", memberRegister.password);
+                command.Parameters.AddWithValue("@dob", memberRegister.DOB);
+                command.Parameters.AddWithValue("@contactnumber", memberRegister.ContactNumber);
+                command.Parameters.AddWithValue("@email", memberRegister.Email);
+                command.Parameters.AddWithValue("@age", memberRegister.Age);
+                command.Parameters.AddWithValue("@gender", memberRegister.Gender);
+                command.Parameters.AddWithValue("@height", memberRegister.Height);
+                command.Parameters.AddWithValue("@weight", memberRegister.Weight);
+                command.Parameters.AddWithValue("@creationDate", memberRegister.CreationDate);
+                command.Parameters.AddWithValue("@memberstatus", memberRegister.MemberStatus);
                 command.ExecuteNonQuery();
             }
         }
 
-
-        //public void DeleteMember(string memberId)
-        //{
-        //    using (var connection = new SqliteConnection(_connectionString))
-        //    {
-        //        connection.Open();
-        //        var command = connection.CreateCommand();
-        //        command.CommandText = "DELETE FROM MembersDetails WHERE Id == @id";
-        //        command.Parameters.AddWithValue("@id", memberId);
-        //        command.ExecuteNonQuery();
-        //    }
-        //}
-
-
-        public void UpdateMember(string memberId, MemberRegisterRequestDTO memberRegisterRequestDTO)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                var command = connection.CreateCommand();
-                command.CommandText = "UPDATE MembersDetails SET FirstName = @firstname ,Nic=@Nic, LastName = @lastname , DOB = @dob , ContactNumber = @contactnumber , Email = @email , Age = @age , Gender = @gender , Height = @height , Weight = @weight,Address = @Address  WHERE Id == @id ";
-                command.Parameters.AddWithValue("@firstname", memberRegisterRequestDTO.fname);
-                command.Parameters.AddWithValue("@lastname", memberRegisterRequestDTO.lname);
-                command.Parameters.AddWithValue("@dob", memberRegisterRequestDTO.dob);
-                command.Parameters.AddWithValue("@contactnumber", memberRegisterRequestDTO.contactNo);
-                command.Parameters.AddWithValue("@email", memberRegisterRequestDTO.email);
-                command.Parameters.AddWithValue("@age", memberRegisterRequestDTO.age);
-                command.Parameters.AddWithValue("@gender", memberRegisterRequestDTO.gender);
-                command.Parameters.AddWithValue("@height", memberRegisterRequestDTO.height);
-                command.Parameters.AddWithValue("@weight", memberRegisterRequestDTO.weight);
-                command.Parameters.AddWithValue("@Address", memberRegisterRequestDTO.address);
-                command.Parameters.AddWithValue("@Nic", memberRegisterRequestDTO.nicNumber);
-                command.Parameters.AddWithValue("@id", memberId);
-                command.ExecuteNonQuery();
-            }
-        }
 
         public void DeleteMember(string memberId)
         {
-            using (var connection = new SqliteConnection(_connectionString))
+            using(var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "UPDATE MembersDetails SET MemberStatus =false   WHERE Id == @id ";
-                command.Parameters.AddWithValue("@id", memberId);
+                command.CommandText = "DELETE FROM MembersDetails WHERE Id == @id";
+                command.Parameters.AddWithValue("@id" , memberId);
                 command.ExecuteNonQuery();
             }
         }
 
-    }
+
+        public void UpdateMember(string memberId , MemberUpdateRequestDTO memberUpdate)
+        {
+            using(var connection = new SqliteConnection(_connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE MembersDetails SET FirstName = @firstname , LastName = @lastname , DOB = @dob , ContactNumber = @contactnumber , Email = @email , Age = @age , Gender = @gender , Height = @height , Weight = @weight  WHERE Id == @id ";
+                command.Parameters.AddWithValue("@firstname", memberUpdate.FirstName);
+                command.Parameters.AddWithValue("@lastname", memberUpdate.LastName);
+                command.Parameters.AddWithValue("@dob", memberUpdate.DOB );
+                command.Parameters.AddWithValue("@contactnumber", memberUpdate.ContactNumber);
+                command.Parameters.AddWithValue("@email", memberUpdate.Email);
+                command.Parameters.AddWithValue("@age", memberUpdate.Age);
+                command.Parameters.AddWithValue("@gender", memberUpdate.Gender);
+                command.Parameters.AddWithValue("@height", memberUpdate.Height);
+                command.Parameters.AddWithValue("@weight", memberUpdate.Weight);
+                command.Parameters.AddWithValue("@id", memberId);
+                command.ExecuteNonQuery();
+            }
+        } 
+
+    }  
 }

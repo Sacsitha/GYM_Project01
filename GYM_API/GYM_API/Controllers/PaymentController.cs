@@ -1,8 +1,5 @@
-﻿using GYM_API.Entities;
-using GYM_API.IRepository;
-using GYM_API.Modals.RequestModal;
+﻿using GYM_API.IRepository;
 using GYM_API.Modals.ResponseModal;
-using GYM_API.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,50 +13,23 @@ namespace GYM_API.Controllers
 
         public PaymentController(IPaymentRepository _paymentRepository)
         {
-            this._paymentRepository = _paymentRepository;
+           this._paymentRepository = _paymentRepository;
         }
 
-        [HttpGet("Get-All-Payments")]
+        [HttpGet("Get-All-FullPayments")]
 
         public IActionResult GetAllFullPayments()
         {
-            var fullPaymentsList = _paymentRepository.GetAllPayments();
+            var fullPaymentsList = _paymentRepository.GetAllFullPayments();
             return Ok(fullPaymentsList);
         }
-        [HttpGet("Get-All-Payments-Id/{id}")]
 
-        public IActionResult GetAllPaymentsById(string id)
+        [HttpPost("Add-FullPayment")]
+
+        public IActionResult AddFullPayment(PaymentResponseDTO paymentResponseDTO)
         {
-            var fullPaymentsList = _paymentRepository.GetAllPaymentsById(id);
-            return Ok(fullPaymentsList);
-        }
-        //[HttpGet("Get-All-Payments-By-MemberId/{id}")]
-
-        //public IActionResult GetAllPaymentsByMemberId(string id)
-        //{
-        //    try
-        //    {
-        //        var fullPaymentsList = _paymentRepository.GetPaymentsByMemberId(id);
-        //        return Ok(fullPaymentsList);
-        //    }catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
-
-        [HttpPost("Add-Payment")]
-
-        public IActionResult AddFullPayment(PaymentResponseDTO payment)
-        {
-            try
-            {
-                _paymentRepository.AddFullPayment(payment);
-                return Ok(payment);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var fullPaymentDetail = _paymentRepository.AddFullPayment(paymentResponseDTO);
+            return Ok(fullPaymentDetail);
         }
     }
 }
