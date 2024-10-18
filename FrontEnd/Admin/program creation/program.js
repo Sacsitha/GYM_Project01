@@ -1,22 +1,6 @@
-// class ProgramPaymentDetails{
-//     initalFee;
-//     monthlyFee;
-//     annualFee;
-//     feestatus
-//     Programid;
-//     constructor(monthlyFee,annualFee,initialFee,programid){
-//         this.monthlyFee=monthlyFee;
-//         this.annualFee=annualFee;
-//         this.initalFee=initialFee;
-//         this.feestatus=true;
-//         const date = new Date();
-//         this.createdDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-//         this.Programid=programid;
-//     }
-// }
+
 
 class Program{
-    id;
     title;
     description;
     programStatus;

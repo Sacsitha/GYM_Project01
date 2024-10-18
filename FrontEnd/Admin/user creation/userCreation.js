@@ -6,8 +6,8 @@ const paymentApiUrl = "http://localhost:3000/payments";
 const programapiUrl = "http://localhost:3000/workoutPrograms";
 
 
-const UserList = JSON.parse(localStorage.getItem('memberID')) ||[];
-console.log(UserList)
+// const UserList = JSON.parse(localStorage.getItem('memberID')) ||[];
+// console.log(UserList)
 //-------------------HTML Elements and their values-------------------------
 //table
 const tableBody = document.querySelector('#data-table tbody');
@@ -70,65 +70,17 @@ function openModalWindow(modalName) {
 //Search
 async function search() {
     let Search = searchInput.value;
-    const res=await fetch(apiUrl+`/${Search}`);
-    const member=await res.json();
-    tableBodyCreation(member);
+    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${Search}`);
+    const member = await res.json();
+    const memberList=[]
+    memberList.push(member)
+    tableBodyCreation(memberList);
 }
-
-//-------Functions about training programs------------
-
-//Selecting members trainig program
-
-// function selectTrainingProgram() {
-//Creating a modal to select programs
-//     let programs = `<img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(modal1)>
-//     <form>`;
-//     TrainingProgram.forEach(element => {
-//         //Displaying each program in the collection
-//         let selectProgram = `<div class="selectProgram df" id="${element.id}" >
-//                     <input type="checkbox" value="${element.id}">
-//                     <h4>${element.title}</h4>
-//                     <p>Monthly payment :${element.monthlyFee}</p>
-//                     <p>Initial payment :${element.initalFee}</p>          
-//                     <p>Annual payment :${element.annualFee}</p> 
-//                     </div>`
-//         programs += selectProgram;
-//     });
-//     programs += `<button type="submit" class="btn">Add</button></form>`;
-//     document.getElementById("program").innerHTML = programs;
-
-// }
-
-//Function to get the selected programs and enter them to user profile
-// modal.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const TProgram = [];
-//Checking the selected programs
-// document.querySelectorAll('[type="checkbox"]').forEach(item => {
-//     if (item.checked === true) {
-//         TProgram.push(item.value);
-//     }
-// })
-//Calculating the payments for the selected programs
-//     TProgram.forEach(element => {
-//         TrainingProgram.forEach(e => {
-//             if (element == e.id) {
-//                 UserSelectedProgram.push(e);
-//                 Mpayment += Number(e.monthlyFee);
-//                 Apayment += Number(e.annualFee);
-//                 Ipayment += Number(e.initalFee);
-//             }
-//         })
-//     })
-//     paymentAmount.innerHTML = `Total Monthly Payment=${Mpayment} <br>Total Annual Payment=${Apayment} <br>Total initial Payment=${Ipayment}`
-//     modal.style.display = "none";
-// });
-
 
 async function editRow(id) {
     // Find the member with the specified id
-    const res=await fetch(apiUrl+`/${id}`);
-    const member=await res.json();
+    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
+    const member = await res.json();
     // showing the alredy existing data to the user   
     nicNo.value = member.nicNumber
     age.value = member.age
@@ -144,6 +96,9 @@ async function editRow(id) {
     modalTitle.innerHTML = `Edit member ${member.id}`
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
+    console.log(nicNo.value)
+    console.log(member.nic)
+
     //Saving the changes 
     modalSubmit.onclick = async function () {
         member.nicNumber = nicNo.value;
@@ -157,7 +112,7 @@ async function editRow(id) {
         member.fname = fname.value
         member.lname = lname.value;
         member.gender = checkGender.value;
-        await fetch(apiUrl+`/${member.id}`, {
+        await fetch(`http://localhost:5237/api/Member/Update-Member/${member.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -176,18 +131,23 @@ function deleteUserbtn(id) {
     User.innerHTML = id;
     modalDeleteUser.style.display = "block";
     Delete.onclick = async function () {
-        await fetch(`${apiUrl}/${id}`, {
+        await fetch(`http://localhost:5237/api/Member/Delete-Member/${id}`, {
             method: "DELETE"
-            });
-            tables();
+        });
+        tables();
         closeModalWindow(modalDeleteUser);
     }
 }
 //ViewUser
 async function viewUser(id) {
     UserDetails.innerHTML = "";
-    const res=await fetch(apiUrl+`/${id}`);
-    const member=await res.json();
+    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
+    const member = await res.json();
+    let dateString = member.dob;
+    const date = new Date(dateString);
+    // Format the date as YYYY-MM-DD
+    const formattedDate = date.toISOString().split('T')[0];
+
     let SingleUserDetail = `                
                 <h2 class="modalTitle">User Details</h2>
                 <p><span>Id</span> : ${member.userId}</p>
@@ -195,7 +155,7 @@ async function viewUser(id) {
                 <p><span>NIC</span> : ${member.nicNumber} </p>
                 <p><span>Age</span> : ${member.age} </p>
                 <p><span>Gender</span> : ${member.gender}</p>
-                <p><span>Date of Birth</span> : ${member.dob}</p>
+                <p><span>Date of Birth</span> : ${formattedDate}</p>
                 <p><span>Height</span> : ${member.height} </p>
                 <p><span>Weight</span> : ${member.weight} </p>
                 <p><span>Email</span> : ${member.email}</p>
@@ -209,62 +169,61 @@ async function viewUser(id) {
 }
 // Enrollment
 async function enrollments(id) {
-    try{
-        const res=await fetch(enrollmentapiUrl);
-        const AllEnrollments=await res.json();
+    try {
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-Enrollments-By-MemberId/${id}`);
+        const userEnrolledProgram = await res.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
         }
-        const programRes=await fetch(programapiUrl);
-        const workoutPrograms=await programRes.json();
+        const programRes = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`);
+        const workoutPrograms = await programRes.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
         }
-    EnrolledPrograms.innerHTML = '';
-    AllProgram.innerHTML = ''
-    let EnrolledProgramdetails = [];
-    const userEnrolledProgram = AllEnrollments.filter(item => item.memberId == id);
-    if (userEnrolledProgram != []) {
-        userEnrolledProgram.forEach(i => {
-            let workoutProgram = workoutPrograms.find(j => j.id == i.programId)
-            EnrolledProgramdetails += `
+        EnrolledPrograms.innerHTML = '';
+        AllProgram.innerHTML = ''
+        let EnrolledProgramdetails = [];
+        if (userEnrolledProgram != []) {
+            userEnrolledProgram.forEach(i => {
+                let workoutProgram = workoutPrograms.find(j => j.id == i.programId)
+                EnrolledProgramdetails += `
                 <div class="catergory">
                 <p>${workoutProgram.title}</p>
                 <button type="button" class="tablecolor btn" onclick="removeEnrollment('${id}','${i.programId}')">Remove</button>
                 </div>`
-        });
-        EnrolledPrograms.innerHTML = EnrolledProgramdetails;
-    }
-    const programEnrollDetails = [];
-    workoutPrograms.forEach(i => {
-        let count=0;
-        userEnrolledProgram.forEach(j=>{
-            if(i.id==j.programId){
-                count++;
-                return;
+            });
+            EnrolledPrograms.innerHTML = EnrolledProgramdetails;
+        }
+        const programEnrollDetails = [];
+        workoutPrograms.forEach(i => {
+            let count = 0;
+            userEnrolledProgram.forEach(j => {
+                if (i.id == j.programId) {
+                    count++;
+                    return;
+                }
+            })
+            if (count == 0) {
+                programEnrollDetails.push(i);
             }
         })
-        if(count==0){
-            programEnrollDetails.push(i);   
-        }
-    })
-    let allProgramDetails = [];
+        let allProgramDetails = [];
 
-    programEnrollDetails.forEach(i => {
-        allProgramDetails += `
+        programEnrollDetails.forEach(i => {
+            allProgramDetails += `
             <div class="catergory">
                 <p>${i.title}</p>
                 <button type="button" class="tablecolor btn" onclick="addNewEnrollment('${id}','${i.id}')">Enroll</button>
             </div>       
         `
-    })
-    AllProgram.innerHTML = allProgramDetails;
-    openModalWindow(programSelectionModal)
-}catch(e){
-    console.log(e)
-}
+        })
+        AllProgram.innerHTML = allProgramDetails;
+        openModalWindow(programSelectionModal)
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 // Add new enrollment
@@ -276,7 +235,7 @@ function addNewEnrollment(memberId, programId) {
         const subscriptiontype = document.getElementById('membershipType').value;
         const newEnrollment = new Enrollment(memberId, programId, subscriptiontype)
         newEnrollment.setNxtDueDate(newEnrollment.enrollmentDate);
-        await fetch(enrollmentapiUrl, {
+        await fetch(`http://localhost:5237/api/Enrollment/Add-Enrollment`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -284,21 +243,22 @@ function addNewEnrollment(memberId, programId) {
             body: JSON.stringify(newEnrollment)
         });
         enrollments(memberId)
-        const programRes=await fetch(programapiUrl+`/${programId}`);
-        const workoutPrograms=await programRes.json();
-        if (subscriptiontype=="monthlySubscription"){
+        const programRes = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID` + `/${programId}`);
+        const workoutPrograms = await programRes.json();
+        if (subscriptiontype == "monthlySubscription") {
             console.log(memberId);
-            const initialPayment=new Payment(Number(workoutPrograms.initalFee),`initial fees ${workoutPrograms.title}`,memberId,"initial Fee");
-            await fetch(paymentApiUrl, {
+            const initialPayment = new Payment(Number(workoutPrograms.initalFee), `initial fees ${workoutPrograms.title}`, memberId);
+            await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(initialPayment)
             });
-        }else if(subscriptiontype=="annualSubscription"){
-            const annualPayment=new Payment(Number(workoutPrograms.annualFee),`annual fees ${workoutPrograms.title}`,memberId,"Annual fee");
-            await fetch(paymentApiUrl, {
+        } else if (subscriptiontype == "annualSubscription") {
+            const annualPayment = new Payment(Number(workoutPrograms.annualFee), `annual fees ${workoutPrograms.title}`, memberId);
+            await fetch(`http://localhost:5237/api/Payment/Add-Payment
+`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -312,53 +272,44 @@ function addNewEnrollment(memberId, programId) {
 
 }
 
-async function removeEnrollment(memberId, programId){
-    try{
-        const res=await fetch(enrollmentapiUrl);
-        const AllEnrollments=await res.json();
-        if (!res.ok) {
-            console.log("Table not found");
-            return;
-        }
-
-        const deleteEnrollment=AllEnrollments.find(i=>i.memberId==memberId &&i.programId==programId)
-    await fetch(`${enrollmentapiUrl}/${deleteEnrollment.id}`, {
-        method: "DELETE"
+async function removeEnrollment(memberId, programId) {
+    try {
+        await fetch(`http://localhost:5237/api/Enrollment/Delete-Enrollment/${memberId},${programId}`, {
+            method: "DELETE"
         });
         enrollments(memberId);
 
-    }catch(e){
+    } catch (e) {
         console.log(e)
     }
 }
 
-async function tables(){
-    try{
-        const res=await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
-        const gymMember=await res.json();
-      
+async function tables() {
+    try {
+        const res = await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
+        const gymMember = await res.json();
+
         if (!res.ok) {
             console.log("Table not found");
             return;
         }
-        const member=Array.isArray(gymMember)?gymMember:[gymMember];
+        const member = Array.isArray(gymMember) ? gymMember : [gymMember];
         tableBodyCreation(member);
-        console.log(gymMember);
-    }catch(error){
+    } catch (error) {
         console.log(error)
-    }  
+    }
 }
 tables();
 //-----functions to create the table of user details
 function tableBodyCreation(member) {
 
-        let tableData = "";
-        tableBody.innerHTML = "";
-        member.forEach(item => {
-           
-            //Get every user and creating their rows
-            tableData += `<tr>
-                                <td class="t-op-nextlvl">${item.id}</td>
+    let tableData = "";
+    tableBody.innerHTML = "";
+    member.forEach(item => {
+
+        //Get every user and creating their rows
+        tableData += `<tr>
+                                <td class="t-op-nextlvl">${item.userId}</td>
                                 <td class="t-op-nextlvl">${item.fname} ${item.lname} </td>
                                 <td class="t-op-nextlvl">${item.nicNumber}</td>
                                 <td class="t-op-nextlvl">
@@ -368,8 +319,8 @@ function tableBodyCreation(member) {
                                     <button type="button" class="tablecolor btn"onclick="enrollments('${item.id}')">Enrollments</button>
                                 </td>
                             </tr>`;
-        });
-        tableBody.innerHTML = tableData;
+    });
+    tableBody.innerHTML = tableData;
 
 }
 
@@ -381,19 +332,16 @@ addMember.addEventListener("submit", async function (event) {
     //create user
     const newUser = new Users();
     newUser.userRole = "member";
-    // newUser.createID(UserList);
-    newUser.id=1;
-    // localStorage.setItem('memberID',JSON.stringify(newUser.id));
     let password = newUser.createPassword();
     alert(password);
     newUser.encryptPassword(password);
-    // await fetch(`http://localhost:5237/api/User/Add-User`, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(newUser)
-    // });
+    await fetch(`http://localhost:5237/api/User/Add-User`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUser)
+    });
     //create member
     //get the gender***
     let gender;
@@ -405,7 +353,7 @@ addMember.addEventListener("submit", async function (event) {
         gender = "other"
     }
     //Creating an object to each user and inserting their details
-    const newMember = new Member(address.value, contactNo.value,Number( height.value), Number(weight.value), email.value, dob.value, gender, fname.value, lname.value,newUser.id);
+    const newMember = new Member(address.value, contactNo.value, Number(height.value), Number(weight.value), email.value, dob.value, gender, fname.value, lname.value, newUser.Id);
     newMember.setAge(age.value);
     // newMember.userId = newUser.id;
     if (!(nicNo.value == "")) {

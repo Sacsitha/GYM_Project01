@@ -1,9 +1,13 @@
 // ----------User----------
 class Users {
-    id;
+    Id
     userRole;
     password;
-
+    constructor(){
+        const date = new Date();
+        const timestamp = date.valueOf();
+        this.Id="U"+timestamp;
+    }
     //Create a uniques password
     createPassword() {
         let password = `${(parseInt(Math.random() * 1000000))}`

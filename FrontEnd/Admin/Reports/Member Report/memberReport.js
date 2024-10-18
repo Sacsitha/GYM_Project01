@@ -1,10 +1,4 @@
-const apiUrl = "http://localhost:3000/members";
-const enrollmentapiUrl = "http://localhost:3000/enrollments";
-const userApiUrl = "http://localhost:3000/users";
-const programapiUrl = "http://localhost:3000/workoutPrograms";
 
-let gymMember = JSON.parse(localStorage.getItem('gymMember')) || [];
-const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
 const PaymentModal = document.getElementById('PaymentModal');
 const modalVeiwPaymentHistory = document.getElementById("modalVeiwPaymentHistory");
 const paymentTableBody = document.querySelector('#payment-data-table tbody');
@@ -14,8 +8,8 @@ const programContent = document.getElementById("programContent");
 
 async function EnrolledPrograms(id) {
     try {
-        const res = await fetch(enrollmentapiUrl);
-        const Enrollments = await res.json();
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-Enrollments-By-MemberId/${id}`);
+        const userEnrollments = await res.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
@@ -23,44 +17,25 @@ async function EnrolledPrograms(id) {
         let list = "";
         programContent.innerHTML = "";
 
-        let userEnrollments = Enrollments.filter(i => i.memberId == id)
-        console.log(id);
-        console.log(userEnrollments);
-
-        userEnrollments.forEach( async i => {
+        userEnrollments.forEach(async i => {
             console.log(i.programId)
-            const res = await fetch(programapiUrl + `/${i.programId}`);
+            const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
             const program = await res.json();
             console.log(program);
-            const line=document.createElement("div");
-            line.className="catergory"
-            line.innerHTML=`<p>${program.title}</p><p>${i.subscriptiontype}</p>`;
-            // list += `<li>${program.title}</li>`
-            // console.log(list)
+            const line = document.createElement("div");
+            line.className = "catergory"
+            line.innerHTML = `<p>${program.title}</p><p>${i.subscriptiontype}</p>`;
             programContent.appendChild(line)
         });
-        // let userDetails = gymMember.find(element => element.id == id);
-        // let programList = userDetails.trainingProgram;
-        // programList.forEach(item => {
-
-        // })
-        // programContent.innerHTML = list;
-        // console.log(programContent)
         modalVeiwProgram.style.display = 'block';
     } catch (e) {
         console.log(e);
     }
 }
 
-
-
-
-
-
-
 async function tableBodyCreation() {
     try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
         const gymMember = await res.json();
         if (!res.ok) {
             console.log("Table not found");
@@ -89,27 +64,40 @@ async function tableBodyCreation() {
     }
 }
 
-tableBodyCreation(gymMember);
+tableBodyCreation();
 
-function PaymentHistory(id) {
-    let tableRows = "";
-    paymentTableBody.innerHTML = "";
-    memberId.innerHTML = id;
-    let userPaymentHistory = paymentHistory.find(element => element[0] == id)
-    userPaymentHistory[1].forEach(element => {
-        tableRows += `
+async function PaymentHistory(id) {
+    try {
+        const res = await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${id}`);
+        const userPaymentHistory = await res.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+
+        let tableRows = "";
+        paymentTableBody.innerHTML = "";
+        memberId.innerHTML = id;
+        userPaymentHistory.forEach(element => {
+            let dateString = element.paymentDate;
+            const date = new Date(dateString);
+            const formattedDate = date.toISOString().split('T')[0];
+
+            tableRows += `
         <tr>
-                <td>${element.date}</td>
+                <td>${formattedDate}</td>
                 <td>${element.details}</td>
                 <td>${element.amount}</td>
         </tr>`
-    });
-    paymentTableBody.innerHTML = tableRows;
-    modalVeiwPaymentHistory.style.display = 'block'
-}
+        });
+        paymentTableBody.innerHTML = tableRows;
+        modalVeiwPaymentHistory.style.display = 'block'
+    } catch (e) {
+        console.log(e);
 
+    }
+}
 
 function closeModals(modalName) {
     modalName.style.display = 'none'
-    // location.reload();
 }

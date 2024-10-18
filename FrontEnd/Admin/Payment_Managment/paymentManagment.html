@@ -15,18 +15,14 @@
             <input type="text" id="searchInput" placeholder="Search...">
             <button id="searchButton" onclick="search()">Search</button>
         </div>
-        <button type="button" class="red btn" onclick="filterTable('all')">All</button>
-        <button type="button" class="red btn" onclick="filterTable('monthlyMembership')">Monthly Membership Members</button>
-        <button type="button" class="red btn" onclick="filterTable('annualmembership')">Annual Membership Members</button>
-        <button type="button" class="red btn" onclick="filterTable('overdue')">OverDue Members</button>
         <table id="data-table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>User Name</th>
-                    <th>Membership Type</th>
+                    <th>Nic Number</th>
+                    <th>Contact no.</th>
                     <th>Due Date</th>
-                    <th>Last Paid Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -63,11 +59,23 @@
             <div id="PaymentDetails">
                 <p id="message" style="color:black;font-size: 1.5em ;"></p>
                 <p id="paymentAmount"></p>
-                <div class="df">
-                    <button type="button"  id="payingProcess">Yes</button>
-                    <button type="button" class="red " onclick="closeModals(PaymentModal)">No</button>
+                <div class="catergory">
+                    <button type="button" class="tablecolor btn" id="payingProcess">Yes</button>
+                    <button type="button" class="tablecolor btn" onclick="closeModals(PaymentModal)">No</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="modal" id="modalVeiwProgram">
+        <div class="modal-content">
+        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwProgram)>
+            <h1>Enrolled Programs</h1>
+            <div id="programContent">
+                <ul >
+    
+                </ul>
+            </div>
+            <button type="button" class="tablecolor btn" style="margin-left: 46%;" onclick=closeModals(modalVeiwProgram)>Okay</button>
         </div>
     </div>
 <script src="paymentManagment.js"></script>

@@ -25,7 +25,7 @@ const searchInput = document.getElementById("searchInput");
 //form
 async function tables() {
     try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`);
         const gymTrainingProgram = await res.json();
         if (!res.ok) {
             console.log("Table not found");
@@ -64,10 +64,13 @@ addProgram.onclick = function () {
     addProgramModal.style.display = 'block';
 };
 
-function search() {
+async function search() {
     let Search = searchInput.value;
-    let displayData = gymTrainingProgram.filter(item => item.id == Search);
-    tableBodyCreation(displayData);
+    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${Search}`);
+    const workoutProgram=await res.json();
+    const ProgramList=[];
+    ProgramList.push(workoutProgram)
+    tableBodyCreation(ProgramList);
 }
 
 // Handle add program form submission
@@ -80,11 +83,7 @@ document.getElementById("trainingProgramCreation").addEventListener("submit", as
     const annualFee = document.getElementById("annualFee").value;
 
     const newTrainingProgram = new Program(programTitle, programDescription, monthlyFee, annualFee, initialFee);
-
-    newTrainingProgram.createID(programId);
-    localStorage.setItem('programId', JSON.stringify(newTrainingProgram.id));
-    console.log(newTrainingProgram)
-    await fetch(apiUrl, {
+    await fetch(`http://localhost:5237/api/WorkOutProgram/Add-WorkOut-Programs`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -101,7 +100,7 @@ document.getElementById("trainingProgramCreation").addEventListener("submit", as
 // Function to handle editing a program
 async function programEditModal(id) {
     modalTitle.innerHTML = `Edit Workout ${id}`;
-    const res=await fetch(apiUrl+`/${id}`);
+    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${id}`);
     const workoutProgram=await res.json();
     populateForm(workoutProgram);
     modalSubmit.type="button"
@@ -112,7 +111,7 @@ async function programEditModal(id) {
         workoutProgram.monthlyFee = monthlyFee.value;
         workoutProgram.annualFee = annualFee.value;
         workoutProgram.initalFee = initialFee.value;
-        await fetch(apiUrl + `/${id}`, {
+        await fetch(`http://localhost:5237/api/WorkOutProgram/Update-WorkOut-Program/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -138,7 +137,7 @@ function populateForm(data) {
 
 async function viewProgramModal(id) {
     ProgramDetails.innerHTML = "";
-    const res=await fetch(apiUrl+`/${id}`);
+    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${id}`);
     const workoutProgram=await res.json();
     console.log(workoutProgram)
     let Detail = `
@@ -157,7 +156,7 @@ function DeleteProgram(id) {
     program.innerHTML = id;
     modalDeleteProgram.style.display = "block";
     Delete.onclick = async function () {
-        await fetch(`${apiUrl}/${id}`, {
+        await fetch(`http://localhost:5237/api/WorkOutProgram/Delete-Program/${id}`, {
             method: "DELETE"
             });
         tables();

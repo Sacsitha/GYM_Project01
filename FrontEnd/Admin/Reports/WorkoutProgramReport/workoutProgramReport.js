@@ -9,13 +9,13 @@ const ProgramData = [];
 let programClarification = [];
 async function ProgramEnrollment() {
     try {
-        const res = await fetch(apiUrl);
+        const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`);
         const programs = await res.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
         }
-        const resEnroll = await fetch(enrollmentapiUrl);
+        const resEnroll = await fetch(`http://localhost:5237/api/Enrollment/Get-All-Enrollments`);
         const Enrolls = await resEnroll.json();
         if (!resEnroll.ok) {
             console.log("Table not found");

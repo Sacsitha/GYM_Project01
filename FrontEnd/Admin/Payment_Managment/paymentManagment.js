@@ -16,30 +16,15 @@ const message = document.getElementById('message');
 const paymentAmount = document.getElementById('paymentAmount');
 const payingProcess = document.getElementById('payingProcess');
 const searchInput=document.getElementById("searchInput");
+const modalVeiwProgram = document.getElementById("modalVeiwProgram");
 
-//function to combine data
-const EntireData = [];
-function SelectData() {
-    gymMember.forEach(item => {
-        let userPaymentHistory = paymentHistory.find(element => element[0] == item.id)
-        let userObj = {
-            id: item.id,
-            memberDetails: item,
-            memberPaymentHistory: userPaymentHistory[1]
-        }
-        EntireData.push(userObj)
-    })
-}
-SelectData();
+
+
 
 async function data(){
     try{
-        const res=await fetch(apiUrl);
+        const res=await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
         const gymMember=await res.json();
-        const enrollRes=await fetch(enrollmentapiUrl);
-        const Enrollments=await enrollRes.json();
-        const payRes=await fetch(`paymentApiUrl/${gymMember.id}`);
-        const Payments=await payRes.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
@@ -49,65 +34,74 @@ async function data(){
         console.log(error)
     }  
 }
+data();
 //function to add data to table
-function tableBodyCreation(EntireData) {
+async function tableBodyCreation(EntireData) {
     let tableData = "";
     tableBody.innerHTML = "";
-    console.log(EntireData)
-    EntireData.forEach(item => {
-        // let nxtDueDate = [];
-        // if (item.memberDetails.membershipType == "monthlyMembership") {
-        //     nxtDueDate = item.memberDetails.nxtDueDate;
-        // } else {
-        //     nxtDueDate = item.memberDetails.RenewalDate;
-        // }
-        // let lastPaidDate = item.memberPaymentHistory[item.memberPaymentHistory.length - 1].date;
-        tableData += `<tr>
+    EntireData.forEach(async item => {
+        const res=await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${item.id}`);
+        const paymentHistory=await res.json();
+        const lastpayment=paymentHistory[paymentHistory.length-1].paymentDate;
+            const date = new Date(lastpayment);
+            const formattedDate = date.toISOString().split('T')[0];
+        let tableRow=document.createElement("tr");
+        tableRow.innerHTML= `
                             <td>${item.userId}</td>
-                            <td>${item.memberDetails.fname} ${item.memberDetails.lname}</td>
-                            <td>${item.memberDetails.nicNumber}</td>
+                            <td>${item.fname} ${item.lname}</td>
+                            <td>${item.nicNumber}</td>
+                            <td>${item.contactNo}</td>
+                            <td>${formattedDate}</td>
                             <td>
-                                <button type="button" class="tablecolor btn"onclick="viewMemberPaymentHistory('${item.id}','${item.userId}')">View Payment History</button>
-                                <button type="button" class="tablecolor btn" onclick="pay('${item.id}')">Pay</button>
+                                <button type="button" class="tablecolor btn"onclick="viewMemberPaymentHistory('${item.id}')">View Payment History</button>
+                                <button type="button" class="tablecolor btn" onclick="EnrolledPrograms('${item.id}')">Pay</button>
                             </td>
-                        </tr>`;
+                        `;
+        tableBody.appendChild(tableRow)
     });
-    tableBody.innerHTML = tableData;
 }
 tableBodyCreation(EntireData);
 //Search function
-function search(){
+async function search(){
     let Search=searchInput.value;
-    let displayData = EntireData.filter(item => item.id == Search);
-    tableBodyCreation(displayData);
+    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${Search}`);
+    const member = await res.json();
+    const memberList=[]
+    memberList.push(member)
+    tableBodyCreation(memberList);
+}
+async function EnrolledPrograms(id) {
+    try {
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-Enrollments-By-MemberId/${id}`);
+        const userEnrollments = await res.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        let list = "";
+        programContent.innerHTML = "";
+
+        userEnrollments.forEach(async i => {
+            const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
+            const program = await res.json();
+            const line = document.createElement("div");
+            line.className = "catergory"
+            line.innerHTML = `<p>${program.title}</p>
+            <p>${i.subscriptiontype}</p>
+            <button type="button" class="tablecolor btn" onclick="pay('${id}','${i.programId}')">Pay</button>`;
+            programContent.appendChild(line)
+        });
+        modalVeiwProgram.style.display = 'block';
+    } catch (e) {
+        console.log(e);
+    }
 }
 
-//Filter Options
-function filterTable(filterby) {
-    if (filterby == "all") {
-        tableBodyCreation(EntireData);
-    } else if (filterby == "overdue") {
-        const todayDate = new Date();
-        const today=`${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`
-        let displayData = [];
-        EntireData.forEach(item => {
-            if (today < item.memberDetails.nxtDueDate) {
-                console.log(item.memberDetails.nxtDueDate)
-                displayData.push(item);
-            }
-        });
-        tableBodyCreation(displayData);
-    }
-    else {
-        let displayData = EntireData.filter(item => item.memberDetails.membershipType == filterby);
-        tableBodyCreation(displayData)
-    }
-}
 
 async function viewMemberPaymentHistory(id) {
     try{
-        const res=await fetch(paymentApiUrl);
-        const AllPaymentHistory=await res.json();
+        const res=await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${id}`);
+        const userPaymentHistory=await res.json();
         if (!res.ok) {
             console.log("Table not found");
             return;
@@ -116,11 +110,13 @@ async function viewMemberPaymentHistory(id) {
     let tableRows = "";
     paymentTableBody.innerHTML = "";
     memberId.innerHTML = id;
-    let userPaymentHistory = AllPaymentHistory.filter(element => element.memberId == id)
+    // let userPaymentHistory = AllPaymentHistory.filter(element => element.memberId == id)
     userPaymentHistory.forEach(element => {
+        const date = new Date(element.paymentDate);
+        const formattedDate = date.toISOString().split('T')[0];
         tableRows += `
         <tr>
-                <td>${element.date}</td>
+                <td>${formattedDate}</td>
                 <td>${element.details}</td>
                 <td>${element.amount}</td>
         </tr>`
@@ -136,40 +132,76 @@ function UserPayment(id) {
     PaymentModal.style.display = "block";
 }
 
-function pay(id) {
-    let UserDetails = EntireData.find(element => element.id == id);
-    let personalInfo = UserDetails.memberDetails;
-    message.innerHTML = `Do you want to pay user ${id} payment`
-    paymentAmount.innerHTML = ` Rs.${personalInfo.payment}`;
+async function pay(id,programId) {
+    try{
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-Single-Enrollments/${id},${programId}`);
+        const userEnrollments = await res.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        const Prores = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${programId}`);
+        const Program = await Prores.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        let paymentType=[];
+        if(userEnrollments.subscriptiontype=="annualSubscription"){
+            let payObj={
+                payment:Program.annualFee,
+                description:"RenwalFee"
+            }
+            paymentType=payObj;
+        }else{
+            let payObj={
+            payment:Program.monthlyFee,
+            description:"monthlySubscription"
+            }
+            paymentType=payObj;
+        }
+    message.innerHTML = `Do you want to pay for program ${Program.title} payment`
+    paymentAmount.innerHTML = ` Rs.${paymentType.payment}`;
     PaymentModal.style.display = 'block';
-    payingProcess.onclick = function () {
+    modalVeiwProgram.style.display='none'
+    payingProcess.onclick = async function () {
         const date = new Date();
         let paymentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         let details = [];
         let ChangedDate = [];
-        if (personalInfo.membershipType == "monthlyMembership") {
-            details = "Monthly Fee";
-            ChangedDate = setNxtDueDateMonth(personalInfo.nxtDueDate);
-            personalInfo.nxtDueDate = ChangedDate;
-
-
-        } else {
+        if (userEnrollments.subscriptiontype=="annualSubscription") {
             details = "Renewal Fee";
-            ChangedDate = setRenewalDate(personalInfo.RenewalDate);
-            personalInfo.RenewalDate = ChangedDate;
-
+            ChangedDate = setRenewalDate(userEnrollments.nxtDueDate);
+            userEnrollments.nxtDueDate= ChangedDate;
+        } else {
+            details = "Monthly Fee";
+            ChangedDate = setNxtDueDateMonth(userEnrollments.nxtDueDate);
+            userEnrollments.nxtDueDate = ChangedDate;
         }
-        const UserPayment = new Payment(personalInfo.payment, details, paymentDate);
-        const memberPayment = paymentHistory.find(item => item[0] === personalInfo.id);
-        console.log(ChangedDate)
-        memberPayment[1].push(UserPayment);
-        localStorage.setItem('paymentHistory', JSON.stringify(paymentHistory));
-        const member = gymMember.find(item => item.id === personalInfo.id);
-        member.nxtDueDate = ChangedDate;
-        localStorage.setItem('gymMember', JSON.stringify(gymMember));
+        const UserPayment = new Payment(paymentType.payment, paymentType.description, id);
+        await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(UserPayment)
+        });
+        await fetch(`http://localhost:5237/api/Enrollment/Update-NextOverDue/${id},${programId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEnrollments)
+        });
+
         closeModals(PaymentModal);
         location.reload();
 
+    }
+
+    }catch(e){
+        console.log(e);
+        
     }
 };
 
@@ -188,5 +220,4 @@ function setRenewalDate(date) {
 
 function closeModals(modalName) {
     modalName.style.display = 'none'
-    // location.reload();
 }

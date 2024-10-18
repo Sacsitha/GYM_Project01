@@ -1,6 +1,4 @@
-const userDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
-const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
-const gymMember = JSON.parse(localStorage.getItem('gymMember')) || [];
+const UserId = JSON.parse(localStorage.getItem('UserId')) || [];
 
 
 const tableBody = document.querySelector('#data-table tbody');
@@ -8,66 +6,169 @@ const userMessage=document.getElementById("userMessage");
 const paymentbtn=document.getElementById("paymentbtn");
 const PaymentModal=document.getElementById("PaymentModal");
 const paymentAmount=document.getElementById("paymentAmount");
+const programContent=document.getElementById('programContent');
+const modalVeiwProgram=document.getElementById('modalVeiwProgram');
 
-const userPaymentHistory=userDetails.memberPaymentHistory;
-const personalInfo=userDetails.memberDetails;
+// const userPaymentHistory=userDetails.memberPaymentHistory;
+// const personalInfo=userDetails.memberDetails;
 
 
-if(personalInfo.membershipType=="monthlyMembership"){
-    userMessage.innerHTML=`Your due date is ${personalInfo.nxtDueDate}<br>
-                            Monthly Payment ${personalInfo.payment}`
-    paymentbtn.innerHTML=`<button type="button" onclick="monthlyPayment()">Pay</button>`
-}else{
-    userMessage.innerHTML=`Membership Expiry date <span>${personalInfo.RenewalDate}</span>`
+// if(personalInfo.membershipType=="monthlyMembership"){
+//     userMessage.innerHTML=`Your due date is ${personalInfo.nxtDueDate}<br>
+//                             Monthly Payment ${personalInfo.payment}`
+//     paymentbtn.innerHTML=`<button type="button" onclick="monthlyPayment()">Pay</button>`
+// }else{
+//     userMessage.innerHTML=`Membership Expiry date <span>${personalInfo.RenewalDate}</span>`
+// }
+async function data(){
+    try {
+        const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
+        const member = await res.json();
+        const payres = await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${member.id}`);
+        const Payment = await payres.json();
+
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        TableCreation(Payment);
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-function TableCreation(){
+data();
+function TableCreation(Payment){
     let tableRows="";
     tableBody.innerHTML="";
-    userPaymentHistory.forEach(element => {
+    Payment.forEach(element => {
         tableRows +=`
         <tr>
-                <td>${element.date}</td>
+                <td>${element.paymentDate}</td>
                 <td>${element.details}</td>
                 <td>${element.amount}</td>
         </tr>` 
     });
     tableBody.innerHTML=tableRows;
 }
-TableCreation();
+// TableCreation();
 
-function monthlyPayment(){
-    paymentAmount.innerHTML=personalInfo.payment;
-    PaymentModal.style.display="block";
-}
-console.log(personalInfo.payment);
-function pay(){
-    const date = new Date();
-    let paymentDate=`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-    const UserPayment = new Payment(personalInfo.payment, "Monthly Fee", paymentDate);
-    const memberPayment = paymentHistory.find(item => item[0] === personalInfo.id);
-    let NewDueDate=setNxtDueDateMonth(personalInfo.nxtDueDate);
-    console.log(NewDueDate)
-    personalInfo.nxtDueDate=NewDueDate;
-    memberPayment[1].push(UserPayment);
-    userPaymentHistory.push(UserPayment);
-    localStorage.setItem('userDetails', JSON.stringify(userDetails));
-    localStorage.setItem('paymentHistory', JSON.stringify(paymentHistory));
-    const member = gymMember.find(item => item.id === personalInfo.id);
-    member.nxtDueDate=NewDueDate;
-    localStorage.setItem('gymMember', JSON.stringify(gymMember));
-    closePaymentModal();
-    location.reload();
-};
 
-function setNxtDueDateMonth(day){
-    const Mdate=new Date(day);
-    if(Mdate.getMonth()+1<12){
-        return `${Mdate.getFullYear()}-${Mdate.getMonth() + 2}-${Mdate.getDate()}`;
-    }else{
-        return `${Mdate.getFullYear()+1}-${Mdate.getMonth()-10}-${Mdate.getDate()}`;
+
+async function EnrolledPrograms() {
+    try {
+        const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
+        const member = await res.json();
+        const enres = await fetch(`http://localhost:5237/api/Enrollment/Get-Enrollments-By-MemberId/${member.id}`);
+        const userEnrollments = await enres.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        let list = "";
+        programContent.innerHTML = "";
+
+        userEnrollments.forEach(async i => {
+            const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
+            const program = await res.json();
+            const line = document.createElement("div");
+            line.className = "catergory"
+            line.innerHTML = `<p>${program.title}</p>
+            <p>${i.subscriptiontype}</p>
+            <button type="button" class="tablecolor btn" onclick="pay('${member.id}','${i.programId}')">Pay</button>`;
+            programContent.appendChild(line)
+        });
+        // console
+        modalVeiwProgram.style.display = 'block';
+    } catch (e) {
+        console.log(e);
     }
 }
-function closePaymentModal(){
-    PaymentModal.style.display='none'
+function closeModals(modalName) {
+    modalName.style.display = 'none'
+}
+
+async function pay(id,programId) {
+    try{
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-Single-Enrollments/${id},${programId}`);
+        const userEnrollments = await res.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        const Prores = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${programId}`);
+        const Program = await Prores.json();
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        let paymentType=[];
+        if(userEnrollments.subscriptiontype=="annualSubscription"){
+            let payObj={
+                payment:Program.annualFee,
+                description:"RenwalFee"
+            }
+            paymentType=payObj;
+        }else{
+            let payObj={
+            payment:Program.monthlyFee,
+            description:"monthlySubscription"
+            }
+            paymentType=payObj;
+        }
+    message.innerHTML = `Do you want to pay for program ${Program.title} payment`
+    paymentAmount.innerHTML = ` Rs.${paymentType.payment}`;
+    PaymentModal.style.display = 'block';
+    modalVeiwProgram.style.display='none'
+    payingProcess.onclick = async function () {
+        const date = new Date();
+        let paymentDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        let details = [];
+        let ChangedDate = [];
+        if (userEnrollments.subscriptiontype=="annualSubscription") {
+            details = "Renewal Fee";
+            ChangedDate = setRenewalDate(userEnrollments.nxtDueDate);
+            userEnrollments.nxtDueDate= ChangedDate;
+        } else {
+            details = "Monthly Fee";
+            ChangedDate = setNxtDueDateMonth(userEnrollments.nxtDueDate);
+            userEnrollments.nxtDueDate = ChangedDate;
+        }
+        const UserPayment = new Payment(paymentType.payment, paymentType.description, id);
+        await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(UserPayment)
+        });
+        await fetch(`http://localhost:5237/api/Enrollment/Update-NextOverDue/${id},${programId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEnrollments)
+        });
+
+        closeModals(PaymentModal);
+        location.reload();
+
+    }
+
+    }catch(e){
+        console.log(e);
+        
+    }
+};
+function setNxtDueDateMonth(day) {
+    const Mdate = new Date(day);
+    if (Mdate.getMonth() + 1 < 12) {
+        return `${Mdate.getFullYear()}-${Mdate.getMonth() + 2}-${Mdate.getDate()}`;
+    } else {
+        return `${Mdate.getFullYear() + 1}-${Mdate.getMonth() - 10}-${Mdate.getDate()}`;
+    }
+}
+function setRenewalDate(date) {
+    const Adate = new Date(date);
+    return `${Adate.getFullYear() + 1}-${Adate.getMonth() + 1}-${Adate.getDate()}`;
 }

@@ -19,41 +19,49 @@ function SelectData() {
     })
 }
 SelectData();
-function filterOverDueMembers() {
-        const todayDate = new Date();
-        const today=`${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`
-        let displayData = [];
-        EntireData.forEach(item => {
-            if (today < item.memberDetails.nxtDueDate) {
-                displayData.push(item);
-            }
-        });
-        tableBodyCreation(displayData);
-}
+// function filterOverDueMembers() {
+//         const todayDate = new Date();
+//         const today=`${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`
+//         let displayData = [];
+//         EntireData.forEach(item => {
+//             if (today < item.memberDetails.nxtDueDate) {
+//                 displayData.push(item);
+//             }
+//         });
+//         tableBodyCreation(displayData);
+// }
+async function data(){
+    try {
+        const res = await fetch(`http://localhost:5237/api/Enrollment/Get-All-OverDue-Enrollments`);
+        const enrollments = await res.json();
 
+        if (!res.ok) {
+            console.log("Table not found");
+            return;
+        }
+        tableBodyCreation(enrollments);
+    } catch (error) {
+        console.log(error)
+    }
+}
+data();
 //function to add data to table
-function tableBodyCreation(EntireData) {
+async function tableBodyCreation(EntireData) {
     let tableData = "";
     tableBody.innerHTML = "";
     EntireData.forEach(item => {
-        let nxtDueDate = [];
-        if (item.memberDetails.membershipType == "monthlyMembership") {
-            nxtDueDate = item.memberDetails.nxtDueDate;
-        } else {
-            nxtDueDate = item.memberDetails.RenewalDate;
-        }
-        let lastPaidDate = item.memberPaymentHistory[item.memberPaymentHistory.length - 1].date;
-        tableData += `<tr onclick="viewUser(${item.id})">
-                            <td>${item.id}</td>
-                            <td>${item.memberDetails.fname} ${item.memberDetails.lname}</td>
-                            <td>${item.memberDetails.contactNo}</td>
-                           <td>${lastPaidDate}</td>
-                            <td>${nxtDueDate}</td>
+        const date = new Date(item.nxtDueDate);
+        const formattedDate = date.toISOString().split('T')[0];
+        tableData += `<tr ">
+                            <td>${item.memberId}</td>
+                            <td>${item.programId} </td>
+                            <td>${item.subscriptiontype}</td>
+                            <td>${formattedDate}</td>
                         </tr>`;
     });
     tableBody.innerHTML = tableData;
 }
-filterOverDueMembers();
+// filterOverDueMembers();
 
 //ViewUser
 function viewUser(id) {
