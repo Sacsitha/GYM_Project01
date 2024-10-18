@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../Dashboard/style.css">
+    <link rel="stylesheet" href="../Dashboard/responsive.css"> -->
+    <link rel="stylesheet" href="../managementStyle.css">
+    <title>User Management</title>
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1 class="table-heading">Member Management</h1>
+    <div class="d-flex">
+        <button type="button" id="addMember" class="red btn" style="margin: 0.5% 3%; background-color: #69cbe4;"
+            onclick="openModalWindow(addMemberModal)">Add Member</button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by Id">
+            <button id="searchButton" onclick="search()">Search</button>
+        </div>
+    </div>
+    <!-- table section -->
+    <div class="table-container ">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Nic Number</th>
+                    <th style="text-align: center; ">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal Section -->
+    <!-- Add Member and Edit Member modal -->
+    <div class="modal" id="addMemberModal">
+        <div class="modal-content 1">
+            <div class="memberCreation">
+                <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(addMemberModal)>
+                <h2 id="modalTitle" class="modalTitle">Create new Member</h2>
+                <form action="" id="memberDetails">
+                    <div class="catergory ">
+                        <div class="inputDetails">
+                            <label for="fname">First Name :</label>
+                            <input type="text" name="fname" id="fname" required>
+                            <p id="message1"></p>
+                        </div>
+                        <div class="inputDetails">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" name="lname" id="lname" required>
+                            <p id="message2"></p>
+                        </div>
+                    </div>
+                    <div class="catergory ">
+                        <div class="inputDetails digit">
+                            <label for="age">Age :</label>
+                            <input type="number" name="age" id="age" required>
+                            <p id="message8"></p>
+                        </div>
+                        <div class="inputDetails digit">
+                            <label for="height">Height :</label>
+                            <input type="number" name="height" id="height">
+                            <p id="message10"></p>
+                        </div>
+                        <div class="inputDetails digit">
+                            <label for="weight">Weight :</label>
+                            <input type="number" name="weight" id="weight">
+                            <p id="message11"></p>
+                        </div>
+                    </div>
+                    <div class="catergory ">
+                        <div class="inputDetails">
+                            <label for="gender">Gender :</label>
+                            <div class="catergory">
+
+                                <input type="radio" name="gender" value="male" class="radio"
+                                    style="box-shadow: none;">Male</input>
+                                <input type="radio" name="gender" value="=female" class="radio"
+                                    style="box-shadow: none;">Female</input>
+                                <input type="radio" name="gender" value="=other" class="radio"
+                                    style="box-shadow: none;">Other</input>
+                                <p id="message9"></p>
+                            </div>
+                        </div>
+                        <div class="inputDetails">
+                            <label for="dob">Date of birth :</label>
+                            <input type="date" name="dob" id="dob" required>
+                            <p id="message6"></p>
+                        </div>
+                    </div>
+                    <div class="catergory ">
+                        <div class="inputDetails">
+                            <label for="nicNo">NIC number :</label>
+                            <input type="text" name="nicNo" id="nicNo">
+                            <p id="message3"></p>
+                        </div>
+                        <div class="inputDetails">
+                            <label for="contactNo">Contact Number :</label>
+                            <input type="number" name="contactNo" id="contactNo" required>
+                            <p id="message5"></p>
+                        </div>
+                    </div>
+                    <div class="catergory ">
+                        <div class="inputDetails">
+                            <label for="email">Email :</label>
+                            <input type="email" name="email" id="email" required>
+                            <p id="message7"></p>
+                        </div>
+                        <div class="inputDetails">
+                            <label for="address">Address :</label>
+                            <input type="text" name="address" id="address" required>
+                            <p id="message4"></p>
+                        </div>
+                    </div>
+                    <p id="paymentAmount"></p>
+                    <button type="submit" id="modalSubmit" class="btn">Add Member</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- Enroll Programs Modal -->
+    <div class="modal" id="programSelectionModal">
+        <div id="program" class="modal-content 2">
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(programSelectionModal)>
+            <h1>User Enrollments</h1>
+            <div id="EnrolledPrograms">
+            </div>
+            <div id="AllProgram">
+            </div>
+            <button type="button"class="tablecolor btn" onclick="closeModalWindow(programSelectionModal)">Okay</button>
+        </div>
+    </div>
+    <!-- Enrollment selection Modal -->
+    <div class="modal" id="Enrollprogram">
+        <div class="modal-content ">
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(Enrollprogram)>
+            <div id="">
+                <form action="" id="EnrollProgramDetails">
+                    <div id="programEnrollmentDetails"></div>
+                    <label for="membershipType">Subscription :</label>
+                    <select name="membershipType" id="membershipType">
+                        <option value="monthlySubscription">Monthly subscription</option>
+                        <option value="annualSubscription">Annual subscription</option>
+                    </select>
+                    <button type="submit" class="tablecolor btn">Enroll</button>
+                    <button type="button"class="tablecolor btn" onclick="closeModalWindow(Enrollprogram)">Okay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Member Modal -->
+    <div class="modal" id="modalDeleteUser">
+        <div class="modal-content ">
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(modalDeleteUser)>
+            <h3 class="modalTitle">Delete User</h3>
+            <p>Do you want to Delete User <span id="User"></span></p>
+            <div class="catergory">
+                <button type="button" id="Delete" class="red btn">Yes</button><button type="button"
+                    onclick=closeModalWindow(modalDeleteUser) class="red btn">No</button>
+            </div>
+        </div>
+    </div>
+    <!-- View Member Modal -->
+    <div class="modal" id="modalVeiwUser">
+        <div class="modal-content">
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModalWindow(modalVeiwUser)>
+            <div id="UserDetails">
+            </div>
+            <button type="button" class="tablecolor btn " style="margin-left: 48%;"
+                onclick=closeModalWindow(modalVeiwUser)>Okay</button>
+        </div>
+    </div>
+
+    <script src="Payment.js"></script>
+    <script src="../program creation/program.js"></script>
+    <script src="Members.js"></script>
+    <script src="userCreation.js"></script>
+</body>
+
+</html>

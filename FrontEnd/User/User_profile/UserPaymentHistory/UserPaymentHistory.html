@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../style.css">
+    <title>User Payment History</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="User-nav-bar">
+        <ul>
+            <li><a href="../User_Profile.html">About</a></li>
+            <li><a href="../User_Workout_Program/User_Workout_Program.html">Workout Programs</a></li>
+            <li><a href="UserPaymentHistory.html">Payment History</a></li>
+            <li><a href="../../User_login/user_login.html">Logout</a></li>
+
+        </ul>
+    </nav>
+    <div id="userMessage"></div>
+    <div id="paymentbtn"><button type="button" onclick="EnrolledPrograms()">Pay</button></div>
+    <div id="paymentHistoryData">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Amount<br>(Rs)</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="modal" id="modalVeiwProgram ">
+        <div class="modal-content">
+        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwProgram)>
+            <h1>Enrolled Programs</h1>
+            <div id="programContent">
+                <ul >
+    
+                </ul>
+            </div>
+            <button type="button" class="tablecolor btn" style="margin-left: 46%;" onclick=closeModals(modalVeiwProgram)>Okay</button>
+        </div>
+    </div> -->
+    <div class="modal" id="modalVeiwProgram">
+        <div class="modal-content">
+        <img src="../../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwProgram)>   
+            <div id="programContent">
+                <p id="message" style="color:black;font-size: 1.5em ;"></p>
+                <p id="paymentAmount"></p>
+                <div class="catergory">
+                    <!-- <button type="button" class="tablecolor btn" id="payingProcess">Yes</button> -->
+                    <button type="button" class="tablecolor btn" onclick="closeModals(modalVeiwProgram)">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div class="modal" id="PaymentModal">
+        <div class="modal-content">
+        <!-- <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(PaymentModal)>    -->
+            <div id="PaymentDetails">
+                <p id="message" style="color:black;font-size: 1.5em ;"></p>
+                <p id="paymentAmount"></p>
+                <div class="catergory">
+                    <button type="button" class="tablecolor btn" id="payingProcess">Yes</button>
+                    <button type="button" class="tablecolor btn" onclick="closeModals(PaymentModal)">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../Admin/user creation/Payment.js"></script>
+    <script src="UserPaymentHistory.js"></script>
+    
+</body>
+
+</html>
