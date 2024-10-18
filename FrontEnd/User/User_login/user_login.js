@@ -68,7 +68,7 @@ document.getElementById('userLogin').addEventListener('submit', async function (
     if (User.password != encryptPassword(password)) {
         message.innerHTML = `User Id invalid<br>Please try again`
         console.log(encryptPassword(password))
-        console.log(User.pasword);
+        console.log(User.password);
         
     } else if (User.password == encryptPassword(password)) {
         window.location.href = "../User_profile/User_Profile.html";
@@ -79,24 +79,6 @@ document.getElementById('userLogin').addEventListener('submit', async function (
         } else {
             window.location.href = "../../Admin/Dashboard/dashboard.html";
         }
-        // if (userId == 'Admin' && password === '123') {
-        //     window.location.href = "../../Admin/Dashboard/dashboard.html";
-        // } else {
-        //     const member = gymMember.find(item => item.id === userId);
-        //     if (member) {
-        //         if (member.pasword === encryptPassword(password)) {
-        //             console.log("j")
-        //             getUserDetails(userId);
-        //             window.location.href = "../User_profile/User_Profile.html";
-        //         } else {
-        //             message.innerHTML = `Your Password invalid<br>Please try again`
-
-        //         }
-        //     } else {
-        //         message.innerHTML = `User Id invalid<br>Please try again`
-        //     }
-        // }
-
     }
 });
 

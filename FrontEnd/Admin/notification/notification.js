@@ -19,17 +19,7 @@ function SelectData() {
     })
 }
 SelectData();
-// function filterOverDueMembers() {
-//         const todayDate = new Date();
-//         const today=`${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`
-//         let displayData = [];
-//         EntireData.forEach(item => {
-//             if (today < item.memberDetails.nxtDueDate) {
-//                 displayData.push(item);
-//             }
-//         });
-//         tableBodyCreation(displayData);
-// }
+
 async function data(){
     try {
         const res = await fetch(`http://localhost:5237/api/Enrollment/Get-All-OverDue-Enrollments`);
@@ -94,5 +84,4 @@ function viewUser(id) {
 }
 function closeModals(modalName) {
     modalName.style.display = 'none'
-    // location.reload();
 }

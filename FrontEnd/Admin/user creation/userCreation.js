@@ -1,13 +1,4 @@
-// ----------Fetch Api-------------
-const apiUrl = "http://localhost:3000/members";
-const enrollmentapiUrl = "http://localhost:3000/enrollments";
-const userApiUrl = "http://localhost:3000/users";
-const paymentApiUrl = "http://localhost:3000/payments";
-const programapiUrl = "http://localhost:3000/workoutPrograms";
 
-
-// const UserList = JSON.parse(localStorage.getItem('memberID')) ||[];
-// console.log(UserList)
 //-------------------HTML Elements and their values-------------------------
 //table
 const tableBody = document.querySelector('#data-table tbody');
@@ -82,7 +73,7 @@ async function editRow(id) {
     const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
     const member = await res.json();
     // showing the alredy existing data to the user   
-    nicNo.value = member.nicNumber
+ 
     age.value = member.age
     email.value = member.email
     dob.value = member.dob
@@ -96,15 +87,13 @@ async function editRow(id) {
     modalTitle.innerHTML = `Edit member ${member.id}`
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
-    console.log(nicNo.value)
-    console.log(member.nic)
+
 
     //Saving the changes 
     modalSubmit.onclick = async function () {
-        member.nicNumber = nicNo.value;
+
         member.age = age.value
         member.email = email.value
-        member.dob = dob.value
         member.address = address.value
         member.height = height.value
         member.weight = weight.value
@@ -112,6 +101,7 @@ async function editRow(id) {
         member.fname = fname.value
         member.lname = lname.value;
         member.gender = checkGender.value;
+        console.log(JSON.stringify(member))
         await fetch(`http://localhost:5237/api/Member/Update-Member/${member.id}`, {
             method: "PUT",
             headers: {
@@ -121,7 +111,8 @@ async function editRow(id) {
         });
         //Storing the data in the local storage
         closeModalWindow(addMemberModal);
-        location.reload();
+        tables()
+        // location.reload();
     };
     // Display the modal
     addMemberModal.style.display = "block";
@@ -248,6 +239,8 @@ function addNewEnrollment(memberId, programId) {
         if (subscriptiontype == "monthlySubscription") {
             console.log(memberId);
             const initialPayment = new Payment(Number(workoutPrograms.initalFee), `initial fees ${workoutPrograms.title}`, memberId);
+            console.log(JSON.stringify(initialPayment));
+            
             await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
                 method: "POST",
                 headers: {
@@ -255,17 +248,19 @@ function addNewEnrollment(memberId, programId) {
                 },
                 body: JSON.stringify(initialPayment)
             });
-        } else if (subscriptiontype == "annualSubscription") {
+        } else  {
             const annualPayment = new Payment(Number(workoutPrograms.annualFee), `annual fees ${workoutPrograms.title}`, memberId);
-            await fetch(`http://localhost:5237/api/Payment/Add-Payment
-`, {
+            console.log(annualPayment);
+            console.log(JSON.stringify(annualPayment));
+            
+            await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(annualPayment)
             });
-
+            
         }
         closeModalWindow(Enrollprogram);
     });

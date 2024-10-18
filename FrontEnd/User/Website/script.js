@@ -1,4 +1,4 @@
-const TrainingProgram = JSON.parse(localStorage.getItem('gymTrainingProgram')) || [];
+// const TrainingProgram = JSON.parse(localStorage.getItem('gymTrainingProgram')) || [];
 
 let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -22,10 +22,15 @@ const typed = new Typed('.multiple-text',  {
     loop: true,
  });
  let data=[];
- TrainingProgram.forEach(element => {
+ async function Program(){
+    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`);
+    const workoutProgram=await res.json();
+    workoutProgram.forEach(element => {
     data +=`            <div class="row">
                 <h4>${element.title}</h4>
                 <p>${element.description}</p>
             </div>`
  });
  Programs.innerHTML=data;
+}
+Program();

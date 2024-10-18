@@ -1,7 +1,4 @@
-const apiUrl = "http://localhost:3000/members";
-const enrollmentapiUrl = "http://localhost:3000/enrollments";
-const paymentApiUrl = "http://localhost:3000/payments";
-const programapiUrl = "http://localhost:3000/workoutPrograms";
+
 
 //Local Storage
 const paymentHistory = JSON.parse(localStorage.getItem('paymentHistory')) || [];
@@ -42,8 +39,11 @@ async function tableBodyCreation(EntireData) {
     EntireData.forEach(async item => {
         const res=await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${item.id}`);
         const paymentHistory=await res.json();
-        const lastpayment=paymentHistory[paymentHistory.length-1].paymentDate;
-            const date = new Date(lastpayment);
+        const lastpayment=paymentHistory[paymentHistory.length-1];
+        console.log(paymentHistory);
+        
+        const lastpaymentDate=lastpayment.paymentDate;
+            const date = new Date(lastpaymentDate);
             const formattedDate = date.toISOString().split('T')[0];
         let tableRow=document.createElement("tr");
         tableRow.innerHTML= `
@@ -60,7 +60,6 @@ async function tableBodyCreation(EntireData) {
         tableBody.appendChild(tableRow)
     });
 }
-tableBodyCreation(EntireData);
 //Search function
 async function search(){
     let Search=searchInput.value;

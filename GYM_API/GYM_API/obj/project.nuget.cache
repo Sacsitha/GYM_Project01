@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/bc8OmRaDL8=",
+  "dgSpecHash": "u6EmuS+Ng9o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mumar\\OneDrive\\Desktop\\MS@ real\\GYM_Project01\\GYM_API\\GYM_API\\GYM_API.csproj",
+  "projectFilePath": "C:\\Users\\mumar\\OneDrive\\Desktop\\New folder (3)\\GYM_Project01\\GYM_API\\GYM_API\\GYM_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mumar\\.nuget\\packages\\microsoft.data.sqlite\\8.0.8\\microsoft.data.sqlite.8.0.8.nupkg.sha512",
     "C:\\Users\\mumar\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.8\\microsoft.data.sqlite.core.8.0.8.nupkg.sha512",

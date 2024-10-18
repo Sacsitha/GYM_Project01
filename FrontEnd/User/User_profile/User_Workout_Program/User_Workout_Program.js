@@ -1,9 +1,7 @@
-// const userDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
 const UserId = JSON.parse(localStorage.getItem('UserId')) || [];
 
 const Workout_Program = document.getElementById("Workout_Program");
 
-// const personalInfo=userDetails.memberDetails;
 
 async function userDetailDisplay() {
     try {
@@ -32,18 +30,8 @@ async function userDetailDisplay() {
         </div>`
         Workout_Program.appendChild(SingleProgram);
         });
-        // Workout_Program.innerHTML = allProgram;
     } catch (e) {
         console.log(e);
     }
 }
 userDetailDisplay();
-// let allProgram = '';
-// personalInfo.trainingProgram.forEach(element => {
-//     allProgram += `        
-//         <div class="Program_Details">
-//             <h4>${element.title}</h4>
-//             <p>${element.description}</p>
-//         </div>`
-// });
-// Workout_Program.innerHTML = allProgram;

@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000/workoutPrograms";
+
 
 const programId = JSON.parse(localStorage.getItem('programId')) || [];
 

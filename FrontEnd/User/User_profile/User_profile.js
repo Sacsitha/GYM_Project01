@@ -1,9 +1,7 @@
 const UserId = JSON.parse(localStorage.getItem('UserId'));
-// const userDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
 const UserDetailsDisplay = document.getElementById("UserDetails");
 const editModal = document.getElementById("editModal");
 const adminMessage = document.getElementById("adminMessage");
-// const personalInfo=userDetails.memberDetails;
 
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
@@ -18,13 +16,7 @@ const address = document.getElementById("address");
 const nicNumber=document.getElementById("nicNumber");
 
 const today = new Date();
-// if(today>personalInfo.nxtDueDate){
-//     adminMessage.style.color='red';
-//     adminMessage.innerHTML=`Your monthly fee is overdue`
-// }else{
-//     adminMessage.style.color='green'
-//     adminMessage.innerHTML=`You hav Paid this month fee already`
-// }
+
 async function UserOverDue(){
     const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
     const personalInfo = await res.json();
@@ -33,12 +25,13 @@ async function UserOverDue(){
     Member.forEach(async i=>{
         const pres = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
         const Program = await pres.json();
+        console.log(Program)
         const userMessage=document.createElement("div");
         userMessage.innerHTML=`<p>Dear User ${personalInfo.fname} ${personalInfo.lname} you haven't paid your program ${Program.title} fee yet Pleae pay it quickly</p>`
         adminMessage.appendChild(userMessage);
     })
 }
-
+UserOverDue();
 async function userDetailDisplay() {
     try {
         const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
@@ -100,7 +93,6 @@ async function UserEditModal() {
     fname.value = member.fname
     lname.value = member.lname
     checkGender.value = member.gender;
-    // modalTitle.innerHTML = `Edit member ${member.id}`
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
 
@@ -119,7 +111,6 @@ async function UserEditModal() {
         member.fname = fname.value
         member.lname = lname.value;
         member.gender = checkGender.value;
-        // console.log(JSON.stringify(member));
         
         await fetch(`http://localhost:5237/api/Member/Update-Member/${member.id}`, {
             method: "PUT",

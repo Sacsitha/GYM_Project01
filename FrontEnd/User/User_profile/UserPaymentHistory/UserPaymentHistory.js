@@ -9,17 +9,6 @@ const paymentAmount=document.getElementById("paymentAmount");
 const programContent=document.getElementById('programContent');
 const modalVeiwProgram=document.getElementById('modalVeiwProgram');
 
-// const userPaymentHistory=userDetails.memberPaymentHistory;
-// const personalInfo=userDetails.memberDetails;
-
-
-// if(personalInfo.membershipType=="monthlyMembership"){
-//     userMessage.innerHTML=`Your due date is ${personalInfo.nxtDueDate}<br>
-//                             Monthly Payment ${personalInfo.payment}`
-//     paymentbtn.innerHTML=`<button type="button" onclick="monthlyPayment()">Pay</button>`
-// }else{
-//     userMessage.innerHTML=`Membership Expiry date <span>${personalInfo.RenewalDate}</span>`
-// }
 async function data(){
     try {
         const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
