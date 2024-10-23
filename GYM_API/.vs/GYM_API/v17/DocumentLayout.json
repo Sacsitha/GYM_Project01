@@ -138,8 +138,7 @@
               "RelativeToolTip": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
               "ViewState": "AQIAAIIAAAAAAAAAAAAAAIQAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:39:53.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:39:53.692Z"
             },
             {
               "$type": "Document",
@@ -151,8 +150,7 @@
               "RelativeToolTip": "GYM_API\\IRepository\\IEnrollmentRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:47:25.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:47:25.72Z"
             },
             {
               "$type": "Document",
@@ -164,8 +162,7 @@
               "RelativeToolTip": "GYM_API\\Entities\\Enrollment.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:29:40.97Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:29:40.97Z"
             },
             {
               "$type": "Document",
@@ -190,8 +187,7 @@
               "RelativeToolTip": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
               "ViewState": "AQIAAEUAAAAAAAAAAAAAAEwAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T13:35:57.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T13:35:57.634Z"
             },
             {
               "$type": "Document",
@@ -203,8 +199,7 @@
               "RelativeToolTip": "GYM_API\\Repository\\UserRepository.cs",
               "ViewState": "AQIAAE4AAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:52:13.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T14:52:13.372Z"
             },
             {
               "$type": "Document",
@@ -216,8 +211,7 @@
               "RelativeToolTip": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:35:59.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:35:59.329Z"
             },
             {
               "$type": "Document",
@@ -229,8 +223,7 @@
               "RelativeToolTip": "GYM_API\\Controllers\\PaymentController.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACAAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T19:18:52.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T19:18:52.456Z"
             },
             {
               "$type": "Document",
@@ -242,8 +235,7 @@
               "RelativeToolTip": "GYM_API\\Database\\DatabaseInitializer.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAAADEAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:55:43.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T14:55:43.904Z"
             },
             {
               "$type": "Document",
@@ -255,8 +247,7 @@
               "RelativeToolTip": "GYM_API\\Entities\\Payment.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T19:15:16.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T19:15:16.006Z"
             },
             {
               "$type": "Document",
@@ -268,8 +259,7 @@
               "RelativeToolTip": "GYM_API\\Repository\\PaymentRepository.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAAACgAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T18:02:04.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T18:02:04.746Z"
             },
             {
               "$type": "Document",
@@ -281,8 +271,7 @@
               "RelativeToolTip": "GYM_API\\Modals\\ResponseModal\\PaymentResponseDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T19:14:21.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T19:14:21.495Z"
             },
             {
               "$type": "Document",
@@ -294,8 +283,7 @@
               "RelativeToolTip": "GYM_API\\IRepository\\IPaymentRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T19:15:02.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T19:15:02.646Z"
             },
             {
               "$type": "Document",
@@ -307,8 +295,7 @@
               "RelativeToolTip": "GYM_API\\Controllers\\UserController.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAAACYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T15:07:58.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T15:07:58.652Z"
             },
             {
               "$type": "Document",
@@ -320,8 +307,7 @@
               "RelativeToolTip": "GYM_API\\Program.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAAACQAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:38:21.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:38:21.044Z"
             },
             {
               "$type": "Document",
@@ -333,8 +319,7 @@
               "RelativeToolTip": "GYM_API\\Modals\\ResponseModal\\EnrollmentResponseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:35:52.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T17:35:52.32Z"
             },
             {
               "$type": "Document",
