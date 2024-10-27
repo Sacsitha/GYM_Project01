@@ -243,7 +243,9 @@ function addNewEnrollment(memberId, programId) {
             body: JSON.stringify(newEnrollment)
         });
         enrollments(memberId)
-        const programRes = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID` + `/${programId}`);
+        closeModalWindow(Enrollprogram);
+
+        const programRes = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${programId}`);
         const workoutPrograms = await programRes.json();
         if (subscriptiontype == "monthlySubscription") {
             console.log(memberId);
@@ -257,19 +259,15 @@ function addNewEnrollment(memberId, programId) {
             });
         } else if (subscriptiontype == "annualSubscription") {
             const annualPayment = new Payment(Number(workoutPrograms.annualFee), `annual fees ${workoutPrograms.title}`, memberId);
-            await fetch(`http://localhost:5237/api/Payment/Add-Payment
-`, {
+            await fetch(`http://localhost:5237/api/Payment/Add-Payment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(annualPayment)
             });
-
         }
-        closeModalWindow(Enrollprogram);
     });
-
 }
 
 async function removeEnrollment(memberId, programId) {

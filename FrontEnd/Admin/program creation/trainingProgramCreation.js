@@ -1,31 +1,36 @@
-const apiUrl = "http://localhost:3000/workoutPrograms";
+// Fetch API
+const getAllProgramUrl = `http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`;
+const getProgramByIdUrl=`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /`;
+const updateProgramUrl=`http://localhost:5237/api/WorkOutProgram/Update-WorkOut-Program/`;
+const addProgramUrl=`http://localhost:5237/api/WorkOutProgram/Add-WorkOut-Programs`;
+const deleteProgramUrl=`http://localhost:5237/api/WorkOutProgram/Delete-Program/`
 
-const programId = JSON.parse(localStorage.getItem('programId')) || [];
-
-
+// DOM variables
 const tableBody = document.querySelector('#data-table tbody');
+// Modals
 const addProgramModal = document.getElementById("addProgramModal");
-const addProgram = document.getElementById("addProgram");
 const modalTitle = document.getElementById("modalTitle");
 const modalVeiwProgram = document.getElementById("modalVeiwProgram");
-const ProgramDetails = document.getElementById("ProgramDetails");
 const modalDeleteProgram = document.getElementById("modalDeleteProgram");
+
+const modalSubmit = document.getElementById("modalSubmit");
+const addProgram = document.getElementById("addProgram");
+const ProgramDetails = document.getElementById("ProgramDetails");
 const program = document.getElementById("program");
 const Delete = document.getElementById("Delete");
-const modalSubmit = document.getElementById("modalSubmit");
 const programTitle = document.getElementById("title");
 const programDescription = document.getElementById("description");
 const initialFee = document.getElementById("initalFee");
 const monthlyFee = document.getElementById("monthlyFee");
 const annualFee = document.getElementById("annualFee");
-
 const searchInput = document.getElementById("searchInput");
 
 
-//form
+//Creating table and assigning values
+// Fetching value from backend 
 async function tables() {
     try {
-        const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-All-WorkOut-Programs`);
+        const res = await fetch(getAllProgramUrl);
         const gymTrainingProgram = await res.json();
         if (!res.ok) {
             console.log("Table not found");
@@ -37,6 +42,7 @@ async function tables() {
     }
 }
 tables();
+// Table format
 function tableBodyCreation(gymTrainingProgram) {
     let tableData = "";
     tableBody.innerHTML = "";
@@ -58,20 +64,29 @@ function tableBodyCreation(gymTrainingProgram) {
     });
     tableBody.innerHTML = tableData;
 }
-// tableBodyCreation(gymTrainingProgram);
-// Show add program modal
-addProgram.onclick = function () {
-    addProgramModal.style.display = 'block';
-};
 
+// function to search program
 async function search() {
     let Search = searchInput.value;
-    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${Search}`);
+    const res=await fetch(getProgramByIdUrl+Search);
     const workoutProgram=await res.json();
     const ProgramList=[];
     ProgramList.push(workoutProgram)
     tableBodyCreation(ProgramList);
 }
+
+// Modal functions
+// Show add program modal
+addProgram.onclick = function () {
+    addProgramModal.style.display = 'block';
+};
+// Closing Modal
+function closeModals(modalName) {
+    modalName.style.display = 'none'
+    location.reload();
+}
+
+
 
 // Handle add program form submission
 document.getElementById("trainingProgramCreation").addEventListener("submit", async function (event) {
@@ -83,7 +98,7 @@ document.getElementById("trainingProgramCreation").addEventListener("submit", as
     const annualFee = document.getElementById("annualFee").value;
 
     const newTrainingProgram = new Program(programTitle, programDescription, monthlyFee, annualFee, initialFee);
-    await fetch(`http://localhost:5237/api/WorkOutProgram/Add-WorkOut-Programs`, {
+    await fetch(addProgramUrl, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -100,7 +115,7 @@ document.getElementById("trainingProgramCreation").addEventListener("submit", as
 // Function to handle editing a program
 async function programEditModal(id) {
     modalTitle.innerHTML = `Edit Workout ${id}`;
-    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${id}`);
+    const res=await fetch(getProgramByIdUrl+id);
     const workoutProgram=await res.json();
     populateForm(workoutProgram);
     modalSubmit.type="button"
@@ -111,7 +126,7 @@ async function programEditModal(id) {
         workoutProgram.monthlyFee = monthlyFee.value;
         workoutProgram.annualFee = annualFee.value;
         workoutProgram.initalFee = initialFee.value;
-        await fetch(`http://localhost:5237/api/WorkOutProgram/Update-WorkOut-Program/${id}`, {
+        await fetch(updateProgramUrl+id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -137,9 +152,8 @@ function populateForm(data) {
 
 async function viewProgramModal(id) {
     ProgramDetails.innerHTML = "";
-    const res=await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${id}`);
+    const res=await fetch(getProgramByIdUrl+id);
     const workoutProgram=await res.json();
-    console.log(workoutProgram)
     let Detail = `
                 <h1 class="modalTitle">${workoutProgram.title}</h4>
                 <p>Program Id : ${workoutProgram.id}</p>
@@ -148,7 +162,6 @@ async function viewProgramModal(id) {
                 <p>Annual Fee : ${workoutProgram.annualFee}</p>
                 <p>Further Details : ${workoutProgram.description}</p>`
     ProgramDetails.innerHTML = Detail;
-    console.log(Detail)
     modalVeiwProgram.style.display = 'block';
 }
 
@@ -156,16 +169,13 @@ function DeleteProgram(id) {
     program.innerHTML = id;
     modalDeleteProgram.style.display = "block";
     Delete.onclick = async function () {
-        await fetch(`http://localhost:5237/api/WorkOutProgram/Delete-Program/${id}`, {
+        await fetch(deleteProgramUrl+id, {
             method: "DELETE"
             });
         tables();
         closeModals(modalDeleteProgram);
     }
 }
-function closeModals(modalName) {
-    modalName.style.display = 'none'
-    location.reload();
-}
+
 
 

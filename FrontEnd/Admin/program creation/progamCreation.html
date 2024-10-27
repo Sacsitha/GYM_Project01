@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +7,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-        <!-- <link rel="stylesheet" href="../Dashboard/style.css">
-        <link rel="stylesheet" href="../Dashboard/responsive.css"> -->
-    <!-- <link rel="stylesheet" href="../style.css"> -->
     <link rel="stylesheet" href="../managementStyle.css">
-    <style>
-
-    </style>
     <title>Workout Program Management</title>
 </head>
-
 <body>
     <h1 class="modalTitle">Program Management</h1>
     <div class="d-flex">
-        <button type="button" id="addProgram"class="red btn" onclick="openModalWindow(addProgramModal)">Add Program</button>
+        <button type="button" id="addProgram" class="red btn" onclick="openModalWindow(addProgramModal)">Add
+            Program</button>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search...">
             <button id="searchButton" onclick="search()">Search</button>
         </div>
     </div>
+    <!-- Program List Table -->
     <div class="table-container report-container">
-        
+
         <table id="data-table">
             <thead>
                 <tr>
@@ -42,16 +36,18 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Workout Program details -->
             </tbody>
         </table>
     </div>
-
+    <!-- Modals -->
+     <!-- Add Program Modal also used to edit program -->
     <div class="modal" id="addProgramModal">
         <div class="modal-content 1">
-        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(addProgramModal)>
-
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(addProgramModal)>
             <div class="programCreation">
                 <h2 id="modalTitle">New Program Creation</h2>
+                <!-- Form -->
                 <form action="" id="trainingProgramCreation">
                     <div class="inputDetails">
                         <label for="title">Program Title</label>
@@ -59,9 +55,7 @@
                     </div>
                     <div class="inputDetails">
                         <label for="description">Description about the training Program</label>
-                        <textarea name="description" id="description" cols="30" rows="10">
-
-                </textarea>
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
                     <div class="inputDetails">
                         <label for="initalFee">Initial Fee</label>
@@ -75,23 +69,24 @@
                         <label for="annualFee">Annual Fee</label>
                         <input type="number" name="annualFee" id="annualFee">
                     </div>
-                    <button type="submit" id="modalSubmit">Submit</button>
+                    <button type="submit" id="modalSubmit" class="tablecolor btn">Submit</button>
                 </form>
-
             </div>
         </div>
     </div>
+    <!-- Modal to View Workout Program Details -->
     <div class="modal" id="modalVeiwProgram">
         <div class="modal-content">
-        <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwProgram)>
-
+            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalVeiwProgram)>
             <div id="ProgramDetails"></div>
-            <button type="button" class="tablecolor btn" style="margin-left: 46%;" onclick=closeModals(modalVeiwProgram)>Okay</button>
+            <button type="button" class="tablecolor btn" style="margin-left: 46%;"
+                onclick=closeModals(modalVeiwProgram)>Okay</button>
         </div>
     </div>
+    <!-- Modal to delete workout details -->
     <div class="modal" id="modalDeleteProgram">
-        <div class="modal-content ">
-            <img src="../../Icons/close btn.svg" alt="close" width="2%" onclick=closeModals(modalDeleteProgram)>    
+        <div class="modal-content " style="width: 450px;">
+            <img src="../../Icons/close btn.svg" alt="close" width="4%" onclick=closeModals(modalDeleteProgram)>
             <h3 class="modalTitle">Delete workout program</h3>
             <p>Are you sure you want to Delete workout program <span id="program"></span></p>
             <div class="catergory">
