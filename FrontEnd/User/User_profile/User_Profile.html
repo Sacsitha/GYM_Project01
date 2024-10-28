@@ -27,26 +27,26 @@
     </div>
     <div class="modal" id="changePasswordModal">
         <div  class="modal-content ">
-            <div class="inputDetails">
-                <label for="oldPassword">Old Password :</label>
-                <input type="text" name="oldPassword" id="oldPassword" required>
-                <p id="message1"></p>
-            </div>
-            <div class="inputDetails">
-                <label for="newPassword">New Password:</label>
-                <input type="text" name="newPassword" id="newPassword" required>
-                <p id="message1"></p>
-            </div>
-            <div class="inputDetails">
-                <label for="confirmPassword">Confirm Password :</label>
-                <input type="text" name="confirmPassword" id="confirmPassword" required>
-                <p id="message1"></p>
-            </div>
-            <button type="submit">Change Password</button>
+        <form  id="changePassword">
+        <div class="inputDetails">
+            <label for="oldPassword">Old Password :</label>
+            <input type="text" name="oldPassword" id="oldPassword" required>
         </div>
+        <div class="inputDetails">
+            <label for="newPassword">New Password:</label>
+            <input type="text" name="newPassword" id="newPassword" required>
+        </div>
+        <div class="inputDetails">
+            <label for="confirmPassword">Confirm Password :</label>
+            <input type="text" name="confirmPassword" id="confirmPassword" required>
+            <p id="message"></p>
+        </div>
+        <button type="submit" >Change Password</button>
+    </div>
+   </form>
     </div>
     <div class="">
-        <button type= "button" class="">Change Password</button>
+        <button type= "button" class="" onclick="changePasswordButton()">Change Password</button>
     </div>
     <button type="button"  onclick="UserEditModal()" style="margin-left: 650px;">Edit Details</button>
 
