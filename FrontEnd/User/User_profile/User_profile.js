@@ -2,6 +2,7 @@ const UserId = JSON.parse(localStorage.getItem('UserId'));
 // const userDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
 const UserDetailsDisplay = document.getElementById("UserDetails");
 const editModal = document.getElementById("editModal");
+const  changePasswordModal= document.getElementById("changePasswordModal");
 const adminMessage = document.getElementById("adminMessage");
 // const personalInfo=userDetails.memberDetails;
 
