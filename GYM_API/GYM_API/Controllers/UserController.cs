@@ -46,9 +46,9 @@ namespace GYM_API.Controllers
 
         [HttpPut("Update-User/{id}")]
 
-        public IActionResult UpdateUser(string id, string password)
+        public IActionResult UpdateUser(string id, UserRequestModel userRequestModel)
         {
-            UserRepository.UpdateUser(id, password);
+            UserRepository.UpdateUser(id, userRequestModel);
             return Ok("Update Successfully..");
         }
         [HttpGet("Get-User-By-Id/{id}")]

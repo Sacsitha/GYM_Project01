@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GYM_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8be67b72f29200514ce060c29fa7373f0bb6cb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca5999138798b8ee638174fd0989f775772b2fa7")]
 [assembly: System.Reflection.AssemblyProductAttribute("GYM_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GYM_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

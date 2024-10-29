@@ -39,14 +39,14 @@ namespace GYM_API.Repository
             }
         }
 
-        public void UpdateUser(string userId, string password)
+        public void UpdateUser(string userId, UserRequestModel userRequestModel)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = "UPDATE Users SET Password = @Password  WHERE Id == @id ";
-                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Password", userRequestModel.password);
                 command.Parameters.AddWithValue("@id", userId);
                 command.ExecuteNonQuery();
             }

@@ -70,6 +70,9 @@ namespace GYM_API.Database
                         FOREIGN KEY (MemberId) REFERENCES MembersDetails(Id) ON DELETE CASCADE
                         FOREIGN KEY (ProgramId) REFERENCES Programs(Id) ON DELETE CASCADE
                     );
+
+                    INSERT OR IGNORE  INTO Users (Id, UserRole, Password) VALUES
+                    ('Admin', 'Admin', '2135n15miAd');
                 ";
                 command.ExecuteNonQuery();
 
