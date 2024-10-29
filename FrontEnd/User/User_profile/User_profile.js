@@ -1,10 +1,8 @@
 const UserId = JSON.parse(localStorage.getItem('UserId'));
-// const userDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
 const UserDetailsDisplay = document.getElementById("UserDetails");
 const editModal = document.getElementById("editModal");
 const  changePasswordModal= document.getElementById("changePasswordModal");
 const adminMessage = document.getElementById("adminMessage");
-// const personalInfo=userDetails.memberDetails;
 
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
@@ -21,13 +19,7 @@ const changePassword=document.getElementById("changePassword");
 
 
 const today = new Date();
-// if(today>personalInfo.nxtDueDate){
-//     adminMessage.style.color='red';
-//     adminMessage.innerHTML=`Your monthly fee is overdue`
-// }else{
-//     adminMessage.style.color='green'
-//     adminMessage.innerHTML=`You hav Paid this month fee already`
-// }
+
 async function UserOverDue(){
     const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
     const personalInfo = await res.json();
@@ -70,8 +62,7 @@ async function userDetailDisplay() {
 
         UserDetailsDisplay.innerHTML = SingleUserDetail;
     } catch (e) {
-        console.log();
-        (e)
+        console.log(e);
     }
 
 }
@@ -95,7 +86,7 @@ async function UserEditModal() {
     nicNumber.value = member.nicNumber
     age.value = member.age
     email.value = member.email
-    dob.value = member.dob
+    dob.value =new Date(member.dob).toISOString().slice(0,10);
     address.value = member.address
     height.value = member.height
     weight.value = member.weight
@@ -103,7 +94,7 @@ async function UserEditModal() {
     fname.value = member.fname
     lname.value = member.lname
     checkGender.value = member.gender;
-    // modalTitle.innerHTML = `Edit member ${member.id}`
+    nicNumber.parentElement.style.display='none'
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
 
@@ -111,10 +102,9 @@ async function UserEditModal() {
     editModal.style.display = 'block'
     //Saving the changes 
     modalSubmit.onclick = async function () {
-        member.nicNumber = nicNumber.value;
         member.age = age.value
         member.email = email.value
-        // member.dob = dob.value
+        member.dob = dob.value
         member.address = address.value
         member.height = height.value
         member.weight = weight.value
@@ -122,8 +112,7 @@ async function UserEditModal() {
         member.fname = fname.value
         member.lname = lname.value;
         member.gender = checkGender.value;
-        // console.log(JSON.stringify(member));
-        
+        console.log(member);
         await fetch(`http://localhost:5237/api/Member/Update-Member/${member.id}`, {
             method: "PUT",
             headers: {
@@ -131,8 +120,10 @@ async function UserEditModal() {
             },
             body: JSON.stringify(member)
         });
+        userDetailDisplay();
+        editModal.style.display='none'
     }
-    location,reload();
+    // location.reload();
 
 }
 function closeEditModal() {
@@ -155,19 +146,22 @@ changePassword.addEventListener('submit',async function (event){
     if(encryptedPassword==User.password){
         if(newPassword===confirmPassword){
             User.password=encryptPassword(newPassword)
-            await fetch(`http://localhost:5237/api/Member/Update-Member/${UserId}`, {
+            await fetch(`http://localhost:5237/api/User/Update-User/${UserId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(User)
             }); 
+    changePasswordModal.style.display= 'none';
+
         }else{
             message.innerHTML="confirm password is invalid"
         }
     }else{
         message.innerHTML="Password incorrect"}
     }
+    
 )
 function encryptPassword(password) {
     let EncryptPassword = [];

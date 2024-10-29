@@ -21,7 +21,7 @@
         </ul>
     </nav>
     <div class="adminMessage">
-        <div id="adminMessage">hgf</div>
+        <div id="adminMessage"></div>
     </div>
     <div id="UserDetails">
     </div>
@@ -30,24 +30,22 @@
         <form  id="changePassword">
         <div class="inputDetails">
             <label for="oldPassword">Old Password :</label>
-            <input type="text" name="oldPassword" id="oldPassword" required>
+            <input type="password" name="oldPassword" id="oldPassword" required>
         </div>
         <div class="inputDetails">
-            <label for="newPassword">New Password:</label>
+            <label for="password">New Password:</label>
             <input type="text" name="newPassword" id="newPassword" required>
         </div>
         <div class="inputDetails">
             <label for="confirmPassword">Confirm Password :</label>
-            <input type="text" name="confirmPassword" id="confirmPassword" required>
+            <input type="password" name="confirmPassword" id="confirmPassword" required>
             <p id="message"></p>
         </div>
         <button type="submit" >Change Password</button>
     </div>
    </form>
     </div>
-    <div class="">
-        <button type= "button" class="" onclick="changePasswordButton()">Change Password</button>
-    </div>
+
     <button type="button"  onclick="UserEditModal()" style="margin-left: 650px;">Edit Details</button>
 
     <div class="modal" id="editModal">
@@ -89,8 +87,8 @@
                             <label for="gender">Gender :</label>
                             <div class="df">
                                 <input type="radio" name="gender" value="male">Male</input>
-                                <input type="radio" name="gender" value="=female">Female</input>
-                                <input type="radio" name="gender" value="=other">Other</input>
+                                <input type="radio" name="gender" value="female">Female</input>
+                                <input type="radio" name="gender" value="other">Other</input>
                             </div>
                             <p id="message9"></p>
                         </div>
@@ -127,7 +125,10 @@
                         </div>
                        
                     </div>
-                    <button type="submit" id="modalSubmit">Savs Changes</button>
+                    <div class="catergory df">
+                        <button type= "button" class="" onclick="changePasswordButton()">Change Password</button>
+                        <button type="submit" id="modalSubmit">Savs Changes</button>
+                    </div>
                 </form>
             </div>
             <div class="modal" id="modal2">

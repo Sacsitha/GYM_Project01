@@ -85,7 +85,7 @@ async function editRow(id) {
     nicNo.value = member.nicNumber
     age.value = member.age
     email.value = member.email
-    dob.value = member.dob
+    dob.value =new Date(member.dob).toISOString().slice(0,10);
     address.value = member.address
     height.value = member.height
     weight.value = member.weight
@@ -93,7 +93,7 @@ async function editRow(id) {
     fname.value = member.fname
     lname.value = member.lname
     checkGender.value = member.gender;
-    modalTitle.innerHTML = `Edit member ${member.id}`
+    modalTitle.innerHTML = `Edit member ${member.userId}`
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
     console.log(nicNo.value)
@@ -101,6 +101,7 @@ async function editRow(id) {
 
     //Saving the changes 
     modalSubmit.onclick = async function () {
+        console.log("gfd")
         member.nicNumber = nicNo.value;
         member.age = age.value
         member.email = email.value
@@ -119,6 +120,7 @@ async function editRow(id) {
             },
             body: JSON.stringify(member)
         });
+        console.log(JSON.stringify(member))
         //Storing the data in the local storage
         closeModalWindow(addMemberModal);
         location.reload();

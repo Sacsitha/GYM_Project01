@@ -54,49 +54,38 @@ function encryptPassword(password) {
 // Login
 document.getElementById('userLogin').addEventListener('submit', async function (event) {
     event.preventDefault();
-    console.log("a")
+
     let userId = document.getElementById('userId').value;
     let password = document.getElementById('userPassword').value;
-    console.log(userId)
-    const res = await fetch(`http://localhost:5237/api/User/Get-User-By-Id/${userId}`);
-    const User = await res.json();
+
+    const res = await fetch(`http://localhost:5237/api/User/Get-All-Users`);
+    const UserList = await res.json();
+    const User=UserList.find(u=>u.id==userId);
+    console.log(User)
+    if(User){
     console.log(User.userRole)
-    if (!res.ok) {
-        console.log("Table not found");
-        return;
-    }
-    if (User.password != encryptPassword(password)) {
-        message.innerHTML = `User Id invalid<br>Please try again`
+    const sres = await fetch(`http://localhost:5237/api/User/Get-User-By-Id/${User.id}`);
+    const singleUser = await sres.json();
+    console.log(User)
+    console.log(singleUser)
+    console.log(singleUser.password)
+    if (singleUser.password != encryptPassword(password)) {
+        message.innerHTML = `Password is invalid<br>Please try again`
         console.log(encryptPassword(password))
-        console.log(User.pasword);
+        console.log(singleUser.pasword);
         
-    } else if (User.password == encryptPassword(password)) {
+    } else if (singleUser.password == encryptPassword(password)) {
         window.location.href = "../User_profile/User_Profile.html";
-        if (User.userRole == 'member') {
-            console.log("c")
+        if (singleUser.userRole == 'member') {
+
             localStorage.setItem('UserId', JSON.stringify(User.id))
             window.location.href = "../User_profile/User_Profile.html";
         } else {
             window.location.href = "../../Admin/Dashboard/dashboard.html";
         }
-        // if (userId == 'Admin' && password === '123') {
-        //     window.location.href = "../../Admin/Dashboard/dashboard.html";
-        // } else {
-        //     const member = gymMember.find(item => item.id === userId);
-        //     if (member) {
-        //         if (member.pasword === encryptPassword(password)) {
-        //             console.log("j")
-        //             getUserDetails(userId);
-        //             window.location.href = "../User_profile/User_Profile.html";
-        //         } else {
-        //             message.innerHTML = `Your Password invalid<br>Please try again`
-
-        //         }
-        //     } else {
-        //         message.innerHTML = `User Id invalid<br>Please try again`
-        //     }
-        // }
-
     }
+}else{
+    message.innerHTML=`User Id is invalid <br>Please try again`
+}
 });
 
