@@ -113,7 +113,7 @@ async function editRow(id) {
         member.fname = fname.value
         member.lname = lname.value;
         member.gender = checkGender.value;
-        await fetch(`http://localhost:5237/api/Member/Update-Member/${member.id}`, {
+        await fetch(`http://localhost:5237/api/Member/Update-Member/${member.userId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -193,7 +193,7 @@ async function enrollments(id) {
                 EnrolledProgramdetails += `
                 <div class="catergory">
                 <p>${workoutProgram.title}</p>
-                <button type="button" class="tablecolor btn" onclick="removeEnrollment('${id}','${i.programId}')">Remove</button>
+                <button type="button" class="tablecolor btn button-spacings" onclick="removeEnrollment('${id}','${i.programId}')" >Remove</button>
                 </div>`
             });
             EnrolledPrograms.innerHTML = EnrolledProgramdetails;
@@ -217,7 +217,7 @@ async function enrollments(id) {
             allProgramDetails += `
             <div class="catergory">
                 <p>${i.title}</p>
-                <button type="button" class="tablecolor btn" onclick="addNewEnrollment('${id}','${i.id}')">Enroll</button>
+                <button type="button" class="tablecolor btn button-spacing" onclick="addNewEnrollment('${id}','${i.id}')">Enroll</button>
             </div>       
         `
         })
@@ -229,9 +229,13 @@ async function enrollments(id) {
 }
 
 // Add new enrollment
-function addNewEnrollment(memberId, programId) {
+async function addNewEnrollment(memberId, programId) {
     console.log(memberId + "   " + programId)
     openModalWindow(Enrollprogram);
+    const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${programId}`);
+    const programDetails = await res.json();
+    programEnrollmentDetails.innerHTML=`<h1>${programDetails.title}</h1>
+    <p>${programDetails.title}</p> <ul><li>${programDetails.initalFee}</li><li>${programDetails.monthlyFee}</li><li>${programDetails.annualFee}</li></ul> `
     document.getElementById('EnrollProgramDetails').addEventListener("submit", async (event) => {
         event.preventDefault();
         const subscriptiontype = document.getElementById('membershipType').value;

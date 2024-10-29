@@ -85,6 +85,8 @@ async function EnrolledPrograms(id) {
 
 async function viewMemberPaymentHistory(id) {
     try{
+        const mres = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
+        const member = await mres.json();
         const res=await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${id}`);
         const userPaymentHistory=await res.json();
         if (!res.ok) {
@@ -94,7 +96,7 @@ async function viewMemberPaymentHistory(id) {
        
     let tableRows = "";
     paymentTableBody.innerHTML = "";
-    memberId.innerHTML = id;
+    memberId.innerHTML = member.fname+" "+member.lname+" ";
     // let userPaymentHistory = AllPaymentHistory.filter(element => element.memberId == id)
     userPaymentHistory.forEach(element => {
         const date = new Date(element.paymentDate);

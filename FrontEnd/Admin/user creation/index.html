@@ -8,8 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../Dashboard/style.css">
-    <link rel="stylesheet" href="../Dashboard/responsive.css"> -->
     <link rel="stylesheet" href="../managementStyle.css">
     <title>User Management</title>
 
@@ -143,7 +141,7 @@
             </div>
             <div id="AllProgram">
             </div>
-            <button type="button"class="tablecolor btn" onclick="closeModalWindow(programSelectionModal)">Okay</button>
+            <button type="button"class="tablecolor btn" onclick="closeModalWindow(programSelectionModal)" >Okay</button>
         </div>
     </div>
     <!-- Enrollment selection Modal -->
@@ -158,8 +156,11 @@
                         <option value="monthlySubscription">Monthly subscription</option>
                         <option value="annualSubscription">Annual subscription</option>
                     </select>
-                    <button type="submit" class="tablecolor btn">Enroll</button>
+                    <div class="" style="margin: 20px;">
+                    <button type="submit" class="tablecolor btn " >Enroll</button>
                     <button type="button"class="tablecolor btn" onclick="closeModalWindow(Enrollprogram)">Okay</button>
+                    </div>
+                    
                 </form>
             </div>
         </div>
@@ -171,7 +172,7 @@
             <h3 class="modalTitle">Delete User</h3>
             <p>Do you want to Delete User <span id="User"></span></p>
             <div class="catergory">
-                <button type="button" id="Delete" class="red btn">Yes</button><button type="button"
+                <button type="button" id="Delete" class="red btn" >Yes</button><button type="button"
                     onclick=closeModalWindow(modalDeleteUser) class="red btn">No</button>
             </div>
         </div>
