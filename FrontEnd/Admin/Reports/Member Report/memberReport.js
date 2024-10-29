@@ -68,6 +68,8 @@ tableBodyCreation();
 
 async function PaymentHistory(id) {
     try {
+        const mres = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
+        const member = await mres.json();
         const res = await fetch(`http://localhost:5237/api/Payment/Get-All-Payments-Id/${id}`);
         const userPaymentHistory = await res.json();
         if (!res.ok) {
@@ -77,7 +79,7 @@ async function PaymentHistory(id) {
 
         let tableRows = "";
         paymentTableBody.innerHTML = "";
-        memberId.innerHTML = id;
+        memberId.innerHTML = member.fname+" "+member.lname+" ";
         userPaymentHistory.forEach(element => {
             let dateString = element.paymentDate;
             const date = new Date(dateString);
