@@ -29,21 +29,12 @@ async function userDetailDisplay() {
         <div class="Program_Details">
             <h4>${programs.title}</h4>
             <p>${programs.description}</p>
+            <p>${element.subscriptiontype}</p>
         </div>`
         Workout_Program.appendChild(SingleProgram);
         });
-        // Workout_Program.innerHTML = allProgram;
     } catch (e) {
         console.log(e);
     }
 }
 userDetailDisplay();
-// let allProgram = '';
-// personalInfo.trainingProgram.forEach(element => {
-//     allProgram += `        
-//         <div class="Program_Details">
-//             <h4>${element.title}</h4>
-//             <p>${element.description}</p>
-//         </div>`
-// });
-// Workout_Program.innerHTML = allProgram;

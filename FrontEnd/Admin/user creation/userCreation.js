@@ -69,13 +69,16 @@ function openModalWindow(modalName) {
 
 //Search
 async function search() {
-    let Search = searchInput.value;
-    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${Search}`);
-    const member = await res.json();
-    const memberList=[]
-    memberList.push(member)
-    tableBodyCreation(memberList);
+    let Search = searchInput.value.toLowerCase();
+    const res = await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
+    const gymMember = await res.json();
+    const data= gymMember.filter((a)=>{
+        return a.fname.toLowerCase().includes(Search.toLowerCase()) || a.lname.toLowerCase().includes(Search.toLowerCase())||a.userId.toLowerCase().includes(Search.toLowerCase())
+       });
+
+    tableBodyCreation(data);
 }
+
 
 async function editRow(id) {
     // Find the member with the specified id
@@ -96,8 +99,6 @@ async function editRow(id) {
     modalTitle.innerHTML = `Edit member ${member.userId}`
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
-    console.log(nicNo.value)
-    console.log(member.nic)
 
     //Saving the changes 
     modalSubmit.onclick = async function () {
@@ -133,6 +134,11 @@ function deleteUserbtn(id) {
     User.innerHTML = id;
     modalDeleteUser.style.display = "block";
     Delete.onclick = async function () {
+        const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-ID /${id}`);
+        const member = await res.json();
+        await fetch(`http://localhost:5237/api/User/Delete-User/${member.userId}`, {
+            method: "DELETE"
+        });
         await fetch(`http://localhost:5237/api/Member/Delete-Member/${id}`, {
             method: "DELETE"
         });

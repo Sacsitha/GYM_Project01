@@ -54,7 +54,7 @@ function tableBodyCreation(gymTrainingProgram) {
                             <td>${item.initalFee}</td>
                             <td>${item.monthlyFee}</td>
                             <td>${item.annualFee}</td>
-                            <td>${item.description}</td>
+                            <td style="max-width:40px;overflow:hidden">${item.description}</td>
                             <td>
                                 <button type="button" class="tablecolor btn"  onclick="viewProgramModal('${item.id}')">View</button>
                                 <button type="button" class="tablecolor btn" onclick="programEditModal('${item.id}')">Edit</button>
@@ -68,11 +68,15 @@ function tableBodyCreation(gymTrainingProgram) {
 // function to search program
 async function search() {
     let Search = searchInput.value;
-    const res=await fetch(getProgramByIdUrl+Search);
-    const workoutProgram=await res.json();
-    const ProgramList=[];
-    ProgramList.push(workoutProgram)
-    tableBodyCreation(ProgramList);
+    const res=await fetch(getAllProgramUrl);
+    
+    const workoutPrograms=await res.json();
+    console.log(workoutPrograms);
+    const data= workoutPrograms.filter((a)=>{
+        return a.title.toLowerCase().includes(Search.toLowerCase()) || a.description.toLowerCase().includes(Search.toLowerCase())
+       });
+
+    tableBodyCreation(data);
 }
 
 // Modal functions
@@ -117,6 +121,8 @@ async function programEditModal(id) {
     modalTitle.innerHTML = `Edit Workout ${id}`;
     const res=await fetch(getProgramByIdUrl+id);
     const workoutProgram=await res.json();
+    console.log(workoutProgram);
+    
     populateForm(workoutProgram);
     modalSubmit.type="button"
 
@@ -126,6 +132,10 @@ async function programEditModal(id) {
         workoutProgram.monthlyFee = monthlyFee.value;
         workoutProgram.annualFee = annualFee.value;
         workoutProgram.initalFee = initialFee.value;
+        console.log(workoutProgram.monthlyFee)
+        console.log(workoutProgram.annualFee)
+        console.log(workoutProgram.initalFee)
+        console.log(JSON.stringify(workoutProgram))
         await fetch(updateProgramUrl+id, {
             method: "PUT",
             headers: {

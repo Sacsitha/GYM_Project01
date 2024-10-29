@@ -1,7 +1,7 @@
 const UserId = JSON.parse(localStorage.getItem('UserId'));
 const UserDetailsDisplay = document.getElementById("UserDetails");
 const editModal = document.getElementById("editModal");
-const  changePasswordModal= document.getElementById("changePasswordModal");
+const changePasswordModal= document.getElementById("changePasswordModal");
 const adminMessage = document.getElementById("adminMessage");
 
 const fname = document.getElementById("fname");
@@ -29,11 +29,11 @@ async function UserOverDue(){
         const pres = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
         const Program = await pres.json();
         const userMessage=document.createElement("div");
-        userMessage.innerHTML=`<p>Dear User ${personalInfo.fname} ${personalInfo.lname} you haven't paid your program ${Program.title} fee yet Pleae pay it quickly</p>`
+        userMessage.innerHTML=`<p style="margin-bottom:10px">Dear User ${personalInfo.fname} ${personalInfo.lname} you haven't paid your workout program ${Program.title} fee yet Pleae pay it quickly</p>`
         adminMessage.appendChild(userMessage);
     })
 }
-
+UserOverDue();
 async function userDetailDisplay() {
     try {
         const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
@@ -83,7 +83,6 @@ async function UserEditModal() {
     const member = await res.json();
     console.log(member)
     // showing the alredy existing data to the user   
-    nicNumber.value = member.nicNumber
     age.value = member.age
     email.value = member.email
     dob.value =new Date(member.dob).toISOString().slice(0,10);
@@ -94,7 +93,6 @@ async function UserEditModal() {
     fname.value = member.fname
     lname.value = member.lname
     checkGender.value = member.gender;
-    nicNumber.parentElement.style.display='none'
     modalSubmit.innerHTML = "Edit Member"
     modalSubmit.type = "button";
 
@@ -129,9 +127,13 @@ async function UserEditModal() {
 function closeEditModal() {
     editModal.style.display = 'none'
 }
-
+//function to close modals
+function closeModalWindow(modalName) {
+    modalName.style.display = 'none'
+}
 function changePasswordButton(){
     changePasswordModal.style.display= 'block'
+    console.log("a")
 }
 changePassword.addEventListener('submit',async function (event){
     event.preventDefault()

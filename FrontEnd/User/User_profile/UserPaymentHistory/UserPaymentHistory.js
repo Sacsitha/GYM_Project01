@@ -1,6 +1,5 @@
 const UserId = JSON.parse(localStorage.getItem('UserId')) || [];
 
-
 const tableBody = document.querySelector('#data-table tbody');
 const userMessage=document.getElementById("userMessage");
 const paymentbtn=document.getElementById("paymentbtn");
@@ -9,17 +8,6 @@ const paymentAmount=document.getElementById("paymentAmount");
 const programContent=document.getElementById('programContent');
 const modalVeiwProgram=document.getElementById('modalVeiwProgram');
 
-// const userPaymentHistory=userDetails.memberPaymentHistory;
-// const personalInfo=userDetails.memberDetails;
-
-
-// if(personalInfo.membershipType=="monthlyMembership"){
-//     userMessage.innerHTML=`Your due date is ${personalInfo.nxtDueDate}<br>
-//                             Monthly Payment ${personalInfo.payment}`
-//     paymentbtn.innerHTML=`<button type="button" onclick="monthlyPayment()">Pay</button>`
-// }else{
-//     userMessage.innerHTML=`Membership Expiry date <span>${personalInfo.RenewalDate}</span>`
-// }
 async function data(){
     try {
         const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${UserId}`);
@@ -51,7 +39,6 @@ function TableCreation(Payment){
     });
     tableBody.innerHTML=tableRows;
 }
-// TableCreation();
 
 
 
@@ -69,16 +56,20 @@ async function EnrolledPrograms() {
         programContent.innerHTML = "";
 
         userEnrollments.forEach(async i => {
-            const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
-            const program = await res.json();
-            const line = document.createElement("div");
-            line.className = "catergory"
-            line.innerHTML = `<p>${program.title}</p>
-            <p>${i.subscriptiontype}</p>
-            <button type="button" class="tablecolor btn" onclick="pay('${member.id}','${i.programId}')">Pay</button>`;
-            programContent.appendChild(line)
+            if(i.subscriptiontype=="monthlySubscription"){
+                const res = await fetch(`http://localhost:5237/api/WorkOutProgram/Get-WorkOut-Program-By-ID /${i.programId}`);
+                const program = await res.json();
+                
+                const line = document.createElement("div");
+                line.className = "catergory"
+                line.innerHTML = `<p>${program.title}</p>
+                <p>${i.subscriptiontype}</p>
+                <p>Rs.${program.monthlyFee}.00</p>
+                <button type="button" class="tablecolor btn" onclick="pay('${member.id}','${i.programId}')">Pay</button>`;
+                programContent.appendChild(line)
+            }
+
         });
-        // console
         modalVeiwProgram.style.display = 'block';
     } catch (e) {
         console.log(e);
@@ -112,7 +103,7 @@ async function pay(id,programId) {
         }else{
             let payObj={
             payment:Program.monthlyFee,
-            description:"monthlySubscription"
+            description:`monthlySubscription ${Program.title}`
             }
             paymentType=payObj;
         }

@@ -43,9 +43,9 @@ function iframe(siteName) {
         main.innerHTML = `
         <iframe  src="../Reports/report.html" ></iframe>`
     }
-    else if (siteName == 'notification') {
+    else if (siteName == 'adminProfile') {
         main.innerHTML = `
-        <iframe  src="../notification/notification.html" ></iframe>`
+        <iframe  src="../adminProfile/adminProfile.html" ></iframe>`
     }
 }
 function ReportMonth() {

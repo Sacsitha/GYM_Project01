@@ -60,15 +60,17 @@ async function tableBodyCreation(EntireData) {
         tableBody.appendChild(tableRow)
     });
 }
-tableBodyCreation(EntireData);
-//Search function
-async function search(){
-    let Search=searchInput.value;
-    const res = await fetch(`http://localhost:5237/api/Member/Get-Member-By-UserID /${Search}`);
-    const member = await res.json();
-    const memberList=[]
-    memberList.push(member)
-    tableBodyCreation(memberList);
+
+//Search
+async function search() {
+    let Search = searchInput.value.toLowerCase();
+    const res = await fetch(`http://localhost:5237/api/Member/Get-All-Members`);
+    const gymMember = await res.json();
+    const data= gymMember.filter((a)=>{
+        return a.fname.toLowerCase().includes(Search.toLowerCase()) || a.lname.toLowerCase().includes(Search.toLowerCase())||a.userId.toLowerCase().includes(Search.toLowerCase())
+       });
+
+    tableBodyCreation(data);
 }
 async function EnrolledPrograms(id) {
     try {

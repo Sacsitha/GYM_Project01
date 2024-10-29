@@ -25,8 +25,9 @@
     </div>
     <div id="UserDetails">
     </div>
-    <div class="modal" id="changePasswordModal">
+    <div class="modal" id="changePasswordModal" style="z-index: 100000;">
         <div  class="modal-content ">
+            <img src="../../Icons/close btn.svg" alt="close" width="3%" onclick=closeModalWindow(changePasswordModal)>
         <form  id="changePassword">
         <div class="inputDetails">
             <label for="oldPassword">Old Password :</label>
@@ -51,7 +52,7 @@
     <div class="modal" id="editModal">
         <div class="modal-content 1">
             <div class="memberCreation">
-                <button type="button" onclick=closeEditModal()>&times;</button>
+            <img src="../../Icons/close btn.svg" alt="close" width="3%" onclick=closeEditModal()>
                 <form action="" id="memberDetails">
                     <div class="catergory df">
                         <div class="inputDetails">
@@ -99,18 +100,12 @@
                         </div>
                     </div>
                     <div class="catergory df">
-                        <div class="inputDetails">
-                            <label for="nicNumber">NIC number :</label>
-                            <input type="text" name="nicNumber" id="nicNumber">
-                            <p id="message3"></p>
-                        </div>
+
                         <div class="inputDetails">
                             <label for="contactNo">Contact Number :</label>
                             <input type="number" name="contactNo" id="contactNo" required>
                             <p id="message5"></p>
                         </div>
-                    </div>
-                    <div class="catergory df">
                         <div class="inputDetails">
                             <label for="email">Email :</label>
                             <input type="email" name="email" id="email" required>
