@@ -16,12 +16,14 @@ namespace GYM_API.Repository
 
         public void AddUser(UserRequestModel userRequestModel)
         {
+            bool userStatus = true;
             using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO Users(Id,UserRole,Password) values(@Id,@UserRole,@Password)";
+                command.CommandText = "INSERT INTO Users(Id,UserRole,UserStatus,Password) values(@Id,@UserRole,@UserStatus,@Password)";
                 command.Parameters.AddWithValue("@UserRole", userRequestModel.userRole);
+                command.Parameters.AddWithValue("@UserStatus", userStatus);
                 command.Parameters.AddWithValue("@Id", userRequestModel.Id);
                 command.Parameters.AddWithValue("@Password", userRequestModel.password);
                 command.ExecuteNonQuery();
@@ -29,11 +31,20 @@ namespace GYM_API.Repository
         }
         public void DeleteUser(string userId)
         {
+            //using (var connection = new SqliteConnection(_connectionString))
+            //{
+            //    connection.Open();
+            //    var command = connection.CreateCommand();
+            //    command.CommandText = "DELETE FROM Users WHERE Id == @id";
+            //    command.Parameters.AddWithValue("@id", userId);
+            //    command.ExecuteNonQuery();
+            //}
             using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "DELETE FROM Users WHERE Id == @id";
+                command.CommandText = "UPDATE Users SET UserStatus = @UserStatus  WHERE Id == @id ";
+                command.Parameters.AddWithValue("@UserStatus",false);
                 command.Parameters.AddWithValue("@id", userId);
                 command.ExecuteNonQuery();
             }
@@ -59,7 +70,7 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Users";
+                command.CommandText = "SELECT Id,UserRole,Password FROM Users WHERE UserStatus=true";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -84,7 +95,7 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Users WHERE Id=@Id";
+                command.CommandText = "SELECT Id,UserRole,Password FROM Users WHERE Id=@Id AND UserStatus=true";
                 command.Parameters.AddWithValue("@Id", id);
                 using (var reader = command.ExecuteReader())
                 {

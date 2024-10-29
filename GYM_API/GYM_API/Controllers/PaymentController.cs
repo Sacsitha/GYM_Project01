@@ -33,19 +33,6 @@ namespace GYM_API.Controllers
             var fullPaymentsList = _paymentRepository.GetAllPaymentsById(id);
             return Ok(fullPaymentsList);
         }
-        //[HttpGet("Get-All-Payments-By-MemberId/{id}")]
-
-        //public IActionResult GetAllPaymentsByMemberId(string id)
-        //{
-        //    try
-        //    {
-        //        var fullPaymentsList = _paymentRepository.GetPaymentsByMemberId(id);
-        //        return Ok(fullPaymentsList);
-        //    }catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
 
         [HttpPost("Add-Payment")]
 

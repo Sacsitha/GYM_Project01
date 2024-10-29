@@ -16,6 +16,7 @@ namespace GYM_API.Controllers
         {
             _workOutProgramRepository = workOutProgramRepository;
         }
+        //Add workout program
         [HttpPost("Add-WorkOut-Programs")]
         public IActionResult AddProgram( WorkOutProgramRequestDTO workOutProgram)
         {
@@ -29,14 +30,14 @@ namespace GYM_API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        //Get All workout programs
         [HttpGet("Get-All-WorkOut-Programs")]
         public IActionResult GetAllPrograms()
         {
             var WorkOutProgramList = _workOutProgramRepository.GetAllPrograms();
             return Ok(WorkOutProgramList);
         }
-
+        //Get program by Id
         [HttpGet("Get-WorkOut-Program-By-ID /{id}")]
         public IActionResult GetWorkOutProgramById(int id)
         {
@@ -53,7 +54,7 @@ namespace GYM_API.Controllers
 
         // Update Program
         [HttpPut("Update-WorkOut-Program/{ProgramId}")]
-        public IActionResult UpdateWorkOutProgram(int ProgramId,UpdateWorkOutProgramRequestModel updateWorkOutProgramRequestModel)
+        public IActionResult UpdateWorkOutProgram(int ProgramId, WorkOutProgramRequestDTO updateWorkOutProgramRequestModel)
         {
             try
             {

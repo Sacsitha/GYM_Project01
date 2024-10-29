@@ -64,30 +64,7 @@ namespace GYM_API.Repository
             }
             return PaymentList;
         }
-        //public ICollection<PaymentResponseDTO> GetPaymentsByMemberId(string id)
-        //{
-        //    var PaymentList = new List<PaymentResponseDTO>();
 
-
-        //    using (var connection = new SqliteConnection(_connectionString))
-        //    {
-        //        connection.Open();
-        //        var command = connection.CreateCommand();
-        //        command.CommandText = "SELECT * FROM Payments WHERE MemberId=@MemberId";
-        //        command.Parameters.AddWithValue("@MemberId", id);
-        //        using (var reader = command.ExecuteReader())
-        //        {
-        //            PaymentList.Add(new PaymentResponseDTO()
-        //            {
-        //                Details = reader.GetString(1),
-        //                Amount = reader.GetDecimal(2),
-        //                PaymentDate = reader.GetDateTime(3),
-        //                MemberId = reader.GetString(4)
-        //            });
-        //        };
-        //    };
-        //    return PaymentList;
-        //}
 
         public void AddFullPayment(PaymentResponseDTO payment)
         {

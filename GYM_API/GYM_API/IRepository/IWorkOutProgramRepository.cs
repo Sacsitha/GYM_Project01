@@ -8,8 +8,7 @@ namespace GYM_API.IRepository
         void AddProgram(WorkOutProgramRequestDTO newProgram);
         ICollection<WorkOutProgram> GetAllPrograms();
         WorkOutProgram GetWorkOutProgramById(int id);
-        //void UpdateWorkOutProgram(int id);
-        void UpdateProgram(int programId, UpdateWorkOutProgramRequestModel workOutProgramRequest);
+        void UpdateProgram(int programId, WorkOutProgramRequestDTO workOutProgramRequest);
         void DeleteWorkOutProgram(int id);
 
     }

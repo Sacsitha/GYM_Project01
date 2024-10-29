@@ -96,7 +96,7 @@ namespace GYM_API.Repository
             };
             return null;
         }
-        public void UpdateProgram(int programId, UpdateWorkOutProgramRequestModel workOutProgramRequest)
+        public void UpdateProgram(int programId, WorkOutProgramRequestDTO workOutProgramRequest)
         {
             using (var connection = new SqliteConnection(_connectinString))
             {
@@ -106,38 +106,16 @@ namespace GYM_API.Repository
                 command.Parameters.AddWithValue("@Title", workOutProgramRequest.title);
                 command.Parameters.AddWithValue("@Description", workOutProgramRequest.description);
                 command.Parameters.AddWithValue("@AnnualFee", workOutProgramRequest.annualFee);
-                command.Parameters.AddWithValue("@MonthlyFee", workOutProgramRequest.initalFee);
-                command.Parameters.AddWithValue("@InitalFee", workOutProgramRequest.monthlyFee);
+                command.Parameters.AddWithValue("@MonthlyFee", workOutProgramRequest.monthlyFee);
+                command.Parameters.AddWithValue("@InitalFee", workOutProgramRequest.initalFee);
                 command.Parameters.AddWithValue("@id", programId);
                 command.ExecuteNonQuery();
             }
         }
-        //public void UpdateWorkOutProgram(int id)
-        //{
-        //    if (id == 0)
-        //    {
-        //        using (var connection = new SqliteConnection(_connectinString))
-        //        {
-        //            connection.Open();
-        //            var command = connection.CreateCommand();
-        //            command.CommandText = "UPDATE Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,InitalFee,MonthlyFee,AnnualFee FROM Programs WHERE id == @id";
-        //            command.Parameters.AddWithValue("@Id", id);
-        //            command.Parameters.AddWithValue("@Title", title);
-        //            command.Parameters.AddWithValue("@Description", description);
-        //            command.Parameters.AddWithValue("@CreatedDate", createdDate);
-        //            command.Parameters.AddWithValue("@ProgramStatus", programStatus);
-        //            command.Parameters.AddWithValue("@InitalFee", initalFee);
-        //            command.Parameters.AddWithValue("@MonthlyFee", monthlyFee);
-        //            command.Parameters.AddWithValue("@AnnualFee", annualFee);
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
-
 
         public void DeleteWorkOutProgram(int id)
         {
-
+            
             var workOutProgram = GetWorkOutProgramById(id);
             if (workOutProgram != null)
             {

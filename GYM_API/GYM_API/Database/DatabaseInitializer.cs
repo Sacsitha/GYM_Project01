@@ -22,6 +22,7 @@ namespace GYM_API.Database
                     CREATE TABLE IF NOT EXISTS Users(                        
                         Id NVARCHAR(100) PRIMARY KEY,
                         UserRole NVARCHAR(50) NOT NULL,
+                        UserStatus BOOLEAN NOT NULL,
                         Password NVARCHAR(100) NOT NULL
                     );
                     CREATE TABLE IF NOT EXISTS MembersDetails(
@@ -71,8 +72,8 @@ namespace GYM_API.Database
                         FOREIGN KEY (ProgramId) REFERENCES Programs(Id) ON DELETE CASCADE
                     );
 
-                    INSERT OR IGNORE  INTO Users (Id, UserRole, Password) VALUES
-                    ('Admin', 'Admin', '2135n15miAd');
+                    INSERT OR IGNORE  INTO Users (Id, UserRole,UserStatus, Password) VALUES
+                    ('Admin', 'Admin',true, '2135n15miAd');
                 ";
                 command.ExecuteNonQuery();
 

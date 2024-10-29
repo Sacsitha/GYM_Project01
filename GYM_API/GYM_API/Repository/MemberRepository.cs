@@ -150,20 +150,6 @@ namespace GYM_API.Repository
             }
         }
 
-
-        //public void DeleteMember(string memberId)
-        //{
-        //    using (var connection = new SqliteConnection(_connectionString))
-        //    {
-        //        connection.Open();
-        //        var command = connection.CreateCommand();
-        //        command.CommandText = "DELETE FROM MembersDetails WHERE Id == @id";
-        //        command.Parameters.AddWithValue("@id", memberId);
-        //        command.ExecuteNonQuery();
-        //    }
-        //}
-
-
         public void UpdateMember(string memberId, MemberRegisterRequestDTO memberRegisterRequestDTO)
         {
             using (var connection = new SqliteConnection(_connectionString))
