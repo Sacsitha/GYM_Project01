@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="adminProfile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="logo-container">
+            <img src="../../Icons/admin-profile-removebg-preview.png" alt="Admin Logo" class="admin-logo" style="width: 50%;">
+        </div>
+        <div class="profile-details">
+            <h2>Admin Profile</h2>
+            <div class="admin-id">Admin ID: A12345</div>
+            <button class="change-password-btn" onclick="openModal()">Change Password</button>
+        </div>
+    </div>
+
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h3>Change Password</h3>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" id="oldPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" required>
+                    <span class="error" id="newPasswordError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                    <span class="error" id="confirmPasswordError"></span>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="adminProfile.js"></script>
+</body>
+</html>
