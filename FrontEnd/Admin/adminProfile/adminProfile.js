@@ -18,13 +18,13 @@ const changePassword=document.getElementById('passwordForm');
 
             const message=document.getElementById('message');
             const encryptedPassword=encryptPassword(oldPassword);
-            const res = await fetch(`http://localhost:5237/api/User/Get-User-By-Id/Admin}`);
+            const res = await fetch(`http://localhost:5237/api/User/Get-User-By-Id/Admin`);
             const User = await res.json();
         
             if(encryptedPassword==User.password){
                 if(newPassword===confirmPassword){
                     User.password=encryptPassword(newPassword)
-                    await fetch(`http://localhost:5237/api/Member/Update-Member/${UserId}`, {
+                    await fetch(`http://localhost:5237/api/User/Update-User/${User.id}`, {
                         method: "PUT",
                         headers: {
                             "Content-Type": "application/json"

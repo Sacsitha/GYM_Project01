@@ -102,7 +102,6 @@ async function editRow(id) {
 
     //Saving the changes 
     modalSubmit.onclick = async function () {
-        console.log("gfd")
         member.nicNumber = nicNo.value;
         member.age = age.value
         member.email = email.value
@@ -121,7 +120,6 @@ async function editRow(id) {
             },
             body: JSON.stringify(member)
         });
-        console.log(JSON.stringify(member))
         //Storing the data in the local storage
         closeModalWindow(addMemberModal);
         location.reload();

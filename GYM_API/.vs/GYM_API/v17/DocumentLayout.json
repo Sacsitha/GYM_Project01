@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\ut01410\\desktop\\project\\gym_project01\\gym_api\\gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\ut01410\\desktop\\project\\gym_project01\\gym_api\\gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\memberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\ut01410\\desktop\\project\\gym_project01\\gym_api\\gym_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\ut01410\\desktop\\project\\gym_project01\\gym_api\\gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|solutionrelative:gym_api\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41DAB6E9-8C2E-495A-9E1B-638D40190D5B}|GYM_API\\GYM_API.csproj|c:\\users\\ut01410\\desktop\\project\\gym_project01\\gym_api\\gym_api\\modals\\responsemodal\\userresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,6 +133,116 @@
           "SelectedChildIndex": 8,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\User.cs",
+              "RelativeToolTip": "GYM_API\\Entities\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:57:29.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Database\\DatabaseInitializer.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
+              "RelativeToolTip": "GYM_API\\Database\\DatabaseInitializer.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAAEsAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:55:43.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnrollmentRepositorys.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
+              "RelativeToolTip": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAA5wBIAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T17:39:53.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnrollmentRequestModel.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
+              "RelativeToolTip": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T17:35:59.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MemberDetail.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\MemberDetail.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Entities\\MemberDetail.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\MemberDetail.cs",
+              "RelativeToolTip": "GYM_API\\Entities\\MemberDetail.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAA8wBIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:57:36.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WorkOutProgramRepository.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
+              "RelativeToolTip": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAqwEkAAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T13:35:57.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MemberRepository.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Repository\\MemberRepository.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
+              "RelativeToolTip": "GYM_API\\Repository\\MemberRepository.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAywGwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T14:59:42.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Entities\\Enrollment.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
+              "RelativeToolTip": "GYM_API\\Entities\\Enrollment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T17:29:40.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GYM_API\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "GYM_API\\Repository\\UserRepository.cs",
+              "ViewState": "AQIAAFIAAAAAAAAAAAASwG0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:52:13.372Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
@@ -150,105 +260,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\User.cs",
-              "RelativeToolTip": "GYM_API\\Entities\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:57:29.074Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DatabaseInitializer.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Database\\DatabaseInitializer.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Database\\DatabaseInitializer.cs",
-              "RelativeToolTip": "GYM_API\\Database\\DatabaseInitializer.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAAAEsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:55:43.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EnrollmentRepositorys.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\EnrollmentRepositorys.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAA5wBIAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:39:53.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EnrollmentRequestModel.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "RelativeToolTip": "GYM_API\\Modals\\RequestModal\\EnrollmentRequestModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:35:59.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MemberDetail.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\MemberDetail.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Entities\\MemberDetail.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\MemberDetail.cs",
-              "RelativeToolTip": "GYM_API\\Entities\\MemberDetail.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAA8wBIAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:57:36.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WorkOutProgramRepository.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\WorkOutProgramRepository.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAqwEkAAABnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T13:35:57.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MemberRepository.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\MemberRepository.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\MemberRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\MemberRepository.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAUwGwAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T14:59:42.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Enrollment.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Entities\\Enrollment.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Entities\\Enrollment.cs",
-              "RelativeToolTip": "GYM_API\\Entities\\Enrollment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T17:29:40.97Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 13,
               "Title": "UserRequestModel.cs",
               "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Modals\\RequestModal\\UserRequestModel.cs",
@@ -261,7 +272,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "WorkOutProgramController.cs",
               "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\WorkOutProgramController.cs",
               "RelativeDocumentMoniker": "GYM_API\\Controllers\\WorkOutProgramController.cs",
@@ -273,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "IWorkOutProgramRepository.cs",
               "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\IRepository\\IWorkOutProgramRepository.cs",
               "RelativeDocumentMoniker": "GYM_API\\IRepository\\IWorkOutProgramRepository.cs",
@@ -285,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Program.cs",
               "RelativeDocumentMoniker": "GYM_API\\Program.cs",
@@ -294,18 +305,6 @@
               "ViewState": "AQIAABYAAAAAAAAAAAAAACQAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T17:38:21.044Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
-              "RelativeDocumentMoniker": "GYM_API\\Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Repository\\UserRepository.cs",
-              "RelativeToolTip": "GYM_API\\Repository\\UserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGEAAABeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:52:13.372Z"
             },
             {
               "$type": "Document",
@@ -321,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\UT01410\\Desktop\\project\\GYM_Project01\\GYM_API\\GYM_API\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "GYM_API\\Controllers\\PaymentController.cs",
