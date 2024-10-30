@@ -3,6 +3,7 @@ using GYM_API.IRepository;
 using GYM_API.Modals.RequestModal;
 using GYM_API.Modals.ResponseModal;
 using Microsoft.Data.Sqlite;
+using System.Reflection;
 
 namespace GYM_API.Repository
 {
@@ -41,7 +42,7 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,InitalFee,MonthlyFee,AnnualFee FROM Programs";
+                command.CommandText = "SELECT Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,MonthlyFee,AnnualFee FROM Programs";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -70,7 +71,7 @@ namespace GYM_API.Repository
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,InitalFee,MonthlyFee,AnnualFee FROM Programs WHERE id == @id";
+                command.CommandText = "SELECT Id,Title,Description,CreatedDate,ProgramStatus,InitalFee,MonthlyFee,AnnualFee FROM Programs WHERE id == @id";
                 command.Parameters.AddWithValue("@id", id);
                 using (var reader = command.ExecuteReader())
                 {
@@ -86,6 +87,10 @@ namespace GYM_API.Repository
                             initalFee = reader.GetDecimal(5),
                             monthlyFee = reader.GetDecimal(6),
                             annualFee = reader.GetDecimal(7)
+
+
+
+
                         };
                     }
                     else
